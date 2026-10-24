@@ -159,3 +159,36 @@ You should have received a copy of the GNU General Public License along
 with this program; if not, please check
 https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 ```
+
+## 5. 1.15x Scale Fork (GETS compatibility)
+
+This repository is a fork of [China Set: Trains](https://github.com/OpenTTD-China-Set/China-Set-Trains)
+that rebuilds the whole set at **1.15x scale**, so that China Set vehicles match
+the artwork scale of the **GETS** train set (GETS sprites are drawn about 15%
+larger than the default China Set scale).
+
+The rescale is done at the source level, not by resampling the compiled GRF:
+
+- every `.vox` model is re-rendered with `renderobject -scale 1.15` into the
+  4x sprite sheets;
+- all 4x sprite template rectangles and their `xrel`/`yrel` offsets are scaled
+  by 1.15;
+- articulated part lengths are recalculated to 1.15x (front part keeps 2 units
+  so that the art offsets cancel between coupled vehicles);
+- C80 (three-section hopper) gets 2/3/2 per section (21 units instead of 18),
+  which stops the three sections from overlapping after the rescale.
+
+Rebuild instructions and the scripts are in [`tools/scale115/`](tools/scale115/).
+
+### Compatibility
+
+- The GRF ID is unchanged (`5F5F0300`), so install it **instead of** the
+  upstream China Set: Trains, never both at the same time.
+- Companion forks: [China-Set-Metro-Scale115](https://github.com/WengeLiu101/China-Set-Metro-Scale115)
+  and [China-Set-MTR-Addon-Scale115](https://github.com/WengeLiu101/China-Set-MTR-Addon-Scale115).
+  All three use the same 1.15x scale, so they can be used together.
+- Tested with OpenTTD 15.3 and 32bpp graphics.
+- Rendered sprites and the compiled `.grf` are not committed (they are
+  git-ignored); build them locally with the scripts above.
+
+Everything else (vehicle stats, refits, parameters, license) is unchanged.

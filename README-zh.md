@@ -35,4 +35,28 @@ READ IN [ENGLISH](./README.md) | CHINESE
 | 单独设置货车的货物贬值周期 | 单独设置邮件与货物车厢的货物贬值周期，在变量“货物贬值周期”上叠加计算 | 100%   |
 | 2014年后建造的25型客车车厢默认刷绿 | 决定2014年以后建造（购买）的25型客车车厢默认涂装是否为橄榄绿 |  是    |
 
+## 5. 1.15 倍缩放分支（适配 GETS）
 
+本仓库是 [China Set: Trains](https://github.com/OpenTTD-China-Set/China-Set-Trains)
+的分支，把整套车按 **1.15 倍**重新构建，使中国包与 **GETS** 列车包的图像比例一致
+（GETS 的贴图比中国包默认比例大约 15%）。
+
+缩放是**源码级**做的，不是把编译好的 GRF 重采样：
+
+- 每个 `.vox` 模型用 `renderobject -scale 1.15` 重新渲染成 4x 精灵表；
+- 所有 4x 贴图模板的矩形与 `xrel`/`yrel` 偏移按 1.15 缩放；
+- 铰接车各节长度按 1.15 重算（前节固定 2 单元，使车辆之间的贴图偏移互相抵消）；
+- C80 三节漏斗车改为每节 2/3/2（整车 21 单元，原 18），消除缩放后车节之间的重叠。
+
+重建步骤与脚本见 [`tools/scale115/`](tools/scale115/)。
+
+### 兼容性
+
+- GRF ID 未改（`5F5F0300`）：安装本版时**替换**上游 China Set: Trains，不要同时加载两个。
+- 配套分支：[China-Set-Metro-Scale115](https://github.com/WengeLiu101/China-Set-Metro-Scale115)、
+  [China-Set-MTR-Addon-Scale115](https://github.com/WengeLiu101/China-Set-MTR-Addon-Scale115)。
+  三者同一比例，可一起使用。
+- 已在 OpenTTD 15.3 + 32bpp 下实测。
+- 渲染出的精灵表与编译好的 `.grf` 不入库（已在 .gitignore 中），请按脚本本地构建。
+
+车辆属性、改装、参数与许可证均未改动。
