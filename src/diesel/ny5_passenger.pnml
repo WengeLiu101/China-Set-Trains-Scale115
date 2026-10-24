@@ -21,10 +21,14 @@ switch (FEAT_TRAINS, SELF, switch_ny5_passenger_articulated_part, extra_callback
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-/* switch (FEAT_TRAINS, SELF, switch_ny5_cargo_subtype, cargo_subtype) {
+/* switch (FEAT_TRAINS, SELF, switch_ny5_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_GREEN);
     1: return string(STR_ORIGINAL);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_ny5_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_ny5_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_ny5_graphics_subtype, cargo_subtype) {

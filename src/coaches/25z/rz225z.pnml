@@ -79,7 +79,7 @@ switch (FEAT_TRAINS, SELF, switch_rz225z_graphics, position_in_articulated_veh %
     empty_sprites;
 }
 
-switch (FEAT_TRAINS, SELF, switch_rz225z_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_rz225z_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_XIZI_BUILD_YEAR);
     1: return string(STR_XIZI);
 /*     2: return string(STR_XIZI_GREEN); */
@@ -93,6 +93,10 @@ switch (FEAT_TRAINS, SELF, switch_rz225z_cargo_subtype, cargo_subtype) {
 /*     10: return string(STR_GUANGSHEN_GREEN); */
     9: return string(STR_WUHAN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_rz225z_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_rz225z_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz225z_capacity, position_in_articulated_veh % 3) {

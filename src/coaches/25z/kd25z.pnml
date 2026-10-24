@@ -52,7 +52,7 @@ switch (FEAT_TRAINS, SELF, switch_kd25z_xizi_graphics_subtype_0, param_gaozulv) 
     spriteset_kd25z_xizi;
 }
 
-switch (FEAT_TRAINS, SELF, switch_kd25z_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_kd25z_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_XIZI_BUILD_YEAR);
     1: return string(STR_XIZI);
     /* 2: return string(STR_XIZI_GREEN); */
@@ -63,6 +63,10 @@ switch (FEAT_TRAINS, SELF, switch_kd25z_cargo_subtype, cargo_subtype) {
     6: return string(STR_GUANGSHEN_SIFANG_DOUBLE_DECKER);
 /*     8: return string(STR_GUANGSHEN_GREEN); */
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_kd25z_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_kd25z_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_kd25z_graphics_subtype, cargo_subtype) {

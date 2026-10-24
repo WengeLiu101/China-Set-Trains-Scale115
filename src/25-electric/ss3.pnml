@@ -45,7 +45,7 @@ switch (FEAT_TRAINS, SELF, switch_ss3_graphics_subtype, cargo_subtype) {
     spriteset_ss3_original;
 }
 
-switch (FEAT_TRAINS, SELF, switch_ss3_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_ss3_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORIGINAL);
     1: return string(STR_SHENHUA);
     2: return string(STR_BLUE);
@@ -54,6 +54,10 @@ switch (FEAT_TRAINS, SELF, switch_ss3_cargo_subtype, cargo_subtype) {
     5: return string(STR_FUZHOU);
     6: return string(STR_REMEMBRANCE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_ss3_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_ss3_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_ss3_graphics, position_in_articulated_veh % 3) {

@@ -37,7 +37,7 @@ spriteset (spriteset_ca25k_dongfang, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 spriteset (spriteset_ca25k_xinshiji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("coaches/25k", "ca25k-xinshiji")
 }
-switch (FEAT_TRAINS, SELF, switch_ca25k_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_ca25k_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_BUILD_YEAR);
     1: return string(STR_ORIGINAL);
     2: string(STR_GAOZU_GREEN);
@@ -46,6 +46,10 @@ switch (FEAT_TRAINS, SELF, switch_ca25k_cargo_subtype, cargo_subtype) {
     5: return string(STR_DONGFANG);
     6: return string(STR_XINSHIJI);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_ca25k_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_ca25k_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca25k_graphics_subtype_year_depend, build_year) {

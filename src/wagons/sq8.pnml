@@ -39,7 +39,7 @@ switch (FEAT_TRAINS, SELF, switch_sq8_articulated_part, extra_callback_info1) {
 }
 switch (FEAT_TRAINS, SELF, switch_length_sq8, position_in_articulated_veh % 9) {
         1: return 8;
-        4: return 7;
+        4: return 8;
         7: return 8;
         return 2;
 }

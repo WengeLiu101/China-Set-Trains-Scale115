@@ -151,7 +151,7 @@ switch (FEAT_TRAINS, SELF, switch_crh6a2_articulated_part, extra_callback_info1)
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_crh6a2_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_crh6a2_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_PROTOTYPE);
 /*     1: return string(STR_GUANGSHEN); */
     1: return string(STR_GUANGZHU);
@@ -162,6 +162,10 @@ switch (FEAT_TRAINS, SELF, switch_crh6a2_cargo_subtype, cargo_subtype) {
     4: return string(STR_ZHUSANJIAO_BLUE);
     5: return string(STR_ZHUSANJIAO_ORANGE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_crh6a2_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_crh6a2_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh6a2_front, cargo_subtype) {

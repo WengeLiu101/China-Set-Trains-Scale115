@@ -18,9 +18,13 @@ switch (FEAT_TRAINS, SELF, switch_kd25sm_articulated_part, extra_callback_info1)
     1..2: return kd25sm;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
-switch (FEAT_TRAINS, SELF, switch_kd25sm_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_kd25sm_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORDINARY_GREEN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_kd25sm_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_kd25sm_cargo_subtype_livery;
 }
 switch (FEAT_TRAINS, SELF, switch_kd25_graphics, cargo_subtype) {
     0: spriteset_kd25sm_original;

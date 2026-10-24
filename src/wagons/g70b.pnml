@@ -24,11 +24,15 @@ random_switch (FEAT_TRAINS, SELF, random_g70b_colour) {
     1: spriteset_g70b_weathered;
 }
 
-switch (FEAT_TRAINS, SELF, switch_g70b_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_g70b_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_RANDOM_COLOR);
     1: return string(STR_FACTORY);
     2: return string(STR_DETERIORATE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_g70b_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_g70b_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_g70b_graphics_subtype, cargo_subtype) {

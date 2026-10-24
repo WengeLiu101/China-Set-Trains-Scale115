@@ -45,7 +45,7 @@ switch (FEAT_TRAINS, SELF, switch_read_dq35_cargo_count,
     return;
 }
 switch (FEAT_TRAINS, SELF, switch_length_dq35, position_in_articulated_veh % 3) {
-        return 6;
+        return 7;
     }
 
 switch (FEAT_TRAINS, SELF, switch_dq35_graphics_loaded, position_in_articulated_veh % 9) {

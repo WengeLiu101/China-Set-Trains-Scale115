@@ -85,12 +85,16 @@ switch (FEAT_TRAINS, SELF, switch_crh6f_articulated_part, extra_callback_info1) 
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_crh6f_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_crh6f_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ZHUSANJIAO_ORANGE);
     1: return string(STR_JINSHAN);
     2: return string(STR_XIAOYONG);
     3: return string(STR_CHANGZHUTAN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_crh6f_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_crh6f_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh6f_front, cargo_subtype) {

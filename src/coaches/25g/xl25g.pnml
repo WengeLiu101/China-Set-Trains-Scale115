@@ -51,7 +51,7 @@ switch (FEAT_TRAINS, SELF, switch_xl25g_articulated_part, extra_callback_info1) 
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_xl25g_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_xl25g_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_BUILD_YEAR);
     1: return string(STR_ORIGINAL);
     2: return string(STR_GAOZU_GREEN);
@@ -65,6 +65,10 @@ switch (FEAT_TRAINS, SELF, switch_xl25g_cargo_subtype, cargo_subtype) {
     10: return string(STR_INTERNATIONAL_RU_MN);
     11: return string(STR_ORANGE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_xl25g_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_xl25g_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_xl25g_graphics_subtype_year_depend, build_year) {

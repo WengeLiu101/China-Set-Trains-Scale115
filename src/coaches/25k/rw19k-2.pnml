@@ -66,7 +66,7 @@ switch (FEAT_TRAINS, SELF, switch_rw19k_2_graphics, position_in_articulated_veh 
     empty_sprites;
 }
 
-switch (FEAT_TRAINS, SELF, switch_rw19k_2_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_rw19k_2_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_BLUE_RED_WHITE);
     1: return string(STR_RED_WHITE);
     2: return string(STR_GAOZU_GREEN);
@@ -76,6 +76,10 @@ switch (FEAT_TRAINS, SELF, switch_rw19k_2_cargo_subtype, cargo_subtype) {
     6: return string(STR_LUNENG);
     7: return string(STR_DACAOYUAN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_rw19k_2_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_rw19k_2_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw19k_2_capacity, position_in_articulated_veh % 3) {

@@ -43,7 +43,7 @@ switch (FEAT_TRAINS, SELF, switch_df4bh_graphics_subtype, cargo_subtype) {
     spriteset_df4b_green;
 }
 
-switch (FEAT_TRAINS, SELF, switch_df4bh_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_df4bh_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_GREEN);
     1: return string(STR_ORANGE);
     2: return string(STR_UKRAINE);
@@ -56,6 +56,10 @@ switch (FEAT_TRAINS, SELF, switch_df4bh_cargo_subtype, cargo_subtype) {
     9: return string(STR_DF4BN_ORIGINAL);
     10: return string(STR_DF4BN_REVERSE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_df4bh_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_df4bh_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df4bh_graphics, position_in_articulated_veh % 3) {

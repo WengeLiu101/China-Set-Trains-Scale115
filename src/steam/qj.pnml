@@ -23,11 +23,15 @@ spriteset (spriteset_qj_back6, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 
 
 
-switch (FEAT_TRAINS, SELF, switch_qj_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_qj_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_BUILD_YEAR);
     1: return string(STR_LIVERY_4AXLE);
     2: return string(STR_LIVERY_6AXLE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_qj_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_qj_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_qj_articulated_part, extra_callback_info1) {
@@ -55,12 +59,12 @@ switch (FEAT_TRAINS, SELF, switch_qj_graphics, position_in_articulated_veh % 3) 
 
 
 switch (FEAT_TRAINS, SELF, switch_qj_tender_length_year_depend, build_year) {
-    0..1980: return 6;
+    0..1980: return 7;
     return 8;
 }
 switch (FEAT_TRAINS, SELF, switch_length_qj_tender, cargo_subtype) {
     0: switch_qj_tender_length_year_depend;
-    1: return 6;
+    1: return 7;
     return 8;
 
 }

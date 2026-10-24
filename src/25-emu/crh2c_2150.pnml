@@ -66,9 +66,13 @@ switch(FEAT_TRAINS, SELF, switch_crh2c_2150_speed, cargo_subtype) {
     1: return 402;
 }
 
-switch(FEAT_TRAINS, SELF, switch_crh2c_2150_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_crh2c_2150_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORIGIN_SPEED);
     1: return string(STR_CRH2C_2150_EXPERIMENTAL_SPEED);
+}
+switch (FEAT_TRAINS, SELF, switch_crh2c_2150_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_crh2c_2150_cargo_subtype_livery;
 }
 
 

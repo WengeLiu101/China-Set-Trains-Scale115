@@ -20,9 +20,13 @@ spriteset (spriteset_rz225g_jinggangshan, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("coaches/25g", "rz225g-jinggangshan")
 }
 
-switch (FEAT_TRAINS, SELF, switch_rz225g_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_rz225g_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_JINWEN);
     1: return string(STR_JINGGANGSHAN);
+}
+switch (FEAT_TRAINS, SELF, switch_rz225g_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_rz225g_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz225g_graphics_subtype, cargo_subtype) {

@@ -30,13 +30,17 @@ spriteset (spriteset_yz25k_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("coaches/25k", "yz25k-guangshen")
 }
 
-switch (FEAT_TRAINS, SELF, switch_yz25k_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_yz25k_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_BUILD_YEAR);
     1: return string(STR_ORIGINAL);
     2: return string(STR_GAOZU_GREEN);
     3: return string(STR_GMSR);
     4: return string(STR_GUANGSHEN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_yz25k_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_yz25k_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_yz25k_graphics_subtype_year_depend, build_year) {

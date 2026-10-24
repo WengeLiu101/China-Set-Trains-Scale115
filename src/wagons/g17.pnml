@@ -31,12 +31,16 @@ random_switch (FEAT_TRAINS, SELF, random_g17_colour) {
     1: spriteset_g17_red;
     1: spriteset_g17_yellow;
 }
-switch (FEAT_TRAINS, SELF, switch_g17_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_g17_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_RANDOM_COLOR);
     1: return string(STR_GRAY);
     2: return string(STR_RED);
     3: return string(STR_YELLOW);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_g17_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_g17_cargo_subtype_livery;
 }
 switch (FEAT_TRAINS, SELF, switch_gl7_graphics_subtype, cargo_subtype) {
     0: random_g17_colour;

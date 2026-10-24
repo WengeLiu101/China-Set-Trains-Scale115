@@ -6,6 +6,7 @@ READ IN ENGLISH | [CHINESE](./README-zh.md)
 2. Building
 3. Credits
 4. License
+5. 1.15x Scale Fork (GETS compatibility)
 
 ## 1. General Information
 

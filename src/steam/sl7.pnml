@@ -42,13 +42,17 @@ spriteset (spriteset_sl7_green_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 
-switch (FEAT_TRAINS, SELF, switch_sl7_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_sl7_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_PX7_GREEN);
     1: return string(STR_PX7_BLUE);
     2: return string(STR_SL7_BLACK);
     3: return string(STR_SL7_BLUE);
     4: return string(STR_SL7_GREEN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_sl7_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_sl7_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_sl7_articulated_part, extra_callback_info1) {

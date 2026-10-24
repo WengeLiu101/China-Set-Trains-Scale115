@@ -61,9 +61,13 @@ switch(FEAT_TRAINS, SELF, switch_cr400bf_j_0001_speed, cargo_subtype) {
     1: return 453;
 }
 
-switch(FEAT_TRAINS, SELF, switch_cr400bf_j_0001_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_cr400bf_j_0001_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORIGIN_SPEED);
     1: return string(STR_CR400BF_J_0001_EXPERIMENTAL_SPEED);
+}
+switch (FEAT_TRAINS, SELF, switch_cr400bf_j_0001_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_cr400bf_j_0001_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, onlycr400bf_j_0001, vehicle_type_id) {

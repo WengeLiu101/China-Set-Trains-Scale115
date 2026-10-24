@@ -32,13 +32,17 @@ switch (FEAT_TRAINS, SELF, switch_uz25t_articulated_part, extra_callback_info1) 
 }
 
 
-switch (FEAT_TRAINS, SELF, switch_uz25t_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_uz25t_cargo_subtype_livery, cargo_subtype) {
     0: string(STR_BUILD_YEAR);
     1: string(STR_ORIGINAL);
     2: string(STR_GAOZU_GREEN);
     3: string(STR_IMITATION_25K);
     4: string(STR_IMITATION_25G);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_uz25t_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_uz25t_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_uz25t_graphics_subtype_year_depend, build_year) {

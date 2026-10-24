@@ -24,11 +24,15 @@ switch (FEAT_TRAINS, SELF, switch_rw24tour_articulated_part, extra_callback_info
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_rw24tour_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_rw24tour_cargo_subtype_livery, cargo_subtype) {
     0: string(STR_ORIGINAL);
     1: string(STR_ALTERNATIVE);
     2: string(STR_IMITATION_25K);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_rw24tour_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_rw24tour_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw24tour_graphics_subtype, cargo_subtype) {

@@ -33,10 +33,14 @@ switch (FEAT_TRAINS, SELF, switch_srz225z_graphics, position_in_articulated_veh 
     empty_sprites;
 }
 
-switch (FEAT_TRAINS, SELF, switch_srz225z_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_srz225z_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_BEIJING);
     1: return string(STR_GUANGSHEN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_srz225z_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_srz225z_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_srz225z_capacity, position_in_articulated_veh % 3) {

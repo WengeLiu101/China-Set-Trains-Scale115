@@ -37,7 +37,7 @@ switch (FEAT_TRAINS, SELF, switch_uz22_articulated_part, extra_callback_info1) {
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_uz22_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_uz22_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORIGINAL);
     1: return string(STR_BEIJING2SHANGHAI);
     2: return string(STR_BEIJING2SHANGHAIALT);
@@ -45,6 +45,10 @@ switch (FEAT_TRAINS, SELF, switch_uz22_cargo_subtype, cargo_subtype) {
     4: return string(STR_WRU);
     5: return string(STR_CREAM_DKBLUE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_uz22_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_uz22_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_uz22_graphics_subtype, cargo_subtype) {

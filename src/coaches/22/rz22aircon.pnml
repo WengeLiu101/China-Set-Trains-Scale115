@@ -28,11 +28,15 @@ switch (FEAT_TRAINS, SELF, switch_rz22aircon_articulated_part, extra_callback_in
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_rz22aircon_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_rz22aircon_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_BEIJING2SHANGHAI);
     1: return string(STR_BEIJING2SHANGHAIALT);
     2: return string(STR_GUANGSHEN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_rz22aircon_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_rz22aircon_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz22aircon_graphics_subtype, cargo_subtype) {

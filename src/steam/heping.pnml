@@ -23,10 +23,14 @@ spriteset (spriteset_hp_back6, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 
 
 
-switch (FEAT_TRAINS, SELF, switch_hp_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_hp_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_LIVERY_4AXLE);
     1: return string(STR_LIVERY_6AXLE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_hp_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_hp_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_hp_articulated_part, extra_callback_info1) {
@@ -47,7 +51,7 @@ switch (FEAT_TRAINS, SELF, switch_hp_graphics, position_in_articulated_veh % 3) 
 }
 
 switch (FEAT_TRAINS, SELF, switch_length_hp_tender, cargo_subtype) {
-    0: return 6;
+    0: return 7;
     return 8;
 
 }

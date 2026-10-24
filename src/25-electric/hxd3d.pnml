@@ -31,12 +31,16 @@ switch (FEAT_TRAINS, SELF, switch_hxd3d_articulated_part, extra_callback_info1) 
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_hxd3d_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_hxd3d_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORIGINAL);
     1: return string(STR_HXD3D1893);
     2: return string(STR_HXD3D1886);
     3: return string(STR_HXD3D1921);
     empty_sprites;
+}
+switch (FEAT_TRAINS, SELF, switch_hxd3d_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_hxd3d_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_gfx_hxd3d, cargo_subtype) {

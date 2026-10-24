@@ -21,10 +21,14 @@ switch (FEAT_TRAINS, SELF, switch_tz24_articulated_part, extra_callback_info1) {
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_tz24_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_tz24_cargo_subtype_livery, cargo_subtype) {
     0: string(STR_HK_LTBLUE);
     1: string(STR_HK_CREAM_DKBLUE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_tz24_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_tz24_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_tz24_graphics_subtype, cargo_subtype) {

@@ -155,7 +155,7 @@ switch (FEAT_TRAINS, SELF, switch_nc3_pw_4, position_in_consist) {
 
 
 switch (FEAT_TRAINS, SELF, switch_nc3_wagon_pw_length, num_vehs_in_consist / 3) {
-    1..5: return 0;
+    1..5: return 1;
     6..9: switch_nc3_pw_2;
     10..13: switch_nc3_pw_3;
     switch_nc3_pw_4;

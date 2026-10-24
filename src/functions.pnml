@@ -14,10 +14,14 @@ switch (FEAT_TRAINS, SELF, runningcostfactor, (1 + current_speed * 5 / max_speed
 
 
 // For High-Speed Hexie EMUs, speed is limited to 310 km/h IRL, but they can go up to 350 even 380, but with increased running costs
-switch (FEAT_TRAINS, SELF, switch_crh_c_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_crh_c_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_310_KMH);
     1: return string(STR_350_KMH);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_crh_c_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_crh_c_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh_c_speed, cargo_subtype) {
@@ -25,11 +29,15 @@ switch (FEAT_TRAINS, SELF, switch_crh_c_speed, cargo_subtype) {
     return 350;
 }
 
-switch (FEAT_TRAINS, SELF, switch_crh380_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_crh380_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_310_KMH);
     1: return string(STR_350_KMH);
     2: return string(STR_380_KMH);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_crh380_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_crh380_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh380_speed, cargo_subtype) {
@@ -340,83 +348,92 @@ switch (FEAT_TRAINS, SELF, mu5to17car, num_vehs_in_consist) {
 
 // Standard 2-8-2 Length
     switch (FEAT_TRAINS, SELF, switch_length_2_8_2, position_in_articulated_veh % 3) {
-        1: return 8;
-        return 2;
-    }
+    0: return 2;
+    1: return 8;
+    2: return 4;
+}
 
 // Standard 2-7-2 Length
     switch (FEAT_TRAINS, SELF, switch_length_2_7_2, position_in_articulated_veh % 3) {
-        1: return 7;
-        return 2;
-    }
+    0: return 2;
+    1: return 8;
+    2: return 3;
+}
 
 // Standard 2-6-2 Length
     switch (FEAT_TRAINS, SELF, switch_length_2_6_2, position_in_articulated_veh % 3) {
-        1: return 6;
-        return 2;
-    }
+    0: return 2;
+    1: return 8;
+    2: return 2;
+}
 
 // Standard 2-5-2 Length
     switch (FEAT_TRAINS, SELF, switch_length_2_5_2, position_in_articulated_veh % 3) {
-        1: return 5;
-        return 2;
-    }
+    0: return 2;
+    1: return 8;
+    2: return 1;
+}
 
 // Standard 2-4-2 Length
     switch (FEAT_TRAINS, SELF, switch_length_2_4_2, position_in_articulated_veh % 3) {
-        1: return 4;
-        return 2;
-    }
+    0: return 2;
+    1: return 6;
+    2: return 1;
+}
 
 // Standard 2-3-2 Length
     switch (FEAT_TRAINS, SELF, switch_length_2_3_2, position_in_articulated_veh % 3) {
-        1: return 3;
-        return 2;
-    }
+    0: return 2;
+    1: return 5;
+    2: return 1;
+}
 
 // Standard 2-2-2 Length
     switch (FEAT_TRAINS, SELF, switch_length_2_2_2, position_in_articulated_veh % 3) {
-        1: return 2;
-        return 2;
-    }
+    0: return 2;
+    1: return 4;
+    2: return 1;
+}
 
 // Standard 2-1-2 Length
     switch (FEAT_TRAINS, SELF, switch_length_2_1_2, position_in_articulated_veh % 3) {
-        1: return 1;
-        return 2;
-    }
+    0: return 2;
+    1: return 3;
+    2: return 1;
+}
 
 // Standard 2-1-1 Length
     switch (FEAT_TRAINS, SELF, switch_length_2_1_1, position_in_articulated_veh % 3) {
-        0: return 2;
-        return 1;
-    }
+    0: return 2;
+    1: return 2;
+    2: return 1;
+}
 
 // For steam locos - 2-6-4
     switch (FEAT_TRAINS, SELF, switch_length_2_6_4, position_in_articulated_veh % 3) {
-        0: return 2;
-        1: return 6;
-        return 4;
-    }
+    0: return 2;
+    1: return 8;
+    2: return 4;
+}
 // For steam locos - 2-6-5
     switch (FEAT_TRAINS, SELF, switch_length_2_6_5, position_in_articulated_veh % 3) {
-        0: return 2;
-        1: return 6;
-        return 5;
-    }
+    0: return 2;
+    1: return 8;
+    2: return 5;
+}
 // For steam locos - 2-6-6
     switch (FEAT_TRAINS, SELF, switch_length_2_6_6, position_in_articulated_veh % 3) {
-        0: return 2;
-        1: return 6;
-        return 6;
-    }
+    0: return 2;
+    1: return 8;
+    2: return 6;
+}
 
 // For steam locos - 2-8-6
     switch (FEAT_TRAINS, SELF, switch_length_2_8_6, position_in_articulated_veh % 3) {
-        0: return 2;
-        1: return 8;
-        return 6;
-    }
+    0: return 2;
+    1: return 8;
+    2: return 8;
+}
     
 /* End Functions */
 
@@ -427,9 +444,13 @@ switch (FEAT_TRAINS, SELF, too_many_graphics_12, position_in_articulated_veh % 3
 }
 
 //For JINLUN DMU
-switch (FEAT_TRAINS, SELF, switch_25dt_jinlun_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_25dt_jinlun_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_BUILD_YEAR);
     1: return string(STR_EARLIER);
     2: return string(STR_LATER);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_25dt_jinlun_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_25dt_jinlun_cargo_subtype_livery;
 }

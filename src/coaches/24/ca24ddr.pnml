@@ -21,10 +21,14 @@ switch (FEAT_TRAINS, SELF, switch_ca24ddr_articulated_part, extra_callback_info1
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_ca24ddr_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_ca24ddr_cargo_subtype_livery, cargo_subtype) {
     0: string(STR_IMPORT_1ST);
     1: string(STR_IMPORT_1ST_INT);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_ca24ddr_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_ca24ddr_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca24ddr_graphics_subtype, cargo_subtype) {

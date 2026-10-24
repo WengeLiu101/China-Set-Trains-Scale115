@@ -25,11 +25,15 @@ switch (FEAT_TRAINS, SELF, switch_ca25ml_articulated_part, extra_callback_info1)
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_ca25ml_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_ca25ml_cargo_subtype_livery, cargo_subtype) {
     0: string(STR_BUILD_YEAR);
     1: string(STR_GREEN);
     2: string(STR_RED);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_ca25ml_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_ca25ml_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca25ml_graphics_subtype_0, build_year) {

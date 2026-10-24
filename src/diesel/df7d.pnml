@@ -29,10 +29,14 @@ switch (FEAT_TRAINS, SELF, switch_df7d_articulated_part, extra_callback_info1) {
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_df7d_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_df7d_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORANGE);
     1: return string(STR_GREEN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_df7d_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_df7d_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df7d_orange_livery_graphics, position_in_articulated_veh % 6) {

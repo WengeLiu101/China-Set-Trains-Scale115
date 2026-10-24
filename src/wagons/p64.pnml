@@ -53,13 +53,17 @@ switch (FEAT_TRAINS, SELF, random_p64_colour, current_year - 1979) {
     16..30: random_p64_colour_middium;
     random_p64_colour_late;
 }
-switch (FEAT_TRAINS, SELF, switch_p64_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_p64_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_RANDOM_COLOR);
     1: return string(STR_BLACK);
     2: return string(STR_RUSTYRED);
     3: return string(STR_BROWN);
     4: return string(STR_RED);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_p64_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_p64_cargo_subtype_livery;
 }
 switch (FEAT_TRAINS, SELF, switch_p64_graphics_subtype, cargo_subtype) {
     0: random_p64_colour;

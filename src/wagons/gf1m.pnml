@@ -28,12 +28,16 @@ random_switch (FEAT_TRAINS, SELF, random_gf1m_colour) {
     1: spriteset_gf1m_white_weathered;
     1: spriteset_gf1m_black;
 }
-switch (FEAT_TRAINS, SELF, switch_gf1m_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_gf1m_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_RANDOM_COLOR);
     1: return string(STR_FACTORY);
     2: return string(STR_WHITE);
     3: return string(STR_BLACK);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_gf1m_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_gf1m_cargo_subtype_livery;
 }
 switch (FEAT_TRAINS, SELF, switch_gf1m_graphics_subtype, cargo_subtype) {
     0: random_gf1m_colour;

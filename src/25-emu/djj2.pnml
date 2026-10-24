@@ -35,10 +35,14 @@ switch (FEAT_TRAINS, SELF, switch_djj2_speed, cargo_subtype) {
     return 270;
 }
 
-switch (FEAT_TRAINS, SELF, switch_djj2_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_djj2_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORIGIN_SPEED);
     1: return string(STR_DJJ2_321_KMH);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_djj2_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_djj2_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_djj2_start_stop, !hasbit(bitmask_consist_info, 0) && (count_veh_id(9256) == 6) && (((num_vehs_in_vehid_chain != 6) ^ (num_vehs_in_consist == 6)))) {

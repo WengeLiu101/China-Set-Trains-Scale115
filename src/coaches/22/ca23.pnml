@@ -23,9 +23,13 @@ switch (FEAT_TRAINS, SELF, switch_ca23_articulated_part, extra_callback_info1) {
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_ca23_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_ca23_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORDINARY_GREEN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_ca23_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_ca23_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca23_graphics_subtype, cargo_subtype) {

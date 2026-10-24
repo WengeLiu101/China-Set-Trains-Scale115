@@ -26,12 +26,16 @@ switch (FEAT_TRAINS, SELF, switch_nd5_articulated_part, extra_callback_info1) {
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_nd5_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_nd5_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORIGINAL);
     1: return string(STR_DESC_2, string(STR_REVERSE), string(STR_ORIGINAL));
     2: return string(STR_ALTERNATIVE);
     3: return string(STR_DESC_2, string(STR_REVERSE), string(STR_ALTERNATIVE));
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_nd5_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_nd5_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_nd5_graphics_subtype, cargo_subtype) {

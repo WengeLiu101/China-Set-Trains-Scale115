@@ -27,7 +27,7 @@ switch (FEAT_TRAINS, SELF, switch_srz25bhd_articulated_part, extra_callback_info
     1..2: return srz25bhd;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
-switch (FEAT_TRAINS, SELF, switch_srz25bhd_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_srz25bhd_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_DACHENG);
     1: return string(STR_LIVERY_VERITY_URUMQI);
     2: return string(STR_ORANGE);
@@ -35,6 +35,10 @@ switch (FEAT_TRAINS, SELF, switch_srz25bhd_cargo_subtype, cargo_subtype) {
     4: return string(STR_KUITUN);
     5: return string(STR_JINAN2);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_srz25bhd_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_srz25bhd_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_srz25bhd_graphics_subtype, cargo_subtype) {

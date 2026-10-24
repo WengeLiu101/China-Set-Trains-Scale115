@@ -42,7 +42,7 @@ switch (FEAT_TRAINS, SELF, switch_yw25b_ac_articulated_part, extra_callback_info
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_yw25b_ac_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_yw25b_ac_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_BAOTOU);
     1: return string(STR_JN_XZ);
     2: return string(STR_QINGDAO);
@@ -52,6 +52,10 @@ switch (FEAT_TRAINS, SELF, switch_yw25b_ac_cargo_subtype, cargo_subtype) {
     6: return string(STR_HARBIN_COLD);
     7: return string(STR_MTK_KMS_COLD);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_yw25b_ac_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_yw25b_ac_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_yw25b_ac_graphics_subtype, cargo_subtype) {

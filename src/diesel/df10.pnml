@@ -35,11 +35,15 @@ switch (FEAT_TRAINS, SELF, switch_df10_articulated_part, extra_callback_info1) {
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch (FEAT_TRAINS, SELF, switch_df10_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_df10_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_FACTORY);
     1: return string(STR_BLUE);
     2: return string(STR_UKRAINE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_df10_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_df10_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df10_factory_livery_graphics, position_in_articulated_veh % 6) {

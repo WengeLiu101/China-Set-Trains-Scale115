@@ -24,11 +24,15 @@ random_switch (FEAT_TRAINS, SELF, random_p66h_colour) {
     1: spriteset_p66h_original; // More colours waiting to be added
     1: spriteset_p66h_alternative;
 }
-switch (FEAT_TRAINS, SELF, switch_p66h_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_p66h_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_RANDOM_COLOR);
     1: return string(STR_ORIGINAL);
     2: return string(STR_ALTERNATIVE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_p66h_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_p66h_cargo_subtype_livery;
 }
 switch (FEAT_TRAINS, SELF, switch_p66h_graphics_subtype, cargo_subtype) {
     0: random_p66h_colour;

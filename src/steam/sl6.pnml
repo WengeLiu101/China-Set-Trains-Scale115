@@ -22,11 +22,15 @@ spriteset (spriteset_sl6_tender, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 
-switch (FEAT_TRAINS, SELF, switch_sl6_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_sl6_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_LARGE_WINDSHIELD);
     1: return string(STR_SMALL_WINDSHIELD);
     2: return string(STR_WITHOUT_WINDSHIELD);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_sl6_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_sl6_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_sl6_articulated_part, extra_callback_info1) {

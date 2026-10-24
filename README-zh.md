@@ -9,6 +9,7 @@ READ IN [ENGLISH](./README.md) | CHINESE
 2. [编译](./README.md#2-building)
 3. [贡献者](./README.md#3-credits)
 4. [许可证](./README.md#4-license)
+5. 1.15 倍缩放分支（适配 GETS）
 
 ## 1. 总则
 

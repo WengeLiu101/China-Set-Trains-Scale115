@@ -37,7 +37,7 @@ spriteset (spriteset_yw25k_int_mg, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("coaches/25k", "yw25k-int-mg")
 }
 
-switch (FEAT_TRAINS, SELF, switch_yw25k_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_yw25k_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_BUILD_YEAR);
     1: return string(STR_ORIGINAL);
     2: return string(STR_GAOZU_GREEN);
@@ -45,6 +45,10 @@ switch (FEAT_TRAINS, SELF, switch_yw25k_cargo_subtype, cargo_subtype) {
     4: return string(STR_GUANGSHEN);
     5: return string(STR_INTERNATIONAL_MN);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_yw25k_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_yw25k_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_yw25k_graphics_subtype_year_depend, build_year) {

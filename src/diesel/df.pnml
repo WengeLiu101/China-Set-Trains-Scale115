@@ -37,10 +37,14 @@ switch (FEAT_TRAINS, SELF, switch_df_graphics_subtype_reversed, cargo_subtype) {
     spriteset_df_reversed;
 }
 
-switch (FEAT_TRAINS, SELF, switch_df_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, switch_df_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_DF_YELLOW);
     1: return string(STR_DF_WHITE);
     return CB_RESULT_NO_TEXT;
+}
+switch (FEAT_TRAINS, SELF, switch_df_cargo_subtype, cargo_capacity) {
+    0: return CB_RESULT_NO_TEXT;
+    switch_df_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df_direction, (position_in_consist != 1) && (position_in_consist_from_end == 1) || ((position_in_vehid_chain % 6) == 4)) {
