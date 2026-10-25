@@ -48,14 +48,19 @@ switch(FEAT_TRAINS, SELF, switch_fxsy_power, tile_powers_railtype("SACA")) {
     return 4358;
 }
 
+// FXSY 为双节混合动力：第 0-2 段是内燃半节、第 3-5 段是电力半节，
+// 车身贴图分别落在第 1 段（内燃）与第 4 段（电力）。
+// 内燃半节：始终冒柴油烟（车头中部一股）；
+// 电力半节：只在电气化轨道上拉电弧，无电时不出特效（柴油烟已由另半节提供）。
 switch(FEAT_TRAINS, SELF, switch_fxsy_visual_effect_and_powered_railtype, tile_powers_railtype("SACA")) {
     1: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC, 0, DISABLE_WAGON_POWER);
-    return visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, DISABLE_WAGON_POWER);
+    return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
 }
 
-switch(FEAT_TRAINS, SELF, switch_fxsy_visual_effect_and_powered, (position_in_articulated_veh)) {
-    1: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
-    switch_fxsy_visual_effect_and_powered_railtype;
+switch(FEAT_TRAINS, SELF, switch_fxsy_visual_effect_and_powered, position_in_articulated_veh % 6) {
+    1: return visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, DISABLE_WAGON_POWER);
+    4: switch_fxsy_visual_effect_and_powered_railtype;
+    return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
 }
 
 

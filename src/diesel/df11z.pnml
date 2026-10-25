@@ -65,6 +65,8 @@ item (FEAT_TRAINS, df11z) {
         reliability_decay:              2;
     }
     graphics {
+        // 内燃车头：只在车体中段冒烟（每节车头中部一处）
+        visual_effect_and_powered: switch_diesel_smoke_centre;
         // Menu
         additional_text:                string(STR_DESC_3, string(STR_FULL_NAME_DF11Z), string(STR_ELECTRICITY_SUPPLY_NO), string(STR_RELDEC_VERY_LOW, 2));
         can_attach_wagon:               locowagon;

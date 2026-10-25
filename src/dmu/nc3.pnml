@@ -209,6 +209,8 @@ item (FEAT_TRAINS, nc3) {
         bitmask_vehicle_info:           bitmask(2);
     }
     graphics {
+        // 内燃动车：只在车体所在中段冒烟，避免每个铰接段都冒烟
+        visual_effect_and_powered: switch_diesel_smoke_centre;
         // Menu
         additional_text:                string(STR_DESC_5, string(STR_NC3_CAN_ATTACH_WAGON), string(STR_NC3_CONSIST), string(STR_HU_IMPORT), string(STR_COMFORT_MEDIUM, 185), string(STR_RELDEC_MEDIUM, 16));
         can_attach_wagon:               onlyze;

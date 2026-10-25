@@ -20,7 +20,7 @@ spriteset (spriteset_sq8_side_r, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("wagons/jsq8", "jsq8-side")
 }
 spriteset (spriteset_sq8_middle, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_std_c11 ("wagons/jsq8", "jsq8-among")
+    template_std_sq8mid ("wagons/jsq8", "jsq8-among")
 }
 
 spriteset (spriteset_sq8_side_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
@@ -30,17 +30,23 @@ spriteset (spriteset_sq8_side_r_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("wagons/jsq8", "jsq8-side-fill")
 }
 spriteset (spriteset_sq8_middle_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_std_c11 ("wagons/jsq8", "jsq8-among-fill")
+    template_std_sq8mid ("wagons/jsq8", "jsq8-among-fill")
 }
 
 switch (FEAT_TRAINS, SELF, switch_sq8_articulated_part, extra_callback_info1) {
     1..8: return sq8;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
+// 1.15 重建：SQ8 是三节汽车运输车，每节应与全部 2-8-2 级车厢一样是 2/8/4 = 14 单位。
+// 原来逐段按 1.15 取整、又被 8 的上限卡住，每节只剩 2/8/2 = 12 单位，
+// 车身贴图（与客车同款 220px 模板）比节距宽约 2 单位，相邻两节互相压盖。
 switch (FEAT_TRAINS, SELF, switch_length_sq8, position_in_articulated_veh % 9) {
         1: return 8;
         4: return 8;
         7: return 8;
+        2: return 4;
+        5: return 4;
+        8: return 4;
         return 2;
 }
 

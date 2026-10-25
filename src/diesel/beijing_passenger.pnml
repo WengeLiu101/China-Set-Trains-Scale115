@@ -89,6 +89,8 @@ item (FEAT_TRAINS, beijing_passenger) {
         bitmask_vehicle_info:           0;
     }
     graphics {
+        // 内燃车头：只在车体中段冒烟（每节车头中部一处）
+        visual_effect_and_powered: switch_diesel_smoke_centre;
         // Menu
         additional_text:                string(STR_DESC_5, string(STR_FULL_NAME_BEIJING_PASSENGER), string(STR_ELECTRICITY_SUPPLY_NO), string(STR_BEIJING_PASSENGER_NICKNAME), string(STR_RELDEC_LOW, 8));
         cargo_subtype_text:             switch_beijing_passenger_cargo_subtype;

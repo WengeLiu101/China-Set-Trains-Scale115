@@ -86,6 +86,8 @@ item (FEAT_TRAINS, df4df) {
         bitmask_vehicle_info:           bitmask(2);
     }
     graphics {
+        // 内燃车头：只在车体中段冒烟（每节车头中部一处）
+        visual_effect_and_powered: switch_diesel_smoke_centre;
         // Menu
         additional_text:                string(STR_DESC_5, string(STR_FULL_NAME_DF4DF), string(STR_ELECTRICITY_SUPPLY_YES), string(STR_DF4DF_LIVERY_AVAILABILITY), string(STR_DF4D_NICKNAME), string(STR_RELDEC_MEDIUM, 16));
         cargo_subtype_text:             switch_df4df_cargo_subtype;

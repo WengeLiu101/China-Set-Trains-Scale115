@@ -84,6 +84,8 @@ item (FEAT_TRAINS, fxn3c) {
         bitmask_vehicle_info:           0;
     }
     graphics {
+        // 内燃车头：只在车体中段冒烟（每节车头中部一处）
+        visual_effect_and_powered: switch_diesel_smoke_centre;
         // Menu
         additional_text:                string(STR_DESC_4, string(STR_FULL_NAME_FXN3C), string(STR_LV_AVAILABLE_S ,string(STR_LIVERY_AVAILABLE), string(STR_ORIGINAL), string(STR_PROTOTYPE)), string(STR_ELECTRICITY_SUPPLY_NO), string(STR_RELDEC_VERY_LOW, 5));
         cargo_subtype_text:             switch_fxn3c_cargo_subtype;

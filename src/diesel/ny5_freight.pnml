@@ -83,6 +83,8 @@ item (FEAT_TRAINS, ny5_freight) {
         bitmask_vehicle_info:           0;
     }
     graphics {
+        // 内燃车头：只在车体中段冒烟（每节车头中部一处）
+        visual_effect_and_powered: switch_diesel_smoke_centre;
         // Menu
         additional_text:                string(STR_DESC_5, string(STR_FULL_NAME_NY5), string(STR_NY5_NICKNAME), string(STR_DBR_IMPORT), string(STR_ELECTRICITY_SUPPLY_NO),  string(STR_RELDEC_MEDIUM, 16));
         cargo_subtype_text:             switch_ny5_cargo_subtype;

@@ -36,14 +36,16 @@ switch(FEAT_TRAINS, SELF, switch_cha1c_power, tile_powers_railtype("SACA")) {
     return 2682;
 }
 
+// CHA1C 是蓄电池调车机车（无柴油机）：车身贴图只在第 1 段。
+// 电气化轨道上 → 车头中部拉电弧；非电气化 → 电池驱动，不出任何特效（不冒烟）。
 switch(FEAT_TRAINS, SELF, switch_cha1c_visual_effect_and_powered_railtype, tile_is_railtype("SACA")) {
     1: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC, 0, DISABLE_WAGON_POWER);
     return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
 }
 
-switch(FEAT_TRAINS, SELF, switch_cha1c_visual_effect_and_powered, (position_in_articulated_veh)) {
-    1: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
-    switch_cha1c_visual_effect_and_powered_railtype;
+switch(FEAT_TRAINS, SELF, switch_cha1c_visual_effect_and_powered, position_in_articulated_veh % 3) {
+    1: switch_cha1c_visual_effect_and_powered_railtype;
+    return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
 }
 
 

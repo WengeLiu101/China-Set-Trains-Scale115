@@ -3,9 +3,26 @@
 
 switch (FEAT_TRAINS, PARENT, func_is_reversed, vehicle_is_reversed) {return;}
 
-switch (FEAT_TRAINS, SELF, switch_dmu_visual_power, vehicle_is_potentially_powered) {
+// 有动力的动车同样只在车体中段冒烟（每节车厢一股）
+switch (FEAT_TRAINS, SELF, switch_dmu_visual_power_mid, position_in_articulated_veh % 3) {
     1: visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, ENABLE_WAGON_POWER);
+    visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
+}
+
+switch (FEAT_TRAINS, SELF, switch_dmu_visual_power, vehicle_is_potentially_powered) {
+    1: switch_dmu_visual_power_mid;
     visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+}
+
+// 内燃机车喷烟：只让车体中段（position_in_articulated_veh % 3 == 1）冒烟。
+// 车身贴图只在每节车头的第 1 段，offset 0 == 该段中心，即车头中部；
+// 其余铰接段（空贴图的首/尾段）一律关闭，避免"多加"出 2~6 股烟。
+// 双节机车（6 段，art 1..5）的第 4 段同样命中 %3==1，因此每节车头各一股。
+// 注：关闭特效时仍返回 ENABLE_WAGON_POWER，保持与默认属性位一致，
+//     不改变动力分散/涂装覆盖的判断。
+switch (FEAT_TRAINS, SELF, switch_diesel_smoke_centre, position_in_articulated_veh % 3) {
+    1: return visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, ENABLE_WAGON_POWER);
+    return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
 }
 
 // Running cost factor depending on speed

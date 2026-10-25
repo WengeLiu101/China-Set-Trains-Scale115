@@ -93,6 +93,8 @@ item (FEAT_TRAINS, nzj2_jinlun_2) {
         bitmask_vehicle_info:           bitmask(2);
     }
     graphics {
+        // 内燃动车：只在车体所在中段冒烟，避免每个铰接段都冒烟
+        visual_effect_and_powered: switch_diesel_smoke_centre;
         // Menu
         additional_text:                        string(STR_DESC_3, string(STR_JINLUN_LOCOMOTIVE_CONSIST), string(STR_ELECTRICITY_SUPPLY_YES), string(STR_RELDEC_HIGH, 20));
         can_attach_wagon:                       switch_nzj2_jinlun_2_can_attach_wagon;

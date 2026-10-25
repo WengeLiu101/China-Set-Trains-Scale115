@@ -126,6 +126,8 @@ item (FEAT_TRAINS, nzj1_xinshuguang) {
         bitmask_vehicle_info:           bitmask(2);
     }
     graphics {
+        // 内燃动车：只在车体所在中段冒烟，避免每个铰接段都冒烟
+        visual_effect_and_powered: switch_diesel_smoke_centre;
         // Menu
         additional_text:                string(STR_DESC_3, string(STR_NZJ1_XINSHUGUANG_CAN_ATTACH_WAGON), string(STR_NZJ1_XINSHUGUANG_CONSIST), string(STR_RELDEC_MEDIUM, 16));
         can_attach_wagon:               nzj1_xinshuguang_wagon;

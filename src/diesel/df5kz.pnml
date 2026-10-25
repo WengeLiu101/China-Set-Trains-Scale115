@@ -85,6 +85,8 @@ item (FEAT_TRAINS, df5kz) {
         bitmask_vehicle_info:           0;
     }
     graphics {
+        // 内燃车头：只在车体中段冒烟（每节车头中部一处）
+        visual_effect_and_powered: switch_diesel_smoke_centre;
         // Menu
         additional_text:                string(STR_DESC_3, string(STR_FULL_NAME_DF5KZ), string(STR_ELECTRICITY_SUPPLY_NO), string(STR_RELDEC_HIGH, 20));
         cargo_subtype_text:             switch_df5kz_cargo_subtype;

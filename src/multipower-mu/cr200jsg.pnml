@@ -218,14 +218,16 @@ switch (FEAT_TRAINS, SELF, switch_cr200jsg_wagon_running, vehicle_type_id) {
 }
 
 // Visual Effect
+// 内燃版 CR200JSG：只在每节车厢的中段（%3==1，即车身所在段）冒烟；
+// 电气化轨道上不冒烟（改由电力版/受电弓负责）。
 switch(FEAT_TRAINS, SELF, switch_cr200jsg_diesel_visual_effect_and_powered_railtype, tile_is_railtype("SACA")) {
     1: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
     return visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, DISABLE_WAGON_POWER);
 }
 
-switch(FEAT_TRAINS, SELF, switch_cr200jsg_diesel_visual_effect_and_powered, (position_in_articulated_veh)) {
-    1: return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
-    switch_cr200jsg_diesel_visual_effect_and_powered_railtype;
+switch(FEAT_TRAINS, SELF, switch_cr200jsg_diesel_visual_effect_and_powered, position_in_articulated_veh % 3) {
+    1: switch_cr200jsg_diesel_visual_effect_and_powered_railtype;
+    return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
 }
 
 

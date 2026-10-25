@@ -95,6 +95,8 @@ item (FEAT_TRAINS, gc220) {
         reliability_decay:              24;
     }
     graphics {
+        // 内燃车头：只在车体中段冒烟（每节车头中部一处）
+        visual_effect_and_powered: switch_diesel_smoke_centre;
         // Menu
         additional_text:                string(STR_DESC_4, string(STR_FULL_NAME_GC220), string(STR_ELECTRICITY_SUPPLY_NO), string(STR_GC220_LIVERY_AVAILABILITY), string(STR_RELDEC_HIGH, 24));
         cargo_subtype_text:             switch_gc220_cargo_subtype;
