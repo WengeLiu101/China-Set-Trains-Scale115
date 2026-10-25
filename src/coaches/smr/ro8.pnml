@@ -1,14 +1,21 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_71aff26f_68_3, position_in_articulated_veh % 3) {
+    0: return 23;
+    1: return 23;
+    2: return 22;
+}
+
 // Begin RO8
 // Graphics
 
 // Purchase Menu
 spriteset (spriteset_ro8_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/smr", "ro8")
+    template_purchase_c12 ("coaches/smr", "ro8")
 }
 
 // Vehicle
 spriteset (spriteset_ro8_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/smr", "ro8")
+    template_std_c12 ("coaches/smr", "ro8")
 }
 
 switch (FEAT_TRAINS, SELF, switch_ro8_articulated_part, extra_callback_info1) {
@@ -81,7 +88,7 @@ item (FEAT_TRAINS, ro8) {
         cost_factor:                    18;
         running_cost_factor:            12 * runningcostfactor() * cafecostfactor(); // NO AC FUNCTION
         purchase_running_cost_factor:   48;
-        purchase_cargo_capacity:        68/3;
+        purchase_cargo_capacity: switch_pcap_71aff26f_68_3;
         name:                           switch_asia_name;
     }
 }

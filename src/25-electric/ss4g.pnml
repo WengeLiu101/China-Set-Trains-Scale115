@@ -3,21 +3,21 @@
 
 // Purchase Menu
 spriteset (spriteset_ss4g_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-electric", "ss4g-front")
+    template_purchase_c8 ("25-electric", "ss4g-front")
 }
 
 // Vehicle
 spriteset (spriteset_ss4g_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss4g-front")
+    template_std_c8 ("25-electric", "ss4g-front")
 }
 spriteset (spriteset_ss4g_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss4g-back")
+    template_std_c8 ("25-electric", "ss4g-back")
 }
 spriteset (spriteset_ss4g_alternative_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss4g-alternative-front")
+    template_std_c8 ("25-electric", "ss4g-alternative-front")
 }
 spriteset (spriteset_ss4g_alternative_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss4g-alternative-back")
+    template_std_c8 ("25-electric", "ss4g-alternative-back")
 }
 
 switch (FEAT_TRAINS, SELF, switch_ss4g_articulated_part, extra_callback_info1) {
@@ -30,9 +30,7 @@ switch (FEAT_TRAINS, SELF, switch_ss4g_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_ALTERNATIVE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_ss4g_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_ss4g_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_ss4g_cargo_subtype, cargo_subtype) {    switch_ss4g_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_ss4g_graphics_subtype_0, position_in_articulated_veh % 6) {
@@ -107,7 +105,7 @@ item (FEAT_TRAINS, ss4g) {
 
         // Stats
         length:                         switch_length_2_4_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    110;
         running_cost_factor:            89 * runningcostfactor();
         purchase_running_cost_factor:   356;

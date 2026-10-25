@@ -17,7 +17,7 @@ spriteset (spriteset_crh3c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh3c-c")
 }
 spriteset (spriteset_crh3c_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh3c-m")
+    template_std_c12 ("25-emu", "crh3c-m")
 }
 spriteset (spriteset_crh3c_middle_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh3c-tp")
@@ -46,8 +46,8 @@ switch (FEAT_TRAINS, SELF, switch_crh3c_graphics, position_in_articulated_veh % 
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh3c_head_capacity, position_in_articulated_veh % 3) {
-    1: return 36;
-    return 0;
+    1: return 34;
+    return 1;
 }
 
 
@@ -231,7 +231,7 @@ item (FEAT_TRAINS, crh3c) {
         can_attach_wagon:               crhwagon;
         start_stop:                     mu4to24car;
         cargo_subtype_text:             switch_crh_c_cargo_subtype;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh3c_graphics;
         purchase:                       spriteset_crh3c_purchase_original;
         articulated_part:               switch_crh3c_articulated_part;

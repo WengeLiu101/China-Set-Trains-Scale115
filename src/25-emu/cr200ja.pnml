@@ -23,7 +23,7 @@ spriteset (spriteset_cr200ja_middle_reversed, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP)
     template_reversed ("25-emu/cr200ja", "cr200j-t")
 } */
 spriteset (spriteset_cr200ja_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/cr200ja", "cr200j-c")
+    template_std_c12 ("25-emu/cr200ja", "cr200j-c")
 }
 spriteset (spriteset_cr200ja_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed_10 ("25-emu/cr200ja", "cr200j-m")
@@ -78,7 +78,7 @@ spriteset (spriteset_cr200ja_prototype_middle_reversed, ZOOM_LEVEL_IN_4X, BIT_DE
     template_reversed ("25-emu/cr200ja", "cr200j-prototype-t")
 } */
 spriteset (spriteset_cr200ja_prototype_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/cr200ja", "cr200j-prototype-c")
+    template_std_c12 ("25-emu/cr200ja", "cr200j-prototype-c")
 }
 spriteset (spriteset_cr200ja_prototype_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed_10 ("25-emu/cr200ja", "cr200j-prototype-m")
@@ -160,10 +160,13 @@ switch (FEAT_TRAINS, SELF, switch_cr200ja_start_stop, count_veh_id(9216)) {
 }
 
 
-switch (FEAT_TRAINS, SELF, swtich_cr200ja_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, swtich_cr200ja_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORIGINAL);
     1: return string(STR_PROTOTYPE);
     return CB_RESULT_NO_TEXT;
+
+}
+switch (FEAT_TRAINS, SELF, swtich_cr200ja_cargo_subtype, cargo_subtype) {    swtich_cr200ja_cargo_subtype_livery;
 }
 
 //GFX
@@ -498,7 +501,7 @@ item (FEAT_TRAINS, cr200ja) {
         can_attach_wagon:               cr200jawagon;
         start_stop:                     switch_cr200ja_start_stop;
         cargo_subtype_text:             swtich_cr200ja_cargo_subtype;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr200ja_graphics;
         purchase:                       spriteset_cr200ja_purchase_original;
         articulated_part:               switch_cr200ja_articulated_part;
@@ -509,7 +512,7 @@ item (FEAT_TRAINS, cr200ja) {
         cost_factor:                    96;
         running_cost_factor:            88 * runningcostfactor() + 20;
         purchase_running_cost_factor:   372;
-        purchase_cargo_capacity:        0;
+        purchase_cargo_capacity: 0;
         bitmask_vehicle_info:           switch_pushpull_consist_correction;
         name:                           switch_cr200ja_name;
     }

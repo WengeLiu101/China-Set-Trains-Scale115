@@ -8,33 +8,33 @@ switch (FEAT_TRAINS, SELF, switch_yw25b_ac_name, getbits(extra_callback_info1, 0
 // Graphics
 
 spriteset (spriteset_yw25b_ac_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25b/yw25b-hhb")
+    template_purchase_c12 ("coaches", "25b/yw25b-hhb")
 }
 
 // Vehicle
 spriteset (spriteset_yw25b_ac_baotou, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "yw25b-hhb")
+    template_std_c12 ("coaches/25b", "yw25b-hhb")
 }
 spriteset (spriteset_yw25b_ac_jixu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "yw25b-jnx")
+    template_std_c12 ("coaches/25b", "yw25b-jnx")
 }
 spriteset (spriteset_yw25b_ac_qingdao, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "yw25b-jqd")
+    template_std_c12 ("coaches/25b", "yw25b-jqd")
 }
 spriteset (spriteset_yw25b_ac_shenji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "yw25b-ssj")
+    template_std_c12 ("coaches/25b", "yw25b-ssj")
 }
 spriteset (spriteset_yw25b_ac_dalian, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "yw25b-sdl")
+    template_std_c12 ("coaches/25b", "yw25b-sdl")
 }
 spriteset (spriteset_yw25b_ac_changchun, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "yw25b-scc")
+    template_std_c12 ("coaches/25b", "yw25b-scc")
 }
 spriteset (spriteset_yw25b_ac_harbin, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "yw25b-sks")
+    template_std_c12 ("coaches/25b", "yw25b-sks")
 }
 spriteset (spriteset_yw25b_ac_mujia, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "yw25b-hjm")
+    template_std_c12 ("coaches/25b", "yw25b-hjm")
 }
 
 switch (FEAT_TRAINS, SELF, switch_yw25b_ac_articulated_part, extra_callback_info1) {
@@ -75,8 +75,8 @@ switch (FEAT_TRAINS, SELF, switch_yw25b_ac_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_yw25b_ac_capacity, position_in_articulated_veh % 3) {
-    1: return 66;
-    return 0;
+    1: return 64;
+    return 1;
 }
 
 

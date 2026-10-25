@@ -9,30 +9,30 @@ switch (FEAT_TRAINS, SELF, switch_tz_name, getbits(extra_callback_info1, 0, 8) =
 
 // Purchase Menu
 spriteset (spriteset_tz_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "tz")
+    template_purchase_c11 ("coaches", "tz")
 }
 
 // Vehicle
 spriteset (spriteset_tz_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "tz")
+    template_std_c11 ("coaches", "tz")
 }
 spriteset (spriteset_tz_beijing2shanghai, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "tz-beijing2shanghai")
+    template_std_c11 ("coaches", "tz-beijing2shanghai")
 }
 spriteset (spriteset_tz_beijing2shanghai_alternative, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "tz-beijing2shanghai-alternative")
+    template_std_c11 ("coaches", "tz-beijing2shanghai-alternative")
 }
 spriteset (spriteset_tz_guangzhou, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "tz-guangzhou")
+    template_std_c11 ("coaches", "tz-guangzhou")
 }
 spriteset (spriteset_tz_xianxing, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "tz-xianxing")
+    template_std_c11 ("coaches", "tz-xianxing")
 }
 spriteset (spriteset_tz_alternative, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "tz-alternative")
+    template_std_c11 ("coaches", "tz-alternative")
 }
 spriteset (spriteset_tz_beidaihe, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25", "kd25-beidaihe")
+    template_std_c11 ("coaches/25", "kd25-beidaihe")
 }
 
 switch (FEAT_TRAINS, SELF, switch_tz_articulated_part, extra_callback_info1) {
@@ -120,7 +120,7 @@ item (FEAT_TRAINS, tz) {
 
         // Stats
         length:                         switch_length_2_7_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cargo_age_period:               200 << param_cargo_decay;
         cost_factor:                    23;
         running_cost_factor:            5 * runningcostfactor() + 20;

@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_1bea2577_32_3, position_in_articulated_veh % 3) {
+    0: return 11;
+    1: return 11;
+    2: return 10;
+}
+
 //Begin CR400AFAE
 switch (FEAT_TRAINS, SELF, switch_cr400afae_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_CR400AF_SERIES);
@@ -21,10 +28,10 @@ spriteset (spriteset_cr400afae_middle_m_r_reversed, ZOOM_LEVEL_IN_4X, BIT_DEPTH_
     template_reversed ("25-emu/cr400af-z", "cr400af-ae-m-r")
 }
 spriteset (spriteset_cr400afae_middle_m_c, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/cr400af-z", "cr400af-ae-m-c")
+    template_std_c12 ("25-emu/cr400af-z", "cr400af-ae-m-c")
 }
 spriteset (spriteset_cr400afae_middle_m_c_reversed, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/cr400af-z", "cr400af-ae-m-c-r")
+    template_std_c12 ("25-emu/cr400af-z", "cr400af-ae-m-c-r")
 }
 spriteset (spriteset_cr400afae_middle_tp, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/cr400af-z", "cr400af-ae-tp")
@@ -289,7 +296,7 @@ item (FEAT_TRAINS, cr400afae) {
         additional_text:                string(STR_DESC_5, string(STR_CR_SLEEPER_CAN_ATTACH_WAGON), string(STR_CR400_Z_NICKNAME), string(STR_RELDEC_VERY_LOW, 3), string(STR_CR400_AB_Z_CONSIST), string(STR_CR400_E_HEAD_SEAT));
         can_attach_wagon:               crsleeperonly;
         start_stop:                     mu4to24car;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr400afz_graphics;
         purchase:                       spriteset_cr400afz_purchase_original;
         articulated_part:               switch_cr400afae_articulated_part;
@@ -305,7 +312,7 @@ item (FEAT_TRAINS, cr400afae) {
         cost_factor:                    95;
         running_cost_factor:            72 * runningcostfactor() * cafecostfactor() + 20;
         purchase_running_cost_factor:   308;
-        purchase_cargo_capacity:        32/3;
+        purchase_cargo_capacity: switch_pcap_1bea2577_32_3;
         name:                           switch_cr400afae_name;
 
     }

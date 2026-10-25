@@ -1,26 +1,26 @@
 //Begin SRZ25BHD
 spriteset (spriteset_srz25bhd_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25b/srz25bhd-dacheng")
+    template_purchase_c12 ("coaches", "25b/srz25bhd-dacheng")
 }
 
 //Graphics
 spriteset (spriteset_srz25bhd_dacheng, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bhd-dacheng")
+    template_std_c12 ("coaches", "25b/srz25bhd-dacheng")
 }
 spriteset (spriteset_srz25bhd_urumqi, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bhd-urumqi")
+    template_std_c12 ("coaches", "25b/srz25bhd-urumqi")
 }
 spriteset (spriteset_srz25bhd_orange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bhd-orange")
+    template_std_c12 ("coaches", "25b/srz25bhd-orange")
 }
 spriteset (spriteset_srz25bhd_bj, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bhd-bj")
+    template_std_c12 ("coaches", "25b/srz25bhd-bj")
 }
 spriteset (spriteset_srz25bhd_kuitun, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bhd-kuitun")
+    template_std_c12 ("coaches", "25b/srz25bhd-kuitun")
 }
 spriteset (spriteset_srz25bhd_jinan, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bhd-jinan")
+    template_std_c12 ("coaches", "25b/srz25bhd-jinan")
 }
 
 switch (FEAT_TRAINS, SELF, switch_srz25bhd_articulated_part, extra_callback_info1) {
@@ -56,8 +56,8 @@ switch (FEAT_TRAINS, SELF, switch_srz25bhd_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_srz25bhd_capacity, position_in_articulated_veh % 3) {
-    1: return 108;
-    return 0;
+    1: return 106;
+    return 1;
 }
 
 

@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_00e8fb78_65_3, position_in_articulated_veh % 3) {
+    0: return 22;
+    1: return 22;
+    2: return 21;
+}
+
 // Begin GH65K
 switch (FEAT_TRAINS, SELF, switch_gh65k_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_TANKER);
@@ -8,12 +15,12 @@ switch (FEAT_TRAINS, SELF, switch_gh65k_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_gh65k_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "gh65k")
+    template_purchase_c7 ("wagons", "gh65k")
 }
 
 // Vehicle
 spriteset (spriteset_gh65k, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "gh65k")
+    template_std_c7 ("wagons", "gh65k")
 }
 
 switch (FEAT_TRAINS, SELF, switch_gh65k_articulated_part, extra_callback_info1) {
@@ -84,7 +91,7 @@ item (FEAT_TRAINS, gh65k) {
         cost_factor:                    5;
         running_cost_factor:            4 * runningcostfactor();
         purchase_running_cost_factor:   16;
-        purchase_cargo_capacity:        65/3;
+        purchase_cargo_capacity: switch_pcap_00e8fb78_65_3;
         name:                           switch_gh65k_name;
     }
 }

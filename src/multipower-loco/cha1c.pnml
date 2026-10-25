@@ -4,15 +4,15 @@
 
 // Purchase Menu
 spriteset (spriteset_cha1c_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("multipower-loco", "cha1c-a")
+    template_purchase_c10 ("multipower-loco", "cha1c-a")
 }
 
 // Vehicle
 spriteset (spriteset_cha1c_electrified, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("multipower-loco", "cha1c-a")
+    template_std_c10 ("multipower-loco", "cha1c-a")
 }
 spriteset (spriteset_cha1c_battery, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("multipower-loco", "cha1c-b")
+    template_std_c10 ("multipower-loco", "cha1c-b")
 }
 
 switch (FEAT_TRAINS, SELF, switch_cha1c_articulated_part, extra_callback_info1) {

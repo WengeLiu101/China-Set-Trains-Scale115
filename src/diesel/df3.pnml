@@ -20,9 +20,7 @@ switch (FEAT_TRAINS, SELF, switch_df3_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_DF_WHITE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_df3_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_df3_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_df3_cargo_subtype, cargo_subtype) {    switch_df3_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df3_direction, (position_in_consist != 1) && (position_in_consist_from_end == 1) || ((position_in_vehid_chain % 6) == 4)) {
@@ -87,7 +85,7 @@ item (FEAT_TRAINS, df3) {
 
         // Stats
         length:                         switch_length_2_4_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    68;
         running_cost_factor:            46 * runningcostfactor();
         purchase_running_cost_factor:   184;

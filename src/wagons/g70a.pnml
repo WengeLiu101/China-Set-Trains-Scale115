@@ -5,17 +5,17 @@
 } */
 
 spriteset (spriteset_g70a_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons/g70", "g70a-new-red")
+    template_purchase_c7 ("wagons/g70", "g70a-new-red")
 }
 
 spriteset (spriteset_g70a_old, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/g70", "g70a-old")
+    template_std_c7 ("wagons/g70", "g70a-old")
 }
 spriteset (spriteset_g70a_new_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/g70", "g70a-new-red")
+    template_std_c7 ("wagons/g70", "g70a-new-red")
 }
 spriteset (spriteset_g70a_old_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/g70", "g70a-old-red")
+    template_std_c7 ("wagons/g70", "g70a-old-red")
 }
 
 random_switch (FEAT_TRAINS, SELF, random_g70a_colour) {
@@ -54,8 +54,8 @@ switch (FEAT_TRAINS, SELF, switch_g70a_graphics, position_in_articulated_veh % 3
 }
 
 switch (FEAT_TRAINS, SELF, switch_g70a_capacity, position_in_articulated_veh % 3) {
-    1: return 60;
-    return 0;
+    1: return 58;
+    return 1;
 }
 
 item (FEAT_TRAINS, g70a) {

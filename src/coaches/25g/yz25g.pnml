@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_c77561dd_118_3, position_in_articulated_veh % 3) {
+    0: return 40;
+    1: return 39;
+    2: return 39;
+}
+
 // Begin YZ25G
 switch (FEAT_TRAINS, SELF, switch_yz25g_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25G_SERIES);
@@ -7,57 +14,57 @@ switch (FEAT_TRAINS, SELF, switch_yz25g_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_yz25g_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25g", "yz25g")
+    template_purchase_c12 ("coaches/25g", "yz25g")
 }
 
 // Vehicle
 spriteset (spriteset_yz25g_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g")
+    template_std_c12 ("coaches/25g", "yz25g")
 }
 spriteset (spriteset_yz25g_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-green")
+    template_std_c12 ("coaches/25g", "yz25g-green")
 }
 spriteset (spriteset_yz25g_jinwen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-jinwen")
+    template_std_c12 ("coaches/25g", "yz25g-jinwen")
 }
 spriteset (spriteset_yz25g_jinwen_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-jinwen-green")
+    template_std_c12 ("coaches/25g", "yz25g-jinwen-green")
 }
 spriteset (spriteset_yz25g_xihu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-xihu")
+    template_std_c12 ("coaches/25g", "yz25g-xihu")
 }
 spriteset (spriteset_yz25g_nanhu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-nanhu")
+    template_std_c12 ("coaches/25g", "yz25g-nanhu")
 }
 spriteset (spriteset_yz25g_gmsr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-gmsr")
+    template_std_c12 ("coaches/25g", "yz25g-gmsr")
 }
 spriteset (spriteset_yz25g_gmsr_early, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-gmsr-early")
+    template_std_c12 ("coaches/25g", "yz25g-gmsr-early")
 }
 spriteset (spriteset_yz25g_xiaoyong, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-xiaoyong")
+    template_std_c12 ("coaches/25g", "yz25g-xiaoyong")
 }
 spriteset (spriteset_yz25g_hejiu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-hejiu")
+    template_std_c12 ("coaches/25g", "yz25g-hejiu")
 }
 spriteset (spriteset_yz25g_gyr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-yanhai")
+    template_std_c12 ("coaches/25g", "yz25g-yanhai")
 }
 spriteset (spriteset_yz25g_fulong, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-fulong")
+    template_std_c12 ("coaches/25g", "yz25g-fulong")
 }
 spriteset (spriteset_yz25g_urumqi, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-urumqi")
+    template_std_c12 ("coaches/25g", "yz25g-urumqi")
 }
 spriteset (spriteset_yz25g_dys_dkblue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-dys1")
+    template_std_c12 ("coaches/25g", "yz25g-dys1")
 }
 spriteset (spriteset_yz25g_dys_ltblue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-dys2")
+    template_std_c12 ("coaches/25g", "yz25g-dys2")
 }
 spriteset (spriteset_yz25g_dys_25z, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "yz25g-dys3")
+    template_std_c12 ("coaches/25g", "yz25g-dys3")
 }
 
 switch (FEAT_TRAINS, SELF, switch_yz25g_articulated_part, extra_callback_info1) {
@@ -124,8 +131,8 @@ switch (FEAT_TRAINS, SELF, switch_yz25g_graphics, position_in_articulated_veh % 
 }
 
 switch (FEAT_TRAINS, SELF, switch_yz25g_capacity, position_in_articulated_veh % 3) {
-    1: return 118;
-    return 0;
+    1: return 116;
+    return 1;
 }
 
 
@@ -181,7 +188,7 @@ item (FEAT_TRAINS, yz25g) {
         cost_factor:                    9;
         running_cost_factor:            6 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   24;
-        purchase_cargo_capacity:        118/3;
+        purchase_cargo_capacity: switch_pcap_c77561dd_118_3;
         name:                           switch_yz25g_name;
     }
 }

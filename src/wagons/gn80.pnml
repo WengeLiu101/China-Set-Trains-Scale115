@@ -9,12 +9,12 @@ switch (FEAT_TRAINS, SELF, switch_gn80_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_gn80_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "gn80")
+    template_purchase_c6 ("wagons", "gn80")
 }
 
 // Vehicle
 spriteset (spriteset_gn80_black, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "gn80")
+    template_std_c6 ("wagons", "gn80")
 }
 
 random_switch (FEAT_TRAINS, SELF, random_gn80_colour) {
@@ -45,8 +45,8 @@ switch (FEAT_TRAINS, SELF, switch_gn80_graphics, position_in_articulated_veh % 3
 }
 
 switch (FEAT_TRAINS, SELF, switch_gn80_capacity, position_in_articulated_veh % 3) {
-    1: return 80;
-    return 0;
+    1: return 78;
+    return 1;
 }
 
 

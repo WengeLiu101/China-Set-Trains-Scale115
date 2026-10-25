@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_2f465f4f_64_3, position_in_articulated_veh % 3) {
+    0: return 22;
+    1: return 21;
+    2: return 21;
+}
+
 //Begin DJF3
 
 
@@ -13,7 +20,7 @@ spriteset (spriteset_djf3_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/djf3", "djf3-tc")
 }
 spriteset (spriteset_djf3_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/djf3", "djf3-m")
+    template_std_c12 ("25-emu/djf3", "djf3-m")
 }
 spriteset (spriteset_djf3_middle_tp1, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/djf3", "djf3-tp1")
@@ -189,7 +196,7 @@ item (FEAT_TRAINS, djf3) {
         additional_text:                string(STR_DESC_6, string(STR_DJF3_CAN_ATTACH_WAGON), string(STR_DJF3_CONSIST), string(STR_DJF3_HEAD_SEAT),string(STR_RELDEC_HIGH, 24));
         can_attach_wagon:               onlyzy;
         start_stop:                     mu4to12car;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_djf3_graphics;
         purchase:                       spriteset_djf3_purchase_original;
         articulated_part:               switch_djf3_articulated_part;
@@ -201,7 +208,7 @@ item (FEAT_TRAINS, djf3) {
         cost_factor:                    50;
         running_cost_factor:            (48 + crhspeedcost()) * runningcostfactor() * cafecostfactor() + 20;
         purchase_running_cost_factor:   212;
-        purchase_cargo_capacity:        64/3;
+        purchase_cargo_capacity: switch_pcap_2f465f4f_64_3;
 
     }
 

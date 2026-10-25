@@ -29,9 +29,7 @@ switch (FEAT_TRAINS, SELF, switch_hxn5_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_DESC_2, string(STR_REVERSE), string(STR_ORIGINAL));
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_hxn5_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_hxn5_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_hxn5_cargo_subtype, cargo_subtype) {    switch_hxn5_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_hxn5_graphics_subtype, cargo_subtype) {
@@ -96,7 +94,7 @@ item (FEAT_TRAINS, hxn5) {
 
         // Stats
         length:                         switch_length_2_7_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    98;
         running_cost_factor:            83 * runningcostfactor();
         purchase_running_cost_factor:   332;

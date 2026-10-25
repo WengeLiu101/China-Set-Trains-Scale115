@@ -1,21 +1,28 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_103a8ce9_32_3, position_in_articulated_veh % 3) {
+    0: return 11;
+    1: return 11;
+    2: return 10;
+}
+
 //Begin RW24TOUR
 
 // Graphics
 
 // Purchase Menu
 spriteset (spriteset_rw24tour_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/24", "rw24-lvyou-1")
+    template_purchase_c11 ("coaches/24", "rw24-lvyou-1")
 }
 
 // Vehicle
 spriteset (spriteset_rw24tour_1, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/24", "rw24-lvyou-1")
+    template_std_c11 ("coaches/24", "rw24-lvyou-1")
 }
 spriteset (spriteset_rw24tour_2, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/24", "rw24-lvyou-2")
+    template_std_c11 ("coaches/24", "rw24-lvyou-2")
 }
 spriteset (spriteset_rw24tour_3, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/24", "rw24-lvyou-3")
+    template_std_c11 ("coaches/24", "rw24-lvyou-3")
 }
 
 
@@ -47,8 +54,8 @@ switch (FEAT_TRAINS, SELF, switch_rw24tour_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw24tour_capacity, position_in_articulated_veh % 3) {
-    1: return 32;
-    return 0;
+    1: return 30;
+    return 1;
 }
 
 
@@ -105,7 +112,7 @@ item (FEAT_TRAINS, rw24tour) {
         cost_factor:                    12;
         running_cost_factor:            12 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   48;
-        purchase_cargo_capacity:        32/3;
+        purchase_cargo_capacity: switch_pcap_103a8ce9_32_3;
         name:                           switch_24ddr_name;
     }
 }

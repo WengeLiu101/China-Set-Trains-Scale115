@@ -7,18 +7,18 @@ switch (FEAT_TRAINS, SELF, switch_df8_name, getbits(extra_callback_info1, 0, 8) 
 
 //Purchase Menu
 spriteset (spriteset_df8_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("diesel", "df8-cr")
+    template_purchase_c10 ("diesel", "df8-cr")
 }
 
 //Vehicle
 spriteset (spriteset_df8_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df8-cr")
+    template_std_c10 ("diesel", "df8-cr")
 }
 spriteset (spriteset_df8_lt, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df8-lt")
+    template_std_c10 ("diesel", "df8-lt")
 }
 spriteset (spriteset_df8_int, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df8-int")
+    template_std_c10 ("diesel", "df8-int")
 }
 switch (FEAT_TRAINS, SELF, switch_df8_articulated_part, extra_callback_info1) {
     1..2: return df8;
@@ -30,9 +30,7 @@ switch (FEAT_TRAINS, SELF, switch_df8_cargo_subtype_livery, cargo_subtype) {
     2: return string(STR_INTERNATIONAL);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_df8_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_df8_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_df8_cargo_subtype, cargo_subtype) {    switch_df8_cargo_subtype_livery;
 }
 switch (FEAT_TRAINS, SELF, switch_df8_graphics_subtype, cargo_subtype) {
     0: spriteset_df8_original;
@@ -96,7 +94,7 @@ item (FEAT_TRAINS, df8) {
 
         // Stats
         length:                         switch_length_2_6_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    55;
         running_cost_factor:            48 * runningcostfactor();
         purchase_running_cost_factor:   192;

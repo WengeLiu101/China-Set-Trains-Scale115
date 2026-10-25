@@ -1,8 +1,10 @@
-.nmlcache
-.vscode
+src.bak_cap3/
+src.bak_livery/
+src.cur_A/
+src.cur_z/
+src.keep_split/
+.nmlcache/
 *.grf
-*.nml
-*.tar
-custom_tags.txt
-gfx/**/*.png
-*.lng
+stretch115.json
+chinasettrains.nml
+build115.nml

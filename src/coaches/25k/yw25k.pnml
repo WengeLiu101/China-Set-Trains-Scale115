@@ -17,24 +17,24 @@ switch (FEAT_TRAINS, SELF, switch_yw25k_articulated_part, extra_callback_info1) 
 // Purchase Menu
 
 spriteset (spriteset_yw25k_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25k", "yw25k")
+    template_purchase_c12 ("coaches/25k", "yw25k")
 }
 
 // Vehicle
 spriteset (spriteset_yw25k_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "yw25k")
+    template_std_c12 ("coaches/25k", "yw25k")
 }
 spriteset (spriteset_yw25k_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "yw25k-green")
+    template_std_c12 ("coaches/25k", "yw25k-green")
 }
 spriteset (spriteset_yw25k_gmsr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "yw25k-gmsr")
+    template_std_c12 ("coaches/25k", "yw25k-gmsr")
 }
 spriteset (spriteset_yw25k_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "yw25k-guangshen")
+    template_std_c12 ("coaches/25k", "yw25k-guangshen")
 }
 spriteset (spriteset_yw25k_int_mg, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "yw25k-int-mg")
+    template_std_c12 ("coaches/25k", "yw25k-int-mg")
 }
 
 switch (FEAT_TRAINS, SELF, switch_yw25k_cargo_subtype_livery, cargo_subtype) {
@@ -79,8 +79,8 @@ switch (FEAT_TRAINS, SELF, switch_yw25k_graphics, position_in_articulated_veh % 
 
 
 switch (FEAT_TRAINS, SELF, switch_yw25k_capacity, position_in_articulated_veh % 3) {
-    1: return 66;
-    return 0;
+    1: return 64;
+    return 1;
 }
 
 

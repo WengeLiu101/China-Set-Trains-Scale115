@@ -7,18 +7,18 @@ spriteset (spriteset_sl6_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 spriteset (spriteset_sl6_l_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "sl6-l-front")
+    template_std_c9 ("steam", "sl6-l-front")
 }
 spriteset (spriteset_sl6_s_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "sl6-s-front")
+    template_std_c9 ("steam", "sl6-s-front")
 }
 spriteset (spriteset_sl6_n_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "sl6-n-front")
+    template_std_c9 ("steam", "sl6-n-front")
 }
 
 
 spriteset (spriteset_sl6_tender, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "sl6-tender")
+    template_std_c5 ("steam", "sl6-tender")
 }
 
 
@@ -28,9 +28,7 @@ switch (FEAT_TRAINS, SELF, switch_sl6_cargo_subtype_livery, cargo_subtype) {
     2: return string(STR_WITHOUT_WINDSHIELD);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_sl6_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_sl6_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_sl6_cargo_subtype, cargo_subtype) {    switch_sl6_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_sl6_articulated_part, extra_callback_info1) {
@@ -105,7 +103,7 @@ item (FEAT_TRAINS, sl6) {
 
         // Stats
         length:                         switch_length_2_6_6;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    56;
         running_cost_factor:            39 * runningcostfactor();
         purchase_running_cost_factor:   156;

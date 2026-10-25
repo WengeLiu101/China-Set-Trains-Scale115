@@ -7,27 +7,27 @@
 
 // Purchase Menu
 spriteset (spriteset_df10_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("diesel", "df10")
+    template_purchase_c7 ("diesel", "df10")
 }
 
 // Vehicle
 spriteset (spriteset_df10_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df10")
+    template_std_c7 ("diesel", "df10")
 }
 spriteset (spriteset_df10_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df10-reverse")
+    template_std_c7 ("diesel", "df10-reverse")
 }
 spriteset (spriteset_df10_blue_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df10-darkblue")
+    template_std_c7 ("diesel", "df10-darkblue")
 }
 spriteset (spriteset_df10_blue_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df10-reverse-darkblue")
+    template_std_c7 ("diesel", "df10-reverse-darkblue")
 }
 spriteset (spriteset_df10_ukraine_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df10-ukraine")
+    template_std_c7 ("diesel", "df10-ukraine")
 }
 spriteset (spriteset_df10_ukraine_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df10-reverse-ukraine")
+    template_std_c7 ("diesel", "df10-reverse-ukraine")
 }
 
 switch (FEAT_TRAINS, SELF, switch_df10_articulated_part, extra_callback_info1) {
@@ -41,9 +41,7 @@ switch (FEAT_TRAINS, SELF, switch_df10_cargo_subtype_livery, cargo_subtype) {
     2: return string(STR_UKRAINE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_df10_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_df10_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_df10_cargo_subtype, cargo_subtype) {    switch_df10_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df10_factory_livery_graphics, position_in_articulated_veh % 6) {
@@ -128,7 +126,7 @@ item (FEAT_TRAINS, df10) {
 
         // Stats
         length:                         switch_length_2_3_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    88;
         running_cost_factor:            73 * runningcostfactor();
         purchase_running_cost_factor:   292;

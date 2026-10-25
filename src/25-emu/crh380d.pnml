@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_921ce224_65_3, position_in_articulated_veh % 3) {
+    0: return 22;
+    1: return 22;
+    2: return 21;
+}
+
 // Begin CRH380D
 
 // Graphics
@@ -42,8 +49,8 @@ switch (FEAT_TRAINS, SELF, switch_crh380d_front_graphics, position_in_articulate
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh380d_head_capacity, position_in_articulated_veh % 3) {
-    1: return 32;
-    return 0;
+    1: return 30;
+    return 1;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh380d_middle_wagon_back_tp, ((position_in_consist / 3) == ((num_vehs_in_consist / 6) + 1))) {
@@ -339,7 +346,7 @@ item (FEAT_TRAINS, crh380d) {
         start_stop:                     mu4to24car;
         cargo_subtype_text:             switch_crh380_cargo_subtype;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh380d_front_graphics;
         purchase:                       spriteset_crh380d_purchase_original;
         articulated_part:               switch_crh380d_articulated_part;
@@ -356,7 +363,7 @@ item (FEAT_TRAINS, crh380d) {
         cost_factor:                    88;
         running_cost_factor:            73 * runningcostfactor() * cafecostfactor() + 20;
         purchase_running_cost_factor:   312;
-        purchase_cargo_capacity:        65/3;
+        purchase_cargo_capacity: switch_pcap_921ce224_65_3;
     }
 
     // Multiple Unit Wagons

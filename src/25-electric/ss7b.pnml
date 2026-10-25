@@ -9,12 +9,12 @@ switch (FEAT_TRAINS, SELF, switch_ss7b_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_ss7b_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-electric","ss7b")
+    template_purchase_c10 ("25-electric", "ss7b")
 }
 
 // Vehicle
 spriteset (spriteset_ss7b_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric","ss7b")
+    template_std_c10 ("25-electric", "ss7b")
 }
 
 switch (FEAT_TRAINS, SELF, switch_ss7b_articulated_part, extra_callback_info1) {

@@ -3,23 +3,23 @@
 
 // Purchase Menu
 spriteset (spriteset_crh6a_purchase_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-emu", "crh6a/crh6a-c-guangshen-1")
+    template_purchase_c12 ("25-emu", "crh6a/crh6a-c-guangshen-1")
 }
 
 // Vehicle
 
 
 spriteset (spriteset_crh6a_front_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-c-guangshen-1")
+    template_std_c12 ("25-emu", "crh6a/crh6a-c-guangshen-1")
 }
 spriteset (spriteset_crh6a_middle_m_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-m-2-guangshen")
+    template_std_c12 ("25-emu", "crh6a/crh6a-m-2-guangshen")
 }
 spriteset (spriteset_crh6a_middle_p_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-2-guangshen")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-2-guangshen")
 }
 spriteset (spriteset_crh6a_middle_p_r_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-r-2-guangshen")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-r-2-guangshen")
 }
 spriteset (spriteset_crh6a_cab_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a/crh6a-c-guangshen-2")
@@ -222,7 +222,7 @@ item (FEAT_TRAINS, crh6a_comfort) {
         can_attach_wagon:               onlyzezyzec;
         start_stop:                     mu4to24car;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh6a_comfort_graphics;
         purchase:                       spriteset_crh6a_purchase_guangshen;
         articulated_part:               switch_crh6a_comfort_articulated_part;

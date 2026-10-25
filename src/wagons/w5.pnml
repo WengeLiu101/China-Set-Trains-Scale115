@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_0a20f0d3_50_3, position_in_articulated_veh % 3) {
+    0: return 17;
+    1: return 17;
+    2: return 16;
+}
+
 // Begin W5
 switch (FEAT_TRAINS, SELF, switch_w5_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_BOXCAR);
@@ -7,15 +14,15 @@ switch (FEAT_TRAINS, SELF, switch_w5_name, getbits(extra_callback_info1, 0, 8) =
 
 // Purchase Menu
 spriteset (spriteset_w5_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "w5")
+    template_purchase_c8 ("wagons", "w5")
 }
 
 // Vehicle
 spriteset (spriteset_w5, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "w5")
+    template_std_c8 ("wagons", "w5")
 }
 spriteset (spriteset_w5_white, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "w5-white")
+    template_std_c8 ("wagons", "w5-white")
 }
 
 random_switch (FEAT_TRAINS, SELF, random_w5) {
@@ -49,8 +56,8 @@ switch (FEAT_TRAINS, SELF, switch_w5_graphics, position_in_articulated_veh % 3) 
 }
 
 switch (FEAT_TRAINS, SELF, switch_w5_capacity, position_in_articulated_veh % 3) {
-    1: return 50;
-    return 0;
+    1: return 48;
+    return 1;
 }
 
 
@@ -109,7 +116,7 @@ item (FEAT_TRAINS, w5) {
         cost_factor:                    5;
         running_cost_factor:            4 * runningcostfactor();
         purchase_running_cost_factor:   16;
-        purchase_cargo_capacity:        50 / 3;
+        purchase_cargo_capacity: switch_pcap_0a20f0d3_50_3;
         name:                           switch_w5_name;
     }
 }

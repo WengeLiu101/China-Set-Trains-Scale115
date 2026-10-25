@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_0a6259d1_118_3, position_in_articulated_veh % 3) {
+    0: return 40;
+    1: return 39;
+    2: return 39;
+}
+
 // Begin YZ22AIRCON
 switch (FEAT_TRAINS, SELF, switch_yz22aircon_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_22_AIRCON_SERIES);
@@ -7,18 +14,18 @@ switch (FEAT_TRAINS, SELF, switch_yz22aircon_name, getbits(extra_callback_info1,
 
 // Purchase Menu
 spriteset (spriteset_yz22aircon_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "yz22aircon")
+    template_purchase_c11 ("coaches", "yz22aircon")
 }
 
 // Vehicle
 spriteset (spriteset_yz22aircon_beijing2shanghai, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "yz22aircon")
+    template_std_c11 ("coaches", "yz22aircon")
 }
 spriteset (spriteset_yz22aircon_alternative, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "yz22aircon-alternative")
+    template_std_c11 ("coaches", "yz22aircon-alternative")
 }
 spriteset (spriteset_yz22aircon_guangzhou, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "yz22aircon-guangzhou")
+    template_std_c11 ("coaches", "yz22aircon-guangzhou")
 }
 
 switch (FEAT_TRAINS, SELF, switch_yz22aircon_articulated_part, extra_callback_info1) {
@@ -49,8 +56,8 @@ switch (FEAT_TRAINS, SELF, switch_yz22aircon_graphics, position_in_articulated_v
 }
 
 switch (FEAT_TRAINS, SELF, switch_yz22aircon_capacity, position_in_articulated_veh % 3) {
-    1: return 118;
-    return 0;
+    1: return 116;
+    return 1;
 }
 
 
@@ -106,7 +113,7 @@ item (FEAT_TRAINS, yz22aircon) {
         cost_factor:                    8;
         running_cost_factor:            6 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   24;
-        purchase_cargo_capacity:        118/3;
+        purchase_cargo_capacity: switch_pcap_0a6259d1_118_3;
         name:                           switch_yz22aircon_name;
     }
 }

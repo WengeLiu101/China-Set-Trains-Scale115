@@ -1,3 +1,19 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_e4521809_702_12, position_in_articulated_veh % 12) {
+    0: return 59;
+    1: return 59;
+    2: return 59;
+    3: return 59;
+    4: return 59;
+    5: return 59;
+    6: return 58;
+    7: return 58;
+    8: return 58;
+    9: return 58;
+    10: return 58;
+    11: return 58;
+}
+
 //Begin CRH6AA
 switch (FEAT_TRAINS, SELF, switch_crh6aa_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_CRH6_SERIES);
@@ -9,15 +25,15 @@ switch (FEAT_TRAINS, SELF, switch_crh6aa_name, getbits(extra_callback_info1, 0, 
 
 // Purchase Menu
 spriteset (spriteset_crh6aa_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-emu", "crh6a-a-c-guangqing-1")
+    template_purchase_c12 ("25-emu", "crh6a-a-c-guangqing-1")
 }
 
 // Vehicle
 spriteset (spriteset_crh6aa_front_guangqing, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a-a-c-guangqing-1")
+    template_std_c12 ("25-emu", "crh6a-a-c-guangqing-1")
 }
 spriteset (spriteset_crh6aa_front_guangqing_stick, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a-a-c-guangqing-stick-1")
+    template_std_c12 ("25-emu", "crh6a-a-c-guangqing-stick-1")
 }
 spriteset (spriteset_crh6aa_middle_1_guangqing, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a-a-p-guangqing")
@@ -34,16 +50,16 @@ spriteset (spriteset_crh6aa_cab_guangqing_stick, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32B
 
 
 spriteset (spriteset_crh6aa_front_guangzhu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a-a-c-guangzhu-1")
+    template_std_c12 ("25-emu", "crh6a-a-c-guangzhu-1")
 }
 spriteset (spriteset_crh6aa_front_guangzhu_stick, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a-a-c-guangzhu-stick-1")
+    template_std_c12 ("25-emu", "crh6a-a-c-guangzhu-stick-1")
 }
 spriteset (spriteset_crh6aa_middle_1_guangzhu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a-a-p-guangzhu-1")
 }
 spriteset (spriteset_crh6aa_middle_2_guangzhu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a-a-p-guangzhu-2")
+    template_std_c12 ("25-emu", "crh6a-a-p-guangzhu-2")
 }
 spriteset (spriteset_crh6aa_cab_guangzhu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a-a-c-guangzhu-2")
@@ -54,22 +70,22 @@ spriteset (spriteset_crh6aa_cab_guangzhu_stick, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BP
 
 
 spriteset (spriteset_crh6aa_front_tianfu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a-a-c-tianfu-1")
+    template_std_c12 ("25-emu", "crh6a-a-c-tianfu-1")
 }
 spriteset (spriteset_crh6aa_front_tianfu_stick, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a-a-c-tianfu-stick-1")
+    template_std_c12 ("25-emu", "crh6a-a-c-tianfu-stick-1")
 }
 spriteset (spriteset_crh6aa_front_tianfu_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a-a-c-tianfu-green-1")
+    template_std_c12 ("25-emu", "crh6a-a-c-tianfu-green-1")
 }
 spriteset (spriteset_crh6aa_front_tianfu_green_stick, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a-a-c-tianfu-green-stick-1")
+    template_std_c12 ("25-emu", "crh6a-a-c-tianfu-green-stick-1")
 }
 spriteset (spriteset_crh6aa_middle_1_tianfu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a-a-p-tianfu-1")
 }
 spriteset (spriteset_crh6aa_middle_2_tianfu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a-a-p-tianfu-2")
+    template_std_c12 ("25-emu", "crh6a-a-p-tianfu-2")
 }
 spriteset (spriteset_crh6aa_cab_tianfu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a-a-c-tianfu-2")
@@ -96,9 +112,7 @@ switch (FEAT_TRAINS, SELF, switch_crh6aa_cargo_subtype_livery, cargo_subtype) {
     3: return string(STR_TIANFU_GREEN);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_crh6aa_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_crh6aa_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_crh6aa_cargo_subtype, cargo_subtype) {    switch_crh6aa_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh6aa_front, cargo_subtype) {
@@ -161,11 +175,11 @@ switch (FEAT_TRAINS, SELF, switch_crh6aa_graphics, position_in_consist) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh6aa_section_capacity, position_in_articulated_veh % 12) {
-    1: return 150;
-    4: return 201;
-    7: return 201;
-    10: return 150;
-    return 0;
+    1: return 148;
+    4: return 199;
+    7: return 199;
+    10: return 148;
+    return 1;
 }
 
 
@@ -215,7 +229,7 @@ item (FEAT_TRAINS, crh6aa) {
         start_stop:                     mu4car;
         cargo_subtype_text:             switch_crh6aa_cargo_subtype;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh6aa_graphics;
         purchase:                       spriteset_crh6aa_purchase_original;
         articulated_part:               switch_crh6aa_articulated_part;
@@ -227,7 +241,7 @@ item (FEAT_TRAINS, crh6aa) {
         cost_factor:                    184;
         running_cost_factor:            128 * runningcostfactor() + 20;
         purchase_running_cost_factor:   532;
-        purchase_cargo_capacity:        702/12;
+        purchase_cargo_capacity: switch_pcap_e4521809_702_12;
         name:                            switch_crh6aa_name;
 
     }

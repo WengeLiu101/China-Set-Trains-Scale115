@@ -7,12 +7,12 @@ switch (FEAT_TRAINS, SELF, switch_25c_name, getbits(extra_callback_info1, 0, 8) 
 
 // Purchase Menu
 spriteset (spriteset_rz225c_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25c", "rz225c")
+    template_purchase_c12 ("coaches/25c", "rz225c")
 }
 
 // Vehicle
 spriteset (spriteset_rz225c, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25c", "rz225c")
+    template_std_c12 ("coaches/25c", "rz225c")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz225c_articulated_part, extra_callback_info1) {

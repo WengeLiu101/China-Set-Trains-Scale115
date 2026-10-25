@@ -3,12 +3,12 @@
 
 // Purchase Menu
 spriteset (spriteset_srz25kld_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25k/srz25kld-luchaogang")
+    template_purchase_c12 ("coaches", "25k/srz25kld-luchaogang")
 }
 
 // Vehicle
 spriteset (spriteset_srz25kld_luchaogang, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25k/srz25kld-luchaogang")
+    template_std_c12 ("coaches", "25k/srz25kld-luchaogang")
 }
 
 switch (FEAT_TRAINS, SELF, switch_srz25kld_articulated_part, extra_callback_info1) {

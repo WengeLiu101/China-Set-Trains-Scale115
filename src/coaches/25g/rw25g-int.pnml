@@ -10,13 +10,13 @@ switch (FEAT_TRAINS, SELF, switch_rw25g_int_name, getbits(extra_callback_info1, 
 
 // Purchase Menu
 spriteset (spriteset_rw25g_int_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25g", "rw25g-ly2")
+    template_purchase_c12 ("coaches/25g", "rw25g-ly2")
 }
 
 // Vehicle
 
 spriteset (spriteset_rw25g_int, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "rw25g-ly2")
+    template_std_c12 ("coaches/25g", "rw25g-ly2")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw25g_int_articulated_part, extra_callback_info1) {

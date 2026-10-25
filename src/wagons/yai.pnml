@@ -7,12 +7,12 @@ switch (FEAT_TRAINS, SELF, switch_yai_name, getbits(extra_callback_info1, 0, 8) 
 
 // Purchase Menu
 spriteset (spriteset_yai_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons/smr", "yai")
+    template_purchase_c5 ("wagons/smr", "yai")
 }
 
 // Vehicle
 spriteset (spriteset_yai_black, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/smr", "yai")
+    template_std_c5 ("wagons/smr", "yai")
 }
 
 switch (FEAT_TRAINS, SELF, switch_yai_articulated_part, extra_callback_info1) {

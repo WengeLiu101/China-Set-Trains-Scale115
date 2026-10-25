@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_df41915e_32_3, position_in_articulated_veh % 3) {
+    0: return 11;
+    1: return 11;
+    2: return 10;
+}
+
 //Begin RW22
 switch (FEAT_TRAINS, SELF, switch_rw22_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_22_SERIES);
@@ -9,12 +16,12 @@ switch (FEAT_TRAINS, SELF, switch_rw22_name, getbits(extra_callback_info1, 0, 8)
 
 // // Purchase Menu
  spriteset (spriteset_rw22_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-     template_purchase ("coaches", "22/rw22")
+     template_purchase_c11 ("coaches", "22/rw22")
  }
 
  // Vehicle
  spriteset (spriteset_rw22_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-     template_standard ("coaches", "22/rw22")
+     template_std_c11 ("coaches", "22/rw22")
  }
 
 switch (FEAT_TRAINS, SELF, switch_rw22_articulated_part, extra_callback_info1) {
@@ -43,8 +50,8 @@ switch (FEAT_TRAINS, SELF, switch_rw22_graphics, position_in_articulated_veh % 3
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw22_capacity, position_in_articulated_veh % 3) {
-    1: return 32;
-    return 0;
+    1: return 30;
+    return 1;
 }
 
 
@@ -101,7 +108,7 @@ item (FEAT_TRAINS, rw22) {
         cost_factor:                    12;
         running_cost_factor:            10 * runningcostfactor() * cafecostfactor() ;
         purchase_running_cost_factor:   40;
-        purchase_cargo_capacity:        32/3;
+        purchase_cargo_capacity: switch_pcap_df41915e_32_3;
         name:                            switch_rw22_name;
 
     }

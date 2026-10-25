@@ -9,15 +9,15 @@ switch (FEAT_TRAINS, SELF, switch_g11_name, getbits(extra_callback_info1, 0, 8) 
 
 // Purchase Menu
 spriteset (spriteset_g11_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "g11")
+    template_purchase_c6 ("wagons", "g11")
 }
 
 // Vehicle
 spriteset (spriteset_g11, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "g11")
+    template_std_c6 ("wagons", "g11")
 }
 spriteset (spriteset_g11_weathered, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "g11-weathered")
+    template_std_c6 ("wagons", "g11-weathered")
 }
 
 random_switch (FEAT_TRAINS, SELF, random_g11_colour) {
@@ -53,8 +53,8 @@ switch (FEAT_TRAINS, SELF, switch_g11_graphics, position_in_articulated_veh % 3)
 }
 
 switch (FEAT_TRAINS, SELF, switch_g11_capacity, position_in_articulated_veh % 3) {
-    1: return 63;
-    return 0;
+    1: return 61;
+    return 1;
 }
 
 

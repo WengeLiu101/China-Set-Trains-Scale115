@@ -8,18 +8,18 @@ switch (FEAT_TRAINS, SELF, switch_hxd1c_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_hxd1c_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-electric", "hxd1c")
+    template_purchase_c10 ("25-electric", "hxd1c")
 }
 
 // Vehicle
 spriteset (spriteset_hxd1c_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "hxd1c")
+    template_std_c10 ("25-electric", "hxd1c")
 }
 spriteset (spriteset_hxd1c_sdhs, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "hxd1c-sdhs")
+    template_std_c10 ("25-electric", "hxd1c-sdhs")
 }
 spriteset (spriteset_hxd1c1927, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric/extra", "hxd1c-1927")
+    template_std_c10 ("25-electric/extra", "hxd1c-1927")
 }
 
 switch (FEAT_TRAINS, SELF, switch_hxd1c_articulated_part, extra_callback_info1) {
@@ -32,9 +32,7 @@ switch (FEAT_TRAINS, SELF, switch_hxd1c_cargo_subtype_livery, cargo_subtype) {
     2: return string(STR_HXD1C1927);
     empty_sprites;
 }
-switch (FEAT_TRAINS, SELF, switch_hxd1c_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_hxd1c_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_hxd1c_cargo_subtype, cargo_subtype) {    switch_hxd1c_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_gfx_hxd1c, cargo_subtype) {
@@ -100,7 +98,7 @@ item (FEAT_TRAINS, hxd1c) {
 
         // Stats
         length:                         switch_length_2_6_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    112;
         running_cost_factor:            95 * runningcostfactor() ;
         purchase_running_cost_factor:   380;

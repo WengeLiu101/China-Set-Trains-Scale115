@@ -5,12 +5,12 @@
 // Purchase Menu
 
 spriteset (spriteset_ca25a_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25a", "ca25a")
+    template_purchase_c12 ("coaches/25a", "ca25a")
 }
 
 // Vehicle
 spriteset (spriteset_ca25a_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25a", "ca25a")
+    template_std_c12 ("coaches/25a", "ca25a")
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca25a_articulated_part, extra_callback_info1) {

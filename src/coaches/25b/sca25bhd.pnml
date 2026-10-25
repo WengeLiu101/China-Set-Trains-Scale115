@@ -4,27 +4,27 @@
 
 // Purchase Menu
 spriteset (spriteset_sca25bhd_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25b/sca25bhd-changsha")
+    template_purchase_c12 ("coaches", "25b/sca25bhd-changsha")
 }
 
 // Vehicle
 spriteset (spriteset_sca25bhd_changsha, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/sca25bhd-changsha")
+    template_std_c12 ("coaches", "25b/sca25bhd-changsha")
 }
 spriteset (spriteset_sca25bhd_urumqi, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/sca25bhd-urumqi")
+    template_std_c12 ("coaches", "25b/sca25bhd-urumqi")
 }
 spriteset (spriteset_sca25bhd_kuitun, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/sca25bhd-kuitun")
+    template_std_c12 ("coaches", "25b/sca25bhd-kuitun")
 }
 spriteset (spriteset_sca25bhd_jinan, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/sca25bhd-jinan")
+    template_std_c12 ("coaches", "25b/sca25bhd-jinan")
 }
 spriteset (spriteset_sca25bhd_cs, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/sca25bhd-cs")
+    template_std_c12 ("coaches", "25b/sca25bhd-cs")
 }
 spriteset (spriteset_sca25bhd_zz, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/sca25bhd-zz")
+    template_std_c12 ("coaches", "25b/sca25bhd-zz")
 }
 switch (FEAT_TRAINS, SELF, switch_sca25bhd_articulated_part, extra_callback_info1) {
     1..2: return sca25bhd;
@@ -60,8 +60,8 @@ switch (FEAT_TRAINS, SELF, switch_sca25bhd_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_sca25bhd_capacity, position_in_articulated_veh % 3) {
-    1: return 72;
-    return 0;
+    1: return 70;
+    return 1;
 }
 
 

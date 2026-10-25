@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_f8ec12c8_55_3, position_in_articulated_veh % 3) {
+    0: return 19;
+    1: return 18;
+    2: return 18;
+}
+
 // Begin CRH5E
 switch (FEAT_TRAINS, SELF, switch_crh5e_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_CRH5_SERIES);
@@ -15,10 +22,10 @@ spriteset (spriteset_crh5e_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/crh5e", "crh5e-mc")
 }
 spriteset (spriteset_crh5e_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/crh5e", "crh5e-m")
+    template_std_c12 ("25-emu/crh5e", "crh5e-m")
 }
 spriteset (spriteset_crh5e_middle_tp, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/crh5e", "crh5e-tp")
+    template_std_c12 ("25-emu/crh5e", "crh5e-tp")
 }
 spriteset (spriteset_crh5e_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu/crh5e", "crh5e-mc")
@@ -193,7 +200,7 @@ item (FEAT_TRAINS, crh5e) {
         additional_text:                string(STR_DESC_5, string(STR_CRH5E_CAN_ATTACH_WAGON), /* string(STR_CRH5E_NICKNAME), */ string(STR_RELDEC_LOW, 8), string(STR_CRH5_CONSIST), string(STR_CRH5_HEAD_SEAT));
         can_attach_wagon:               crhsleeperonly;
         start_stop:                     mu4to24car;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh5e_graphics;
         purchase:                       spriteset_crh5e_purchase_original;
         articulated_part:               switch_crh5e_articulated_part;
@@ -205,7 +212,7 @@ item (FEAT_TRAINS, crh5e) {
         cost_factor:                    63;
         running_cost_factor:            48 * runningcostfactor() * cafecostfactor() + 20;
         purchase_running_cost_factor:   212;
-        purchase_cargo_capacity:        55/3;
+        purchase_cargo_capacity: switch_pcap_f8ec12c8_55_3;
         name:                           switch_crh5e_name;
     }
 

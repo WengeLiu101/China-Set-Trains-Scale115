@@ -18,7 +18,7 @@ spriteset(spriteset_crh380bja_m03, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard("25-emu/crh380bja", "crh380bja-m-36")
 }
 spriteset(spriteset_crh380bja_m04, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard("25-emu/crh380bja", "crh380bja-m-4")
+    template_std_c12 ("25-emu/crh380bja", "crh380bja-m-4")
 }
 spriteset(spriteset_crh380bja_m05, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed("25-emu/crh380bja", "crh380bja-m-5")
@@ -27,7 +27,7 @@ spriteset(spriteset_crh380bja_m06, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed("25-emu/crh380bja", "crh380bja-m-36")
 }
 spriteset(spriteset_crh380bja_tp, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard("25-emu/crh380bja", "crh380bja-tp-a")
+    template_std_c12 ("25-emu/crh380bja", "crh380bja-tp-a")
 }
 spriteset(spriteset_crh380bja_rear, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed("25-emu/crh380bja", "crh380bja-c")
@@ -114,7 +114,7 @@ item (FEAT_TRAINS, crh380bja) {
         can_attach_wagon:               citonly;
         start_stop:                     mu4to24car;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh380bja_graphics;
         purchase:                       spriteset_crh380bja_purchase_original;
         articulated_part:               switch_crh380bja_articulated_part;

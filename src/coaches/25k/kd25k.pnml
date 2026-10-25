@@ -9,39 +9,39 @@ switch (FEAT_TRAINS, SELF, switch_kd25k_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_kd25k_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25k", "kd25k")
+    template_purchase_c11 ("coaches/25k", "kd25k")
 }
 
 // Vehicle
 spriteset (spriteset_kd25k_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "kd25k")
+    template_std_c11 ("coaches/25k", "kd25k")
 }
 spriteset (spriteset_kd25k_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "kd25k-green")
+    template_std_c11 ("coaches/25k", "kd25k-green")
 }
 spriteset (spriteset_kd25k_gmsr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "kd25k-gmsr")
+    template_std_c11 ("coaches/25k", "kd25k-gmsr")
 }
 spriteset (spriteset_kd25k_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "kd25k-guangshen")
+    template_std_c11 ("coaches/25k", "kd25k-guangshen")
 }
 spriteset (spriteset_kd25k_luchaogang, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "kd25k-luchaogang")
+    template_std_c11 ("coaches/25k", "kd25k-luchaogang")
 }
 spriteset (spriteset_kd25k_blue_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "kd25k-blue-red")
+    template_std_c11 ("coaches/25k", "kd25k-blue-red")
 }
 spriteset (spriteset_kd25k_shenyang, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "kd25k-shenyang")
+    template_std_c11 ("coaches/25k", "kd25k-shenyang")
 }
 spriteset (spriteset_kd25k_lakeblue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "kd25k-lakeblue")
+    template_std_c11 ("coaches/25k", "kd25k-lakeblue")
 }
 spriteset (spriteset_kd25k_25t, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "kd25k-25t")
+    template_std_c11 ("coaches/25k", "kd25k-25t")
 }
 spriteset (spriteset_kd25k_shiqin, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "kd25k-sq")
+    template_std_c11 ("coaches/25k", "kd25k-sq")
 }
 
 switch (FEAT_TRAINS, SELF, switch_kd25k_articulated_part, extra_callback_info1) {
@@ -147,7 +147,7 @@ item (FEAT_TRAINS, kd25k) {
 
         // Stats
         length:                         switch_length_2_7_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cargo_age_period:               200 << param_cargo_decay;
         cost_factor:                    23;
         running_cost_factor:            6 * runningcostfactor() + 20;

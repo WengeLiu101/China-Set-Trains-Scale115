@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_3b5a3a99_20_3, position_in_articulated_veh % 3) {
+    0: return 7;
+    1: return 7;
+    2: return 6;
+}
+
 //Begin RW19K_2
 switch (FEAT_TRAINS, SELF, switch_rw19k_2_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25K_SERIES);
@@ -9,36 +16,36 @@ switch (FEAT_TRAINS, SELF, switch_rw19k_2_name, getbits(extra_callback_info1, 0,
 
 // Purchase Menu
 spriteset (spriteset_rw19k_2_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25k","rw19k-blue-plugdoor")
+    template_purchase_c12 ("coaches/25k", "rw19k-blue-plugdoor")
 }
 
 // Vehicle
 spriteset (spriteset_rw19k_2_blue_plugdoor, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw19k-blue-plugdoor")
+    template_std_c12 ("coaches/25k", "rw19k-blue-plugdoor")
 }
 spriteset (spriteset_rw19k_2_red_plugdoor, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw19k-red-plugdoor")
+    template_std_c12 ("coaches/25k", "rw19k-red-plugdoor")
 }
 spriteset (spriteset_rw19k_2_green_plugdoor_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw19k-green-plugdoor-red")
+    template_std_c12 ("coaches/25k", "rw19k-green-plugdoor-red")
 }
 spriteset (spriteset_rw19k_2_green_plugdoor_blue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw19k-green-plugdoor-blue")
+    template_std_c12 ("coaches/25k", "rw19k-green-plugdoor-blue")
 }
 spriteset (spriteset_rw19k_2_blue_dongfang, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw19k-blue-dongfang")
+    template_std_c12 ("coaches/25k", "rw19k-blue-dongfang")
 }
 spriteset (spriteset_rw19k_2_blue_xinshiji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw19k-blue-xinshiji")
+    template_std_c12 ("coaches/25k", "rw19k-blue-xinshiji")
 }
 spriteset (spriteset_rw19k_2_red_xinshiji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw19k-red-xinshiji")
+    template_std_c12 ("coaches/25k", "rw19k-red-xinshiji")
 }
 spriteset (spriteset_rw19k_2_blue_luneng, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw19k-blue-luneng")
+    template_std_c12 ("coaches/25k", "rw19k-blue-luneng")
 }
 spriteset (spriteset_rw19k_2_red_dacaoyuan, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw19k-red-dacaoyuan")
+    template_std_c12 ("coaches/25k", "rw19k-red-dacaoyuan")
 }
 switch (FEAT_TRAINS, SELF, switch_rw19k_2_articulated_part, extra_callback_info1) {
     1..2: return rw19k_2;
@@ -83,8 +90,8 @@ switch (FEAT_TRAINS, SELF, switch_rw19k_2_cargo_subtype, cargo_capacity) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw19k_2_capacity, position_in_articulated_veh % 3) {
-    1: return 20;
-    return 0;
+    1: return 18;
+    return 1;
 }
 
 
@@ -141,7 +148,7 @@ item (FEAT_TRAINS, rw19k_2) {
         cost_factor:                    19;
         running_cost_factor:            16 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   64;
-        purchase_cargo_capacity:        20/3;
+        purchase_cargo_capacity: switch_pcap_3b5a3a99_20_3;
         name:                            switch_rw19k_2_name;
 
     }

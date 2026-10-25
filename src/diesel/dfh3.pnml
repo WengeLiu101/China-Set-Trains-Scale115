@@ -3,23 +3,23 @@
 // Graphics
 
 spriteset (spriteset_dfh3_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("diesel", "dfh3")
+    template_purchase_c9 ("diesel", "dfh3")
 }
 
 spriteset (spriteset_dfh3_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "dfh3")
+    template_std_c9 ("diesel", "dfh3")
 }
 
 spriteset (spriteset_dfh3_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "dfh3-red")
+    template_std_c9 ("diesel", "dfh3-red")
 }
 
 spriteset (spriteset_dfh3_gongqingtuan, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "dfh3-gongqingtuan")
+    template_std_c9 ("diesel", "dfh3-gongqingtuan")
 }
 
 spriteset (spriteset_dfh3_liaodong, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "dfh3-liaodong")
+    template_std_c9 ("diesel", "dfh3-liaodong")
 }
 
 switch (FEAT_TRAINS, SELF, switch_dfh3_articulated_part, extra_callback_info1) {
@@ -34,9 +34,7 @@ switch (FEAT_TRAINS, SELF, switch_dfh3_cargo_subtype_livery, cargo_subtype) {
     3: return string(STR_LIAODONG);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_dfh3_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_dfh3_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_dfh3_cargo_subtype, cargo_subtype) {    switch_dfh3_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_dfh3_graphics_subtype, cargo_subtype) {
@@ -104,7 +102,7 @@ item (FEAT_TRAINS, dfh3) {
 
         // Stats
         length:                         switch_length_2_5_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    72;
         running_cost_factor:            53 * runningcostfactor();
         purchase_running_cost_factor:   212;

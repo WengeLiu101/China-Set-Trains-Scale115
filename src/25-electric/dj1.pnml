@@ -4,15 +4,15 @@
 
 // Purchase Menu
 spriteset (spriteset_dj1_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-electric", "dj1-front")
+    template_purchase_c8 ("25-electric", "dj1-front")
 }
 
 // Vehicle
 spriteset (spriteset_dj1_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "dj1-front")
+    template_std_c8 ("25-electric", "dj1-front")
 }
 spriteset (spriteset_dj1_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "dj1-back")
+    template_std_c8 ("25-electric", "dj1-back")
 }
 
 switch (FEAT_TRAINS, SELF, switch_dj1_articulated_part, extra_callback_info1) {

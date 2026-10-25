@@ -1,15 +1,22 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_598a612c_80_3, position_in_articulated_veh % 3) {
+    0: return 27;
+    1: return 27;
+    2: return 26;
+}
+
 //Begin RZ25SM
 
 // Graphics
 
 // Purchase Menu
 spriteset (spriteset_rz25sm_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25", "rz25-sm")
+    template_purchase_c12 ("coaches/25", "rz25-sm")
 }
 
 // Vehicle
 spriteset (spriteset_rz25sm_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25", "rz25-sm")
+    template_std_c12 ("coaches/25", "rz25-sm")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz25sm_articulated_part, extra_callback_info1) {
@@ -82,7 +89,7 @@ item (FEAT_TRAINS, rz25sm) {
         cost_factor:                    9;
         running_cost_factor:            6 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   24;
-        purchase_cargo_capacity:        80/3;
+        purchase_cargo_capacity: switch_pcap_598a612c_80_3;
         name:                           switch_25sm_name;
 
     }

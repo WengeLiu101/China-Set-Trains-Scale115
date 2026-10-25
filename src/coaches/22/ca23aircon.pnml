@@ -10,18 +10,18 @@ switch (FEAT_TRAINS, SELF, switch_ca23aircon_name, getbits(extra_callback_info1,
 
 // Purchase Menu
 spriteset (spriteset_ca23aircon_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "ca23aircon")
+    template_purchase_c11 ("coaches", "ca23aircon")
 }
 
 // Vehicle
 spriteset (spriteset_ca23aircon_beijing2shanghai, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "ca23aircon")
+    template_std_c11 ("coaches", "ca23aircon")
 }
 spriteset (spriteset_ca23aircon_alternative, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "ca23aircon-alternative")
+    template_std_c11 ("coaches", "ca23aircon-alternative")
 }
 spriteset (spriteset_ca23aircon_guangzhou, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "ca23aircon-guangzhou")
+    template_std_c11 ("coaches", "ca23aircon-guangzhou")
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca23aircon_articulated_part, extra_callback_info1) {
@@ -52,8 +52,8 @@ switch (FEAT_TRAINS, SELF, switch_ca23aircon_graphics, position_in_articulated_v
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca23aircon_capacity, position_in_articulated_veh % 3) {
-    1: return 48;
-    return 0;
+    1: return 46;
+    return 1;
 }
 
 

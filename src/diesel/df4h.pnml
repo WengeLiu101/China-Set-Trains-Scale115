@@ -24,9 +24,7 @@ switch (FEAT_TRAINS, SELF, switch_df4h_cargo_subtype_livery, cargo_subtype) {
     3: return string(STR_UKRAINE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_df4h_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_df4h_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_df4h_cargo_subtype, cargo_subtype) {    switch_df4h_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df4h_graphics, position_in_articulated_veh % 3) {
@@ -87,7 +85,7 @@ item (FEAT_TRAINS, df4h) {
 
         // Stats
         length:                         switch_length_2_6_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    54;
         running_cost_factor:            51 * runningcostfactor();
         purchase_running_cost_factor:   204;

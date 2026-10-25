@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_d85645bc_118_3, position_in_articulated_veh % 3) {
+    0: return 40;
+    1: return 39;
+    2: return 39;
+}
+
 // Begin YZ25K
 switch (FEAT_TRAINS, SELF, switch_yz25k_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25K_SERIES);
@@ -13,21 +20,21 @@ switch (FEAT_TRAINS, SELF, switch_yz25k_articulated_part, extra_callback_info1) 
 // Purchase Menu
 
 spriteset (spriteset_yz25k_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25k", "yz25k")
+    template_purchase_c12 ("coaches/25k", "yz25k")
 }
 
 // Vehicle
 spriteset (spriteset_yz25k_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "yz25k")
+    template_std_c12 ("coaches/25k", "yz25k")
 }
 spriteset (spriteset_yz25k_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "yz25k-green")
+    template_std_c12 ("coaches/25k", "yz25k-green")
 }
 spriteset (spriteset_yz25k_gmsr, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "yz25k-gmsr")
+    template_std_c12 ("coaches/25k", "yz25k-gmsr")
 }
 spriteset (spriteset_yz25k_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "yz25k-guangshen")
+    template_std_c12 ("coaches/25k", "yz25k-guangshen")
 }
 
 switch (FEAT_TRAINS, SELF, switch_yz25k_cargo_subtype_livery, cargo_subtype) {
@@ -68,8 +75,8 @@ switch (FEAT_TRAINS, SELF, switch_yz25k_graphics, position_in_articulated_veh % 
 
 //Cap
 switch (FEAT_TRAINS, SELF, switch_yz25k_capacity, position_in_articulated_veh % 3) {
-    1: return 118;
-    return 0;
+    1: return 116;
+    return 1;
 }
 
 
@@ -125,7 +132,7 @@ item (FEAT_TRAINS, yz25k) {
         cost_factor:                    9;
         running_cost_factor:            7 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   28;
-        purchase_cargo_capacity:        118/3;
+        purchase_cargo_capacity: switch_pcap_d85645bc_118_3;
         name:                           switch_yz25k_name;
     }
 }

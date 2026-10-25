@@ -4,15 +4,15 @@
 
 // Purchase Menu
 spriteset (spriteset_x2000_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-emu", "x2000-m")
+    template_purchase_c10 ("25-emu", "x2000-m")
 }
 
 // Vehicle
 spriteset (spriteset_x2000_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "x2000-m")
+    template_std_c10 ("25-emu", "x2000-m")
 }
 spriteset (spriteset_x2000_middle, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "x2000-t")
+    template_std_c12 ("25-emu", "x2000-t")
 }
 spriteset (spriteset_x2000_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "x2000-tc")
@@ -111,7 +111,7 @@ item (FEAT_TRAINS, x2000) {
         can_attach_wagon:               onlyzy;
         start_stop:                     mu4to12car;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_x2000_graphics;
         purchase:                       spriteset_x2000_purchase_original;
         articulated_part:               switch_x2000_articulated_part;

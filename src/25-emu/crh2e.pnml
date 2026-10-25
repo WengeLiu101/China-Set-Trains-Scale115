@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_dbd4528e_55_3, position_in_articulated_veh % 3) {
+    0: return 19;
+    1: return 18;
+    2: return 18;
+}
+
 //Begin CRH2E
 switch (FEAT_TRAINS, SELF, switch_crh2e_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_CRH2_SERIES);
@@ -17,11 +24,11 @@ spriteset (spriteset_crh2e_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh2e-c")
 }
 spriteset (spriteset_crh2e_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh2e-m")
+    template_std_c12 ("25-emu", "crh2e-m")
 }
 
 spriteset (spriteset_crh2e_middle_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh2e-p")
+    template_std_c12 ("25-emu", "crh2e-p")
 }
 spriteset (spriteset_crh2e_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh2e-c")
@@ -317,7 +324,7 @@ item (FEAT_TRAINS, crh2e) {
         additional_text:                string(STR_DESC_5, string(STR_CRH_SLEEPER_CAN_ATTACH_WAGON), string(STR_CRH2E_NICKNAME), string(STR_RELDEC_HIGH, 20), string(STR_CRH2E_CONSIST), string(STR_CRH2E_HEAD_SEAT));
         can_attach_wagon:               crhsleeperonly;
         start_stop:                     mu4to24car;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh2e_graphics;
         purchase:                       spriteset_crh2e_purchase_original;
         articulated_part:               switch_crh2e_articulated_part;
@@ -332,7 +339,7 @@ item (FEAT_TRAINS, crh2e) {
         cost_factor:                    50;
         running_cost_factor:            45 * runningcostfactor() * cafecostfactor() + 20;
         purchase_running_cost_factor:   200;
-        purchase_cargo_capacity:        55/3;
+        purchase_cargo_capacity: switch_pcap_dbd4528e_55_3;
         name:                            switch_crh2e_name;
 
     }

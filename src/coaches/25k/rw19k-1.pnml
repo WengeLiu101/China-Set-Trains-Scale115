@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_0000add1_16_3, position_in_articulated_veh % 3) {
+    0: return 6;
+    1: return 5;
+    2: return 5;
+}
+
 //Begin RW19K_1
 switch (FEAT_TRAINS, SELF, switch_rw19k_1_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25K_SERIES);
@@ -9,12 +16,12 @@ switch (FEAT_TRAINS, SELF, switch_rw19k_1_name, getbits(extra_callback_info1, 0,
 
 // Purchase Menu
 spriteset (spriteset_rw19k_1_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25k","rw19kearly")
+    template_purchase_c12 ("coaches/25k", "rw19kearly")
 }
 
 //Vehicle
 spriteset (spriteset_rw19k_1, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw19kearly")
+    template_std_c12 ("coaches/25k", "rw19kearly")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw19k_1_articulated_part, extra_callback_info1) {
@@ -85,7 +92,7 @@ item (FEAT_TRAINS, rw19k_1) {
         cost_factor:                    17;
         running_cost_factor:            14 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   56;
-        purchase_cargo_capacity:        16/3;
+        purchase_cargo_capacity: switch_pcap_0000add1_16_3;
         name:                            switch_rw19k_1_name;
 
     }

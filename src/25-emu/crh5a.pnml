@@ -15,7 +15,7 @@ spriteset (spriteset_crh5a_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/crh5a", "crh5a-mc")
 }
 spriteset (spriteset_crh5a_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/crh5a", "crh5a-m")
+    template_std_c12 ("25-emu/crh5a", "crh5a-m")
 }
 spriteset (spriteset_crh5a_middle_tp, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/crh5a", "crh5a-tp")
@@ -37,7 +37,7 @@ spriteset (spriteset_crh5a_front_prototype, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/crh5a", "crh5a-mc-prototype")
 }
 spriteset (spriteset_crh5a_middle_m_prototype, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/crh5a", "crh5a-m-prototype")
+    template_std_c12 ("25-emu/crh5a", "crh5a-m-prototype")
 }
 spriteset (spriteset_crh5a_middle_tp_prototype, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/crh5a", "crh5a-tp-prototype")
@@ -101,14 +101,17 @@ switch (FEAT_TRAINS, SELF, switch_crh5a_graphics, position_in_articulated_veh % 
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh5a_head_capacity, position_in_articulated_veh % 3) {
-    1: return 60;
-    return 0;
+    1: return 58;
+    return 1;
 }
 
-switch (FEAT_TRAINS, SELF, swtich_crh5a_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, swtich_crh5a_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_LATER);
     1: return string(STR_EARLIER);
     return CB_RESULT_NO_TEXT;
+
+}
+switch (FEAT_TRAINS, SELF, swtich_crh5a_cargo_subtype, cargo_subtype) {    swtich_crh5a_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh5a_middle_graphics_unit_front, (position_in_consist / 3) + 1) {
@@ -309,7 +312,7 @@ item (FEAT_TRAINS, crh5a) {
         can_attach_wagon:               crhwagon;
         start_stop:                     mu4to24car;
         cargo_subtype_text:             swtich_crh5a_cargo_subtype;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh5a_graphics;
         purchase:                       spriteset_crh5a_purchase_original;
         articulated_part:               switch_crh5a_articulated_part;

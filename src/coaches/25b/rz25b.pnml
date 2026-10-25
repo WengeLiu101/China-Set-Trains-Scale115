@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_1b70a688_80_3, position_in_articulated_veh % 3) {
+    0: return 27;
+    1: return 27;
+    2: return 26;
+}
+
 //Begin RZ25B
 switch (FEAT_TRAINS, SELF, switch_rz25b_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25B_SERIES);
@@ -8,15 +15,15 @@ switch (FEAT_TRAINS, SELF, switch_rz25b_name, getbits(extra_callback_info1, 0, 8
 // Graphics
 
 spriteset (spriteset_rz25b_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25b/rz25b")
+    template_purchase_c12 ("coaches", "25b/rz25b")
 }
 
 // Vehicle
 spriteset (spriteset_rz25b_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/rz25b")
+    template_std_c12 ("coaches", "25b/rz25b")
 }
 spriteset (spriteset_rz25b_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/rz25b-green")
+    template_std_c12 ("coaches", "25b/rz25b-green")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz25b_articulated_part, extra_callback_info1) {
@@ -57,8 +64,8 @@ switch (FEAT_TRAINS, SELF, switch_rz25b_graphics, position_in_articulated_veh % 
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz25b_capacity, position_in_articulated_veh % 3) {
-    1: return 80;
-    return 0;
+    1: return 78;
+    return 1;
 }
 
 
@@ -115,7 +122,7 @@ item (FEAT_TRAINS, rz25b) {
         cost_factor:                    8;
         running_cost_factor:            5 * runningcostfactor() * cafecostfactor(); // NO AIR CONDITIONER
         purchase_running_cost_factor:   20;
-        purchase_cargo_capacity:        80/3;
+        purchase_cargo_capacity: switch_pcap_1b70a688_80_3;
         name:                            switch_rz25b_name;
 
     }

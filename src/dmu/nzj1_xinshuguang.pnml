@@ -4,18 +4,18 @@
 
 // Purchase Menu
 spriteset (spriteset_nzj1_xinshuguang_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("dmu", "nzj17000")
+    template_purchase_c10 ("dmu", "nzj17000")
 }
 
 // Vehicle
 spriteset (spriteset_nzj1_xinshuguang_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("dmu", "nzj17000")
+    template_std_c10 ("dmu", "nzj17000")
 }
 spriteset (spriteset_nzj1_xinshuguang_middle, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("dmu", "s25dt-xinshuguang")
+    template_std_c12 ("dmu", "s25dt-xinshuguang")
 }
 spriteset (spriteset_nzj1_xinshuguang_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("dmu", "nzj17000-reverse")
+    template_std_c10 ("dmu", "nzj17000-reverse")
 }
 
 switch (FEAT_TRAINS, SELF, switch_nzj1_xinshuguang_articulated_part, extra_callback_info1) {

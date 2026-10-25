@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_cb58f6cb_61_3, position_in_articulated_veh % 3) {
+    0: return 21;
+    1: return 20;
+    2: return 20;
+}
+
 //Begin CRH1E
 switch (FEAT_TRAINS, SELF, switch_crh1e_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_CRH1_SERIES);
@@ -17,7 +24,7 @@ spriteset (spriteset_crh1e_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh1e-c")
 }
 spriteset (spriteset_crh1e_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh1e-m")
+    template_std_c12 ("25-emu", "crh1e-m")
 }
 spriteset (spriteset_crh1e_middle_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh1e-p")
@@ -239,7 +246,7 @@ item (FEAT_TRAINS, crh1e) {
         start_stop:                     mu4car;
         
         
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh1e_graphics;
         purchase:                       spriteset_crh1e_purchase_original;
         articulated_part:               switch_crh1e_articulated_part;
@@ -251,7 +258,7 @@ item (FEAT_TRAINS, crh1e) {
         cost_factor:                    62;
         running_cost_factor:            48 * runningcostfactor() * cafecostfactor() + 20;
         purchase_running_cost_factor:   212;
-        purchase_cargo_capacity:        61/3;
+        purchase_cargo_capacity: switch_pcap_cb58f6cb_61_3;
         name:                           switch_crh1e_name;
 
     }

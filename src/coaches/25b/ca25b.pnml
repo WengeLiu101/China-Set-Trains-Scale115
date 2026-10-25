@@ -9,18 +9,18 @@ switch (FEAT_TRAINS, SELF, switch_ca25b_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_ca25b_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25b", "ca25b")
+    template_purchase_c12 ("coaches/25b", "ca25b")
 }
 
 // Vehicle
 spriteset (spriteset_ca25b_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "ca25b")
+    template_std_c12 ("coaches/25b", "ca25b")
 }
 spriteset (spriteset_ca25b_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "ca25b-green")
+    template_std_c12 ("coaches/25b", "ca25b-green")
 }
 spriteset (spriteset_ca25b_xiyan, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "ca25b-xiyan")
+    template_std_c12 ("coaches/25b", "ca25b-xiyan")
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca25b_articulated_part, extra_callback_info1) {
@@ -35,9 +35,7 @@ switch (FEAT_TRAINS, SELF, switch_ca25b_cargo_subtype_livery, cargo_subtype) {
     3: return string(STR_XIYAN);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_ca25b_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_ca25b_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_ca25b_cargo_subtype, cargo_subtype) {    switch_ca25b_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca25b_graphics_subtype_year_depend, build_year) {
@@ -62,8 +60,8 @@ switch (FEAT_TRAINS, SELF, switch_ca25b_graphics, position_in_articulated_veh % 
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca25b_capacity, position_in_articulated_veh % 3) {
-    1: return 48;
-    return 0;
+    1: return 46;
+    return 1;
 }
 
 

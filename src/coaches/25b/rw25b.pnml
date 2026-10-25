@@ -9,42 +9,42 @@ switch (FEAT_TRAINS, SELF, switch_rw25b_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_rw25b_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25b/rw25b")
+    template_purchase_c12 ("coaches", "25b/rw25b")
 }
 
 // Vehicle
 spriteset (spriteset_rw25b_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/rw25b")
+    template_std_c12 ("coaches", "25b/rw25b")
 }
 spriteset (spriteset_rw25b_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/rw25b-green")
+    template_std_c12 ("coaches", "25b/rw25b-green")
 }
 spriteset (spriteset_rw25b_xiyan, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/rw25b-xiyan")
+    template_std_c12 ("coaches", "25b/rw25b-xiyan")
 }
 spriteset (spriteset_rw25b_baotou, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "rw25b-hhb")
+    template_std_c12 ("coaches/25b", "rw25b-hhb")
 }
 spriteset (spriteset_rw25b_jixu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "rw25b-jnx")
+    template_std_c12 ("coaches/25b", "rw25b-jnx")
 }
 spriteset (spriteset_rw25b_qingdao, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "rw25b-jqd")
+    template_std_c12 ("coaches/25b", "rw25b-jqd")
 }
 spriteset (spriteset_rw25b_shenji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "rw25b-ssj")
+    template_std_c12 ("coaches/25b", "rw25b-ssj")
 }
 spriteset (spriteset_rw25b_dalian, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "rw25b-sdl")
+    template_std_c12 ("coaches/25b", "rw25b-sdl")
 }
 spriteset (spriteset_rw25b_changchun, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "rw25b-scc")
+    template_std_c12 ("coaches/25b", "rw25b-scc")
 }
 spriteset (spriteset_rw25b_harbin, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "rw25b-sks")
+    template_std_c12 ("coaches/25b", "rw25b-sks")
 }
 spriteset (spriteset_rw25b_mujia, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "rw25b-hjm")
+    template_std_c12 ("coaches/25b", "rw25b-hjm")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw25b_articulated_part, extra_callback_info1) {
@@ -104,8 +104,8 @@ switch (FEAT_TRAINS, SELF, switch_rw25b_graphics, position_in_articulated_veh % 
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw25b_capacity, position_in_articulated_veh % 3) {
-    1: return 36;
-    return 0;
+    1: return 34;
+    return 1;
 }
 
 

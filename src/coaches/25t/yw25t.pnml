@@ -9,30 +9,30 @@ switch (FEAT_TRAINS, SELF, switch_yw25t_name, getbits(extra_callback_info1, 0, 8
 
 // // Purchase Menu
 spriteset (spriteset_yw25t_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25t/yw25t")
+    template_purchase_c12 ("coaches", "25t/yw25t")
 }
 
 // Vehicle
 spriteset (spriteset_yw25t_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/yw25t")
+    template_std_c12 ("coaches", "25t/yw25t")
 }
 spriteset (spriteset_yW25t_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/yw25t-green")
+    template_std_c12 ("coaches", "25t/yw25t-green")
 }
 spriteset (spriteset_yw25t_qingzang, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/yw25t-xz-1")
+    template_std_c12 ("coaches", "25t/yw25t-xz-1")
 }
 spriteset (spriteset_bspyw25t_qingzang, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/bspyw25t-xz")
+    template_std_c12 ("coaches", "25t/bspyw25t-xz")
 }
 spriteset (spriteset_yw25t_int_dprk, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/yw25t-int-dprk")
+    template_std_c12 ("coaches", "25t/yw25t-int-dprk")
 }
 spriteset (spriteset_yw25t_yili, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/yw25t-yili")
+    template_std_c12 ("coaches", "25t/yw25t-yili")
 }
 spriteset (spriteset_yw25t_2008, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/yw25t-2008")
+    template_std_c12 ("coaches", "25t/yw25t-2008")
 }
 
 switch (FEAT_TRAINS, SELF, switch_yw25t_articulated_part, extra_callback_info1) {
@@ -83,8 +83,8 @@ switch (FEAT_TRAINS, SELF, switch_yw25t_graphics, position_in_articulated_veh % 
 
 
 switch (FEAT_TRAINS, SELF, switch_yw25t_capacity, position_in_articulated_veh % 3) {
-    1: return 66;
-    return 0;
+    1: return 64;
+    return 1;
 }
 
 

@@ -7,11 +7,11 @@ spriteset (spriteset_sy_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 spriteset (spriteset_sy_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "shangyou-front")
+    template_std_c8 ("steam", "shangyou-front")
 }
 
 spriteset (spriteset_sy_tender, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "shangyou-tender")
+    template_std_c6 ("steam", "shangyou-tender")
 }
 
 switch (FEAT_TRAINS, SELF, switch_sy_articulated_part, extra_callback_info1) {

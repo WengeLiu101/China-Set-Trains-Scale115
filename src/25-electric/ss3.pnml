@@ -4,30 +4,30 @@
 
 // Purchase Menu
 spriteset (spriteset_ss3_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-electric", "ss3")
+    template_purchase_c10 ("25-electric", "ss3")
 }
 
 // Vehicle
 spriteset (spriteset_ss3_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss3")
+    template_std_c10 ("25-electric", "ss3")
 }
 spriteset (spriteset_ss3_blue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss3-blue")
+    template_std_c10 ("25-electric", "ss3-blue")
 }
 spriteset (spriteset_ss3_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss3-red")
+    template_std_c10 ("25-electric", "ss3-red")
 }
 spriteset (spriteset_ss3_grassgreen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss3-grassgreen")
+    template_std_c10 ("25-electric", "ss3-grassgreen")
 }
 spriteset (spriteset_ss3_fuzhou, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss3-fuzhou")
+    template_std_c10 ("25-electric", "ss3-fuzhou")
 }
 spriteset (spriteset_ss3_shenhua, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss3-shenhua")
+    template_std_c10 ("25-electric", "ss3-shenhua")
 }
 spriteset (spriteset_ss3_remembrance, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss3-remembrance")
+    template_std_c10 ("25-electric", "ss3-remembrance")
 }
 
 switch (FEAT_TRAINS, SELF, switch_ss3_articulated_part, extra_callback_info1) {
@@ -55,9 +55,7 @@ switch (FEAT_TRAINS, SELF, switch_ss3_cargo_subtype_livery, cargo_subtype) {
     6: return string(STR_REMEMBRANCE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_ss3_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_ss3_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_ss3_cargo_subtype, cargo_subtype) {    switch_ss3_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_ss3_graphics, position_in_articulated_veh % 3) {
@@ -115,7 +113,7 @@ item (FEAT_TRAINS, ss3) {
 
         // Stats
         length:                         switch_length_2_6_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    87;
         running_cost_factor:            71 * runningcostfactor();
         purchase_running_cost_factor:   284;

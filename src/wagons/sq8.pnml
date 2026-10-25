@@ -20,7 +20,7 @@ spriteset (spriteset_sq8_side_r, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("wagons/jsq8", "jsq8-side")
 }
 spriteset (spriteset_sq8_middle, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/jsq8", "jsq8-among")
+    template_std_c11 ("wagons/jsq8", "jsq8-among")
 }
 
 spriteset (spriteset_sq8_side_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
@@ -30,7 +30,7 @@ spriteset (spriteset_sq8_side_r_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("wagons/jsq8", "jsq8-side-fill")
 }
 spriteset (spriteset_sq8_middle_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/jsq8", "jsq8-among-fill")
+    template_std_c11 ("wagons/jsq8", "jsq8-among-fill")
 }
 
 switch (FEAT_TRAINS, SELF, switch_sq8_articulated_part, extra_callback_info1) {

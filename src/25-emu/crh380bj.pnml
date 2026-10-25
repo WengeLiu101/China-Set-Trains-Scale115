@@ -18,7 +18,7 @@ spriteset(spriteset_crh380bj_m03, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed("25-emu/crh380bj", "crh380bj-m03")
 }
 spriteset(spriteset_crh380bj_m04, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard("25-emu/crh380bj", "crh380bj-m04")
+    template_std_c12 ("25-emu/crh380bj", "crh380bj-m04")
 }
 spriteset(spriteset_crh380bj_m05, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed("25-emu/crh380bj", "crh380bj-m05")
@@ -27,7 +27,7 @@ spriteset(spriteset_crh380bj_m06, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed("25-emu/crh380bj", "crh380bj-m06")
 }
 spriteset(spriteset_crh380bj_tp, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard("25-emu/crh380bj", "crh380bj-tp")
+    template_std_c12 ("25-emu/crh380bj", "crh380bj-tp")
 }
 spriteset(spriteset_crh380bj_rear, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed("25-emu/crh380bj", "crh380bj-c")
@@ -70,9 +70,7 @@ switch (FEAT_TRAINS, SELF, switch_crh380bj_cargo_subtype_livery, cargo_subtype) 
     0: return string(STR_ORIGIN_SPEED);
     1: return string(STR_CRH380BJ_EXPERIMENTAL_SPEED);
 }
-switch (FEAT_TRAINS, SELF, switch_crh380bj_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_crh380bj_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_crh380bj_cargo_subtype, cargo_subtype) {    switch_crh380bj_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, onlycrh380bj, vehicle_type_id) {
@@ -127,7 +125,7 @@ item (FEAT_TRAINS, crh380bj) {
         start_stop:                     mu4to24car;
         cargo_subtype_text:             switch_crh380bj_cargo_subtype;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh380bj_graphics;
         purchase:                       spriteset_crh380bj_purchase_original;
         articulated_part:               switch_crh380bj_articulated_part;
@@ -135,7 +133,7 @@ item (FEAT_TRAINS, crh380bj) {
         // Stats
         length:                         switch_length_2_8_2;
         speed:                          switch_crh380bj_speed;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    80;
         running_cost_factor:            0;
         purchase_running_cost_factor:   0;

@@ -12,7 +12,7 @@ spriteset (spriteset_beihai_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("dmu", "nyj1-beihai-c")
 }
 spriteset (spriteset_beihai_middle, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("dmu", "nyj1-beihai-t")
+    template_std_c12 ("dmu", "nyj1-beihai-t")
 }
 spriteset (spriteset_beihai_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("dmu", "nyj1-beihai-c")

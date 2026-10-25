@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_818d9b8a_80_3, position_in_articulated_veh % 3) {
+    0: return 27;
+    1: return 27;
+    2: return 26;
+}
+
 //Begin C80
 switch (FEAT_TRAINS, SELF, switch_c80_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_GONDOLA);
@@ -9,92 +16,92 @@ switch (FEAT_TRAINS, SELF, switch_c80_name, getbits(extra_callback_info1, 0, 8) 
 
 // Purchase Menu
 spriteset (spriteset_c80_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons/c80", "c80-white-lead")
+    template_purchase_c6 ("wagons/c80", "c80-white-lead")
 }
 
 // Vehicle
 spriteset (spriteset_c80_black_lead_empty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-black-lead")
+    template_std_c6 ("wagons/c80", "c80-black-lead")
 }
 spriteset (spriteset_c80_black_lead_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-black-lead-half")
+    template_std_c6 ("wagons/c80", "c80-black-lead-half")
 }
 spriteset (spriteset_c80_black_lead_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-black-lead-full")
+    template_std_c6 ("wagons/c80", "c80-black-lead-full")
 }
 spriteset (spriteset_c80_black_middle_empty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-black-middle")
+    template_std_c6 ("wagons/c80", "c80-black-middle")
 }
 spriteset (spriteset_c80_black_middle_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-black-middle-half")
+    template_std_c6 ("wagons/c80", "c80-black-middle-half")
 }
 spriteset (spriteset_c80_black_middle_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-black-middle-full")
+    template_std_c6 ("wagons/c80", "c80-black-middle-full")
 }
 spriteset (spriteset_c80_black_rear_empty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-black-rear")
+    template_std_c6 ("wagons/c80", "c80-black-rear")
 }
 spriteset (spriteset_c80_black_rear_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-black-rear-half")
+    template_std_c6 ("wagons/c80", "c80-black-rear-half")
 }
 spriteset (spriteset_c80_black_rear_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-black-rear-full")
+    template_std_c6 ("wagons/c80", "c80-black-rear-full")
 }
 
 spriteset (spriteset_c80_blue_lead_empty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-blue-lead")
+    template_std_c6 ("wagons/c80", "c80-blue-lead")
 }
 spriteset (spriteset_c80_blue_lead_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-blue-lead-half")
+    template_std_c6 ("wagons/c80", "c80-blue-lead-half")
 }
 spriteset (spriteset_c80_blue_lead_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-blue-lead-full")
+    template_std_c6 ("wagons/c80", "c80-blue-lead-full")
 }
 spriteset (spriteset_c80_blue_middle_empty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-blue-middle")
+    template_std_c6 ("wagons/c80", "c80-blue-middle")
 }
 spriteset (spriteset_c80_blue_middle_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-blue-middle-half")
+    template_std_c6 ("wagons/c80", "c80-blue-middle-half")
 }
 spriteset (spriteset_c80_blue_middle_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-blue-middle-full")
+    template_std_c6 ("wagons/c80", "c80-blue-middle-full")
 }
 spriteset (spriteset_c80_blue_rear_empty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-blue-rear")
+    template_std_c6 ("wagons/c80", "c80-blue-rear")
 }
 spriteset (spriteset_c80_blue_rear_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-blue-rear-half")
+    template_std_c6 ("wagons/c80", "c80-blue-rear-half")
 }
 spriteset (spriteset_c80_blue_rear_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-blue-rear-full")
+    template_std_c6 ("wagons/c80", "c80-blue-rear-full")
 }
 
 spriteset (spriteset_c80_white_lead_empty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-white-lead")
+    template_std_c6 ("wagons/c80", "c80-white-lead")
 }
 spriteset (spriteset_c80_white_lead_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-white-lead-half")
+    template_std_c6 ("wagons/c80", "c80-white-lead-half")
 }
 spriteset (spriteset_c80_white_lead_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-white-lead-full")
+    template_std_c6 ("wagons/c80", "c80-white-lead-full")
 }
 spriteset (spriteset_c80_white_middle_empty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-white-middle")
+    template_std_c6 ("wagons/c80", "c80-white-middle")
 }
 spriteset (spriteset_c80_white_middle_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-white-middle-half")
+    template_std_c6 ("wagons/c80", "c80-white-middle-half")
 }
 spriteset (spriteset_c80_white_middle_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-white-middle-full")
+    template_std_c6 ("wagons/c80", "c80-white-middle-full")
 }
 spriteset (spriteset_c80_white_rear_empty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-white-rear")
+    template_std_c6 ("wagons/c80", "c80-white-rear")
 }
 spriteset (spriteset_c80_white_rear_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-white-rear-half")
+    template_std_c6 ("wagons/c80", "c80-white-rear-half")
 }
 spriteset (spriteset_c80_white_rear_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/c80", "c80-white-rear-full")
+    template_std_c6 ("wagons/c80", "c80-white-rear-full")
 }
 
 /* switch (FEAT_TRAINS, SELF, switch_c80_black_coal, cargo_count < 54) {
@@ -207,10 +214,10 @@ switch (FEAT_TRAINS, SELF, switch_c80_graphics, position_in_articulated_veh % 3)
 
 
 switch (FEAT_TRAINS, SELF, switch_c80_capacity, position_in_articulated_veh % 9) {
-    1: return 80;
-    4: return 80;
-    7: return 80;
-    return 0;
+    1: return 78;
+    4: return 78;
+    7: return 78;
+    return 1;
 }
 
 
@@ -280,7 +287,7 @@ item (FEAT_TRAINS, c80) {
         cost_factor:                    18;
         running_cost_factor:            15 * runningcostfactor();
         purchase_running_cost_factor:   20;
-        purchase_cargo_capacity:        80/3;
+        purchase_cargo_capacity: switch_pcap_818d9b8a_80_3;
         name:                           switch_c80_name;
 
     }

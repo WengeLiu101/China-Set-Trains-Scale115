@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_8bfa03d8_71_3, position_in_articulated_veh % 3) {
+    0: return 24;
+    1: return 24;
+    2: return 23;
+}
+
 //Begin XL25ML
 switch (FEAT_TRAINS, SELF, switch_xl25ml_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25_SERIES);
@@ -9,15 +16,15 @@ switch (FEAT_TRAINS, SELF, switch_xl25ml_name, getbits(extra_callback_info1, 0, 
 
 // Purchase Menu
 spriteset (spriteset_xl25ml_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25", "xl25ml-green")
+    template_purchase_c12 ("coaches/25", "xl25ml-green")
 }
 
 // Vehicle
 spriteset (spriteset_xl25ml_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25", "xl25ml-green")
+    template_std_c12 ("coaches/25", "xl25ml-green")
 }
 spriteset (spriteset_xl25ml_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25", "xl25ml-red")
+    template_std_c12 ("coaches/25", "xl25ml-red")
 }
 
 switch (FEAT_TRAINS, SELF, switch_xl25ml_articulated_part, extra_callback_info1) {
@@ -53,8 +60,8 @@ switch (FEAT_TRAINS, SELF, switch_xl25ml_graphics, position_in_articulated_veh %
 }
 
 switch (FEAT_TRAINS, SELF, switch_xl25ml_capacity, position_in_articulated_veh % 3) {
-    1: return 71;
-    return 0;
+    1: return 69;
+    return 1;
 }
 
 
@@ -111,7 +118,7 @@ item (FEAT_TRAINS, xl25ml) {
         cost_factor:                    7;
         running_cost_factor:            5 * runningcostfactor();
         purchase_running_cost_factor:   20;
-        purchase_cargo_capacity:        71/3;
+        purchase_cargo_capacity: switch_pcap_8bfa03d8_71_3;
         name:                            switch_xl25ml_name;
 
     }

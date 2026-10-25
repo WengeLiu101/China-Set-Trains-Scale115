@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_90c751c0_148_3, position_in_articulated_veh % 3) {
+    0: return 50;
+    1: return 49;
+    2: return 49;
+}
+
 // Begin SYZ25KLD
 switch (FEAT_TRAINS, SELF, switch_s25k_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_S25K_SERIES);
@@ -7,12 +14,12 @@ switch (FEAT_TRAINS, SELF, switch_s25k_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_syz25kld_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25k/syz25kld-luchaogang")
+    template_purchase_c12 ("coaches", "25k/syz25kld-luchaogang")
 }
 
 // Vehicle
 spriteset (spriteset_syz25kld_luchaogang, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25k/syz25kld-luchaogang")
+    template_std_c12 ("coaches", "25k/syz25kld-luchaogang")
 }
 
 switch (FEAT_TRAINS, SELF, switch_syz25kld_articulated_part, extra_callback_info1) {
@@ -82,7 +89,7 @@ item (FEAT_TRAINS, syz25kld) {
         cost_factor:                    10;
         running_cost_factor:            8 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   32;
-        purchase_cargo_capacity:        148/3;
+        purchase_cargo_capacity: switch_pcap_90c751c0_148_3;
         name:                           switch_s25k_name;
     }
 }

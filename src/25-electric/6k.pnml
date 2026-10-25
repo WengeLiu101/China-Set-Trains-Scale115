@@ -4,12 +4,12 @@
 
 // Purchase Menu
 spriteset (spriteset_6k_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-electric", "6k")
+    template_purchase_c10 ("25-electric", "6k")
 }
 
 // Vehicle
 spriteset (spriteset_6k_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "6k")
+    template_std_c10 ("25-electric", "6k")
 }
 
 switch (FEAT_TRAINS, SELF, switch_6k_articulated_part, extra_callback_info1) {

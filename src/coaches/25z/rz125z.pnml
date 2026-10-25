@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_11a280a4_80_3, position_in_articulated_veh % 3) {
+    0: return 27;
+    1: return 27;
+    2: return 26;
+}
+
 //Begin RZ125Z
 switch (FEAT_TRAINS, SELF, switch_rz125z_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25Z_SERIES);
@@ -9,48 +16,48 @@ switch (FEAT_TRAINS, SELF, switch_rz125z_name, getbits(extra_callback_info1, 0, 
 
 // Purchase Menu
 spriteset (spriteset_rz125z_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25z", "rz125z")
+    template_purchase_c12 ("coaches/25z", "rz125z")
 }
 
 // Vehicle
 spriteset (spriteset_rz125z_xizi, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z")
+    template_std_c12 ("coaches/25z", "rz125z")
 }
 /* spriteset (spriteset_rz125z_xizi_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-green")
+    template_std_c12 ("coaches/25z", "rz125z-green")
 } */
 spriteset (spriteset_rz125z_beijing, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-beijing")
+    template_std_c12 ("coaches/25z", "rz125z-beijing")
 }
 spriteset (spriteset_rz125z_beijing_colourfading, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-beijing-colourfading")
+    template_std_c12 ("coaches/25z", "rz125z-beijing-colourfading")
 }
 spriteset (spriteset_rz125z_guangzhou_changke_a, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-guangzhou-changke-a")
+    template_std_c12 ("coaches/25z", "rz125z-guangzhou-changke-a")
 }
 spriteset (spriteset_rz125z_guangzhou_changke_b, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-guangzhou-changke-b")
+    template_std_c12 ("coaches/25z", "rz125z-guangzhou-changke-b")
 }
 spriteset (spriteset_rz125z_guangzhou_changke_skirts, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-guangzhou-changke-skirts")
+    template_std_c12 ("coaches/25z", "rz125z-guangzhou-changke-skirts")
 }
 spriteset (spriteset_rz125z_guangzhou_sifang_a, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-guangzhou-sifang-a")
+    template_std_c12 ("coaches/25z", "rz125z-guangzhou-sifang-a")
 }
 spriteset (spriteset_rz125z_guangzhou_sifang_b, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-guangzhou-sifang-b")
+    template_std_c12 ("coaches/25z", "rz125z-guangzhou-sifang-b")
 }
 spriteset (spriteset_rz125z_guangzhou_sifang_skirts, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-guangzhou-sifang-skirts")
+    template_std_c12 ("coaches/25z", "rz125z-guangzhou-sifang-skirts")
 }
 spriteset (spriteset_rz125z_guangzhou_sifang_skirts_gs, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-guangzhou-sifang-skirts-gs")
+    template_std_c12 ("coaches/25z", "rz125z-guangzhou-sifang-skirts-gs")
 }
 /* spriteset (spriteset_rz125z_guangzhou_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-guangzhou-green")
+    template_std_c12 ("coaches/25z", "rz125z-guangzhou-green")
 } */
 spriteset (spriteset_rz125z_wuhan, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "rz125z-wuhan")
+    template_std_c12 ("coaches/25z", "rz125z-wuhan")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz125z_articulated_part, extra_callback_info1) {
@@ -114,8 +121,8 @@ switch (FEAT_TRAINS, SELF, switch_rz125z_graphics, position_in_articulated_veh %
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz125z_capacity, position_in_articulated_veh % 3) {
-    1: return 80;
-    return 0;
+    1: return 78;
+    return 1;
 }
 
 
@@ -173,7 +180,7 @@ item (FEAT_TRAINS, rz125z) {
         cost_factor:                    11;
         running_cost_factor:            10 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   40;
-        purchase_cargo_capacity:        80/3;
+        purchase_cargo_capacity: switch_pcap_11a280a4_80_3;
         name:                            switch_rz125z_name;
 
     }

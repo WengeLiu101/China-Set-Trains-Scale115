@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_1bdb835e_50_3, position_in_articulated_veh % 3) {
+    0: return 17;
+    1: return 17;
+    2: return 16;
+}
+
 // Begin N5
 switch (FEAT_TRAINS, SELF, switch_n5_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_FLATCAR);
@@ -7,30 +14,30 @@ switch (FEAT_TRAINS, SELF, switch_n5_name, getbits(extra_callback_info1, 0, 8) =
 
 // Purchase Menu
 spriteset (spriteset_n5_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons/n5", "n5")
+    template_purchase_c5 ("wagons/n5", "n5")
 }
 
 // Vehicle
 spriteset (spriteset_n5_original_empty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/n5", "n5")
+    template_std_c5 ("wagons/n5", "n5")
 }
 spriteset (spriteset_n5_original_bucket_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/n5", "n5-bucket-half")
+    template_std_c5 ("wagons/n5", "n5-bucket-half")
 }
 spriteset (spriteset_n5_original_bucket_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/n5", "n5-bucket-full")
+    template_std_c5 ("wagons/n5", "n5-bucket-full")
 }
 spriteset (spriteset_n5_original_goods_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/n5", "n5-goods-half")
+    template_std_c5 ("wagons/n5", "n5-goods-half")
 }
 spriteset (spriteset_n5_original_goods_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/n5", "n5-goods-full")
+    template_std_c5 ("wagons/n5", "n5-goods-full")
 }
 spriteset (spriteset_n5_original_metal_half, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/n5", "n5-steel-half")
+    template_std_c5 ("wagons/n5", "n5-steel-half")
 }
 spriteset (spriteset_n5_original_metal_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/n5", "n5-steel-full")
+    template_std_c5 ("wagons/n5", "n5-steel-full")
 }
 
 switch (FEAT_TRAINS, SELF, switch_n5_original_metal, cargo_count < 30) {
@@ -181,7 +188,7 @@ item (FEAT_TRAINS, n5) {
         cost_factor:                    5;
         running_cost_factor:            3 * runningcostfactor();
         purchase_running_cost_factor:   12;
-        purchase_cargo_capacity:        50/3;
+        purchase_cargo_capacity: switch_pcap_1bdb835e_50_3;
         name:                           switch_n5_name;
     }
 }

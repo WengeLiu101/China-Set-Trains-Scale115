@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_436b2503_16_3, position_in_articulated_veh % 3) {
+    0: return 6;
+    1: return 5;
+    2: return 5;
+}
+
 // Begin CRH380B
 
 switch (FEAT_TRAINS, SELF, switch_crh380b_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
@@ -17,7 +24,7 @@ spriteset (spriteset_crh380b_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh380b-c")
 }
 spriteset (spriteset_crh380b_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh380b-m")
+    template_std_c12 ("25-emu", "crh380b-m")
 }
 spriteset (spriteset_crh380b_middle_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh380b-tp")
@@ -46,8 +53,8 @@ switch (FEAT_TRAINS, SELF, switch_crh380b_graphics, position_in_articulated_veh 
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh380b_head_capacity, position_in_articulated_veh % 3) {
-    1: return 16;
-    return 0;
+    1: return 14;
+    return 1;
 }
 /* 
 switch (FEAT_TRAINS, SELF, switch_crh380b_short_graphics, (position_in_consist_from_end == position_in_consist) || (position_in_consist_from_end == position_in_consist + 3)) {
@@ -266,7 +273,7 @@ item (FEAT_TRAINS, crh380b) {
         can_attach_wagon:               crhwagon;
         start_stop:                     mu4to24car;
         cargo_subtype_text:             switch_crh380_cargo_subtype;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh380b_graphics;
         purchase:                       spriteset_crh380b_purchase_original;
         articulated_part:               switch_crh380b_articulated_part;
@@ -279,7 +286,7 @@ item (FEAT_TRAINS, crh380b) {
         cost_factor:                    91;
         running_cost_factor:            (76 + crhspeedcost()) * runningcostfactor() * cafecostfactor() + 20;
         purchase_running_cost_factor:   324;
-        purchase_cargo_capacity:        16/3;
+        purchase_cargo_capacity: switch_pcap_436b2503_16_3;
         name:                           switch_crh380b_name;
     }
 

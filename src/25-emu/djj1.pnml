@@ -15,10 +15,10 @@ spriteset (spriteset_djj1_front_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "djj1-m-guangshen")
 }
 spriteset (spriteset_djj1_middle, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "djj1-t")
+    template_std_c12 ("25-emu", "djj1-t")
 }
 spriteset (spriteset_djj1_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "djj1-c")
+    template_std_c12 ("25-emu", "djj1-c")
 }
 spriteset (spriteset_djj1_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed_10 ("25-emu", "djj1-m")
@@ -44,10 +44,13 @@ switch (FEAT_TRAINS, SELF, switch_djj1_start_stop, !hasbit(bitmask_consist_info,
     return CB_RESULT_NO_TEXT;
 }
 
-switch (FEAT_TRAINS, SELF, swtich_djj1_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, swtich_djj1_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORIGINAL);
     1: return string(STR_GUANGSHEN);
     return CB_RESULT_NO_TEXT;
+
+}
+switch (FEAT_TRAINS, SELF, swtich_djj1_cargo_subtype, cargo_subtype) {    swtich_djj1_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_djj1_graphics_front_subtype, cargo_subtype) {
@@ -152,14 +155,14 @@ item (FEAT_TRAINS, djj1) {
         start_stop:                     switch_djj1_start_stop;
         cargo_subtype_text:             swtich_djj1_cargo_subtype;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_djj1_graphics;
         purchase:                       spriteset_djj1_purchase_original;
         articulated_part:               switch_djj1_articulated_part;
 
         // Stats
         length:                         switch_length_2_6_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    85;
         running_cost_factor:            81 * runningcostfactor() + 20;
         purchase_running_cost_factor:   344;

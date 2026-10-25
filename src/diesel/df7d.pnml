@@ -34,9 +34,7 @@ switch (FEAT_TRAINS, SELF, switch_df7d_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_GREEN);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_df7d_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_df7d_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_df7d_cargo_subtype, cargo_subtype) {    switch_df7d_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df7d_orange_livery_graphics, position_in_articulated_veh % 6) {
@@ -114,7 +112,7 @@ item (FEAT_TRAINS, df7d) {
 
         // Stats
         length:                         switch_length_2_6_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    104;
         running_cost_factor:            67 * runningcostfactor();
         purchase_running_cost_factor:   268;

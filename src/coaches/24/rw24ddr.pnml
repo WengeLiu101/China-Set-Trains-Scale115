@@ -1,24 +1,31 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_db8f824f_32_3, position_in_articulated_veh % 3) {
+    0: return 11;
+    1: return 11;
+    2: return 10;
+}
+
 //Begin RW24DDR
 
 // Graphics
 
 // Purchase Menu
 spriteset (spriteset_rw24ddr_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/24", "rw24-ddr-1")
+    template_purchase_c11 ("coaches/24", "rw24-ddr-1")
 }
 
 // Vehicle
 spriteset (spriteset_rw24ddr_1, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/24", "rw24-ddr-1")
+    template_std_c11 ("coaches/24", "rw24-ddr-1")
 }
 spriteset (spriteset_rw24ddr_2, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/24", "rw24-ddr-2")
+    template_std_c11 ("coaches/24", "rw24-ddr-2")
 }
 spriteset (spriteset_rw24ddr_int_1, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/24", "rw24-ddr-int-1")
+    template_std_c11 ("coaches/24", "rw24-ddr-int-1")
 }
 spriteset (spriteset_rw24ddr_int_2, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/24", "rw24-ddr-int-2")
+    template_std_c11 ("coaches/24", "rw24-ddr-int-2")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw24ddr_articulated_part, extra_callback_info1) {
@@ -51,8 +58,8 @@ switch (FEAT_TRAINS, SELF, switch_rw24ddr_graphics, position_in_articulated_veh 
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw24ddr_capacity, position_in_articulated_veh % 3) {
-    1: return 32;
-    return 0;
+    1: return 30;
+    return 1;
 }
 
 
@@ -109,7 +116,7 @@ item (FEAT_TRAINS, rw24ddr) {
         cost_factor:                    12;
         running_cost_factor:            12 * runningcostfactor() * cafecostfactor() + 5;
         purchase_running_cost_factor:   53;
-        purchase_cargo_capacity:        32/3;
+        purchase_cargo_capacity: switch_pcap_db8f824f_32_3;
         name:                           switch_24ddr_name;
     }
 }

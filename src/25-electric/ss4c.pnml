@@ -5,15 +5,15 @@
 
 // Purchase Menu
 spriteset (spriteset_ss4c_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-electric", "ss4c-front")
+    template_purchase_c8 ("25-electric", "ss4c-front")
 }
 
 // Vehicle
 spriteset (spriteset_ss4c_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss4c-front")
+    template_std_c8 ("25-electric", "ss4c-front")
 }
 spriteset (spriteset_ss4c_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss4c-back")
+    template_std_c8 ("25-electric", "ss4c-back")
 }
 
 switch (FEAT_TRAINS, SELF, switch_ss4c_articulated_part, extra_callback_info1) {

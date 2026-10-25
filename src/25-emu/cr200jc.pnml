@@ -61,7 +61,7 @@ spriteset (spriteset_cr200jc_xl_reversed, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 spriteset (spriteset_cr200jc_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/cr200jc", "cr200jc-tc")
+    template_std_c12 ("25-emu/cr200jc", "cr200jc-tc")
 }
 spriteset (spriteset_cr200jc_back, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed_10 ("25-emu/cr200jc", "cr200jc-m")
@@ -364,7 +364,7 @@ item (FEAT_TRAINS, cr200jc) {
         can_attach_wagon:               cr200jcwagon;
         start_stop:                     switch_cr200jc_start_stop;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr200jc_graphics;
         purchase:                       spriteset_cr200jc_purchase_original;
         articulated_part:               switch_cr200jc_articulated_part;

@@ -1,15 +1,22 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_1b784fee_56_3, position_in_articulated_veh % 3) {
+    0: return 19;
+    1: return 19;
+    2: return 18;
+}
+
 //Begin XL21
 
 // Graphics
 
 // Purchase Menu
 spriteset (spriteset_xl21_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "21/xl21")
+    template_purchase_c10 ("coaches", "21/xl21")
 }
 
 // Vehicle
 spriteset (spriteset_xl21_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "21/xl21")
+    template_std_c10 ("coaches", "21/xl21")
 }
 
 switch (FEAT_TRAINS, SELF, switch_xl21_articulated_part, extra_callback_info1) {
@@ -81,7 +88,7 @@ item (FEAT_TRAINS, xl21) {
         cost_factor:                    8;
         running_cost_factor:            4 * runningcostfactor() * cafecostfactor();
         purchase_running_cost_factor:   16;
-        purchase_cargo_capacity:        56/3;
+        purchase_cargo_capacity: switch_pcap_1b784fee_56_3;
         name:                           switch_21_name;
 
     }

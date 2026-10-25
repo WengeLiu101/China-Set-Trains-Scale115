@@ -19,9 +19,7 @@ switch (FEAT_TRAINS, SELF, switch_crh_c_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_350_KMH);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_crh_c_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_crh_c_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_crh_c_cargo_subtype, cargo_subtype) {    switch_crh_c_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh_c_speed, cargo_subtype) {
@@ -35,9 +33,7 @@ switch (FEAT_TRAINS, SELF, switch_crh380_cargo_subtype_livery, cargo_subtype) {
     2: return string(STR_380_KMH);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_crh380_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_crh380_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_crh380_cargo_subtype, cargo_subtype) {    switch_crh380_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh380_speed, cargo_subtype) {

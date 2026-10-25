@@ -9,15 +9,15 @@ switch (FEAT_TRAINS, SELF, switch_rw25k_prototype_name, getbits(extra_callback_i
 
 // Purchase Menu
 spriteset (spriteset_rw25k_prototype_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25k","rw25k-t31")
+    template_purchase_c12 ("coaches/25k", "rw25k-t31")
 }
 
 // Vehicle
 spriteset (spriteset_rw25k_prototype_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw25k-t31")
+    template_std_c12 ("coaches/25k", "rw25k-t31")
 }
 spriteset (spriteset_rw25k_prototype_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "rw25k-t31-green")
+    template_std_c12 ("coaches/25k", "rw25k-t31-green")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw25k_prototype_articulated_part, extra_callback_info1) {
@@ -46,8 +46,8 @@ switch (FEAT_TRAINS, SELF, switch_rw25k_prototype_cargo_subtype, cargo_capacity)
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw25k_prototype_capacity, position_in_articulated_veh % 3) {
-    1: return 24;
-    return 0;
+    1: return 22;
+    return 1;
 }
 
 

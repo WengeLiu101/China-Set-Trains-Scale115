@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_26c4490a_88_3, position_in_articulated_veh % 3) {
+    0: return 30;
+    1: return 29;
+    2: return 29;
+}
+
 //Begin RZ225G
 switch (FEAT_TRAINS, SELF, switch_rz225g_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25G_SERIES);
@@ -9,15 +16,15 @@ switch (FEAT_TRAINS, SELF, switch_rz225g_name, getbits(extra_callback_info1, 0, 
 
 // Purchase Menu
 spriteset (spriteset_rz225g_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25g", "rz225g-jinwen")
+    template_purchase_c12 ("coaches/25g", "rz225g-jinwen")
 }
 
 // Vehicle
 spriteset (spriteset_rz225g_jinwen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "rz225g-jinwen")
+    template_std_c12 ("coaches/25g", "rz225g-jinwen")
 }
 spriteset (spriteset_rz225g_jinggangshan, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25g", "rz225g-jinggangshan")
+    template_std_c12 ("coaches/25g", "rz225g-jinggangshan")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz225g_cargo_subtype_livery, cargo_subtype) {
@@ -45,8 +52,8 @@ switch (FEAT_TRAINS, SELF, switch_rz225g_graphics, position_in_articulated_veh %
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz225g_capacity, position_in_articulated_veh % 3) {
-    1: return 88;
-    return 0;
+    1: return 86;
+    return 1;
 }
 
 
@@ -103,7 +110,7 @@ item (FEAT_TRAINS, rz225g) {
         cost_factor:                    9;
         running_cost_factor:            7 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   28;
-        purchase_cargo_capacity:        88/3;
+        purchase_cargo_capacity: switch_pcap_26c4490a_88_3;
         name:                           switch_rz225g_name;
 
     }

@@ -1,3 +1,19 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_05a8127e_702_12, position_in_articulated_veh % 12) {
+    0: return 59;
+    1: return 59;
+    2: return 59;
+    3: return 59;
+    4: return 59;
+    5: return 59;
+    6: return 58;
+    7: return 58;
+    8: return 58;
+    9: return 58;
+    10: return 58;
+    11: return 58;
+}
+
 // Begin CRH3AA
 switch (FEAT_TRAINS, SELF, switch_crh3aa_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_CRH3_SERIES);
@@ -106,7 +122,7 @@ item (FEAT_TRAINS, crh3aa) {
         start_stop:                     mu4car;
         
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh3aa_graphics;
         purchase:                       spriteset_crh3aa_purchase_original;
         articulated_part:               switch_crh3aa_articulated_part;
@@ -118,7 +134,7 @@ item (FEAT_TRAINS, crh3aa) {
         cost_factor:                    184;
         running_cost_factor:            128 * runningcostfactor() + 20;
         purchase_running_cost_factor:   478;
-        purchase_cargo_capacity:        702/12;
+        purchase_cargo_capacity: switch_pcap_05a8127e_702_12;
         name:                            switch_crh3aa_name;
 
     }

@@ -4,21 +4,21 @@
 
 // Purchase Menu
 spriteset (spriteset_j5_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "j5")
+    template_purchase_c9 ("wagons", "j5")
 }
 
 // Vehicle
 spriteset (spriteset_j5, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "j5")
+    template_std_c9 ("wagons", "j5")
 }
 spriteset (spriteset_j5_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "j5-full")
+    template_std_c9 ("wagons", "j5-full")
 }
 spriteset (spriteset_j5_grey, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "j5-grey")
+    template_std_c9 ("wagons", "j5-grey")
 }
 spriteset (spriteset_j5_grey_full, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "j5-grey-full")
+    template_std_c9 ("wagons", "j5-grey-full")
 }
 
 switch (FEAT_TRAINS, SELF, switch_j5_articulated_part, extra_callback_info1) {

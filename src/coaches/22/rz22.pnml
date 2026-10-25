@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_872f1888_64_3, position_in_articulated_veh % 3) {
+    0: return 22;
+    1: return 21;
+    2: return 21;
+}
+
 //Begin RZ22
 switch (FEAT_TRAINS, SELF, switch_rz22_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_22_SERIES);
@@ -8,12 +15,12 @@ switch (FEAT_TRAINS, SELF, switch_rz22_name, getbits(extra_callback_info1, 0, 8)
 // Graphics
 
  spriteset (spriteset_rz22_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-     template_purchase ("coaches", "22/rz22")
+     template_purchase_c11 ("coaches", "22/rz22")
  }
 
  // Vehicle
  spriteset (spriteset_rz22_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-     template_standard ("coaches", "22/rz22")
+     template_std_c11 ("coaches", "22/rz22")
  }
 
 switch (FEAT_TRAINS, SELF, switch_rz22_articulated_part, extra_callback_info1) {
@@ -42,8 +49,8 @@ switch (FEAT_TRAINS, SELF, switch_rz22_graphics, position_in_articulated_veh % 3
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz22_capacity, position_in_articulated_veh % 3) {
-    1: return 64;
-    return 0;
+    1: return 62;
+    return 1;
 }
 
 
@@ -100,7 +107,7 @@ item (FEAT_TRAINS, rz22) {
         cost_factor:                    7;
         running_cost_factor:            4 * runningcostfactor() * cafecostfactor(); // NO AIR CONDITIONER
         purchase_running_cost_factor:   16;
-        purchase_cargo_capacity:        64/3;
+        purchase_cargo_capacity: switch_pcap_872f1888_64_3;
         name:                            switch_rz22_name;
 
     }

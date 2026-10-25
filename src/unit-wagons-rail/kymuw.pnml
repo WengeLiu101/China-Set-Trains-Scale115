@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_b9991fb4_25_3, position_in_articulated_veh % 3) {
+    0: return 9;
+    1: return 8;
+    2: return 8;
+}
+
 // Begin KYMUW
 switch (FEAT_TRAINS, SELF, switch_kymuw_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_MU_WAGON);
@@ -7,12 +14,12 @@ switch (FEAT_TRAINS, SELF, switch_kymuw_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_kymuw_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("misc", "crh2a4020-m")
+    template_purchase_c12 ("misc", "crh2a4020-m")
 }
 
 // Vehicle
 spriteset (spriteset_kymuw_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("misc", "crh2a4020-m")
+    template_std_c12 ("misc", "crh2a4020-m")
 }
 
 switch (FEAT_TRAINS, SELF, switch_kymuw_articulated_part, extra_callback_info1) {
@@ -79,7 +86,7 @@ item (FEAT_TRAINS, kymuw) {
         cost_factor:                    24;
         running_cost_factor:            6 * runningcostfactor();
         purchase_running_cost_factor:   36;
-        purchase_cargo_capacity:        25/3;
+        purchase_cargo_capacity: switch_pcap_b9991fb4_25_3;
         visual_effect_and_powered:      return 0;
         name:                           switch_kymuw_name;
     }

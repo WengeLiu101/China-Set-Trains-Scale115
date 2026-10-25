@@ -9,15 +9,15 @@ switch (FEAT_TRAINS, SELF, switch_tz25_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_tz25_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25", "tz25-1")
+    template_purchase_c11 ("coaches/25", "tz25-1")
 }
 
 // Vehicle
 spriteset (spriteset_tz25_1, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25", "tz25-1")
+    template_std_c11 ("coaches/25", "tz25-1")
 }
 spriteset (spriteset_tz25_2, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25", "tz25-2")
+    template_std_c11 ("coaches/25", "tz25-2")
 }
 
 switch (FEAT_TRAINS, SELF, switch_tz25_articulated_part, extra_callback_info1) {
@@ -95,7 +95,7 @@ item (FEAT_TRAINS, tz25) {
 
         // Stats
         length:                         switch_length_2_7_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cargo_age_period:               200 << param_cargo_decay;
         cost_factor:                    23;
         running_cost_factor:            6 * runningcostfactor() + 20;

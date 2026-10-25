@@ -14,10 +14,10 @@ spriteset (spriteset_crh380al_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh380a-tc")
 }
 spriteset (spriteset_crh380al_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh380a-t")
+    template_std_c12 ("25-emu", "crh380a-t")
 }
 spriteset (spriteset_crh380al_middle_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh380al-tp")
+    template_std_c12 ("25-emu", "crh380al-tp")
 }
 spriteset (spriteset_crh380al_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh380a-tc")
@@ -34,8 +34,8 @@ switch (FEAT_TRAINS, SELF, switch_crh380al_front_graphics, position_in_articulat
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh380al_head_capacity, position_in_articulated_veh % 3) {
-    1: return 32;
-    return 0;
+    1: return 30;
+    return 1;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh380al_short_graphics, (position_in_consist / 3) == (num_vehs_in_consist / 6)) {
@@ -244,7 +244,7 @@ item (FEAT_TRAINS, crh380al) {
         start_stop:                     mu4to24car;
         cargo_subtype_text:             switch_crh380_cargo_subtype;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh380al_front_graphics;
         purchase:                       spriteset_crh380al_purchase_original;
         articulated_part:               switch_crh380al_articulated_part;

@@ -9,33 +9,33 @@ switch (FEAT_TRAINS, SELF, switch_kd25z_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_kd25z_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25z", "kd25z")
+    template_purchase_c11 ("coaches/25z", "kd25z")
 }
 
 // Vehicle
 spriteset (spriteset_kd25z_xizi, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "kd25z")
+    template_std_c11 ("coaches/25z", "kd25z")
 }
 /* spriteset (spriteset_kd25z_xizi_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "kd25z-green")
+    template_std_c11 ("coaches/25z", "kd25z-green")
 } */
 spriteset (spriteset_kd25z_beijing, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "kd25z-beijing")
+    template_std_c11 ("coaches/25z", "kd25z-beijing")
 }
 spriteset (spriteset_kd25z_beijing_colourfading, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "kd25z-beijing-colourfading")
+    template_std_c11 ("coaches/25z", "kd25z-beijing-colourfading")
 }
 spriteset (spriteset_kd25z_guangzhou_sifang_a, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "kd25z-guangzhou-sifang-a")
+    template_std_c11 ("coaches/25z", "kd25z-guangzhou-sifang-a")
 }
 spriteset (spriteset_kd25z_guangzhou_sifang_b, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "kd25z-guangzhou-sifang-b")
+    template_std_c11 ("coaches/25z", "kd25z-guangzhou-sifang-b")
 }
 spriteset (spriteset_kd25z_guangzhou_sifang_double, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "kd25z-guangzhou-sifang-double")
+    template_std_c11 ("coaches/25z", "kd25z-guangzhou-sifang-double")
 }
 /* spriteset (spriteset_kd25z_guangzhou_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z", "kd25z-guangzhou-green")
+    template_std_c11 ("coaches/25z", "kd25z-guangzhou-green")
 } */
 
 switch (FEAT_TRAINS, SELF, switch_kd25z_articulated_part, extra_callback_info1) {
@@ -136,7 +136,7 @@ item (FEAT_TRAINS, kd25z) {
 
         // Stats
         length:                         switch_length_2_7_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cargo_age_period:               200 << param_cargo_decay;
         cost_factor:                    24;
         running_cost_factor:            6 * runningcostfactor() + 20;

@@ -10,12 +10,12 @@ switch (FEAT_TRAINS, SELF, switch_ca23_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_ca23_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "22/ca23")
+    template_purchase_c11 ("coaches", "22/ca23")
 }
 
 // Vehicle
 spriteset (spriteset_ca23_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "22/ca23")
+    template_std_c11 ("coaches", "22/ca23")
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca23_articulated_part, extra_callback_info1) {
@@ -42,8 +42,8 @@ switch (FEAT_TRAINS, SELF, switch_ca23_graphics, position_in_articulated_veh % 3
 }
 
 switch (FEAT_TRAINS, SELF, switch_ca23_capacity, position_in_articulated_veh % 3) {
-    1: return 48;
-    return 0;
+    1: return 46;
+    return 1;
 }
 
 

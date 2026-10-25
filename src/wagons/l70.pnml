@@ -4,12 +4,12 @@
 
 // Purchase Menu
 spriteset (spriteset_l70_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "l70")
+    template_purchase_c8 ("wagons", "l70")
 }
 
 // Vehicle
 spriteset (spriteset_l70, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "l70")
+    template_std_c8 ("wagons", "l70")
 }
 
 switch (FEAT_TRAINS, SELF, switch_l70_articulated_part, extra_callback_info1) {

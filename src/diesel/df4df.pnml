@@ -9,15 +9,15 @@ switch (FEAT_TRAINS, SELF, switch_df4df_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_df4df_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("diesel", "df4df")
+    template_purchase_c10 ("diesel", "df4df")
 }
 
 // Vehicle
 spriteset (spriteset_df4df_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df4df")
+    template_std_c10 ("diesel", "df4df")
 }
 spriteset (spriteset_df4df_alternative, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df4df-alternative")
+    template_std_c10 ("diesel", "df4df-alternative")
 }
 
 
@@ -31,9 +31,7 @@ switch (FEAT_TRAINS, SELF, switch_df4df_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_ALTERNATIVE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_df4df_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_df4df_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_df4df_cargo_subtype, cargo_subtype) {    switch_df4df_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df4df_graphics_subtype, cargo_subtype) {
@@ -100,7 +98,7 @@ item (FEAT_TRAINS, df4df) {
 
         // Stats
         length:                         switch_length_2_6_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    66;
         running_cost_factor:            53 * runningcostfactor() + 20;
         purchase_running_cost_factor:   212;

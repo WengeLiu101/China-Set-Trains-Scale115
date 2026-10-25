@@ -32,9 +32,7 @@ switch (FEAT_TRAINS, SELF, switch_df11g_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_LATER);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_df11g_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_df11g_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_df11g_cargo_subtype, cargo_subtype) {    switch_df11g_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df11g_standard_graphics_subtype, cargo_subtype) {
@@ -164,7 +162,7 @@ item (FEAT_TRAINS, df11g) {
         tractive_effort_coefficient:            switch_df11g_traction;
         purchase_tractive_effort_coefficient:   int(0.143*2*255);
         length:                                 switch_length_2_6_2;
-        cargo_capacity:                         0;
+        cargo_capacity: 0;
         cost_factor:                            93;
         running_cost_factor:                    69 * runningcostfactor() + 10;
         purchase_running_cost_factor:           276;

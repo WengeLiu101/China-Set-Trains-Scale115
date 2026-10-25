@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_3af87335_46_3, position_in_articulated_veh % 3) {
+    0: return 16;
+    1: return 15;
+    2: return 15;
+}
+
 // Begin TENI8
 // Graphics
 
@@ -81,7 +88,7 @@ item (FEAT_TRAINS, teni8) {
         cost_factor:                    32;
         running_cost_factor:            18 * runningcostfactor() * cafecostfactor(); // NO AC FUNCTION
         purchase_running_cost_factor:   72;
-        purchase_cargo_capacity:        46/3;
+        purchase_cargo_capacity: switch_pcap_3af87335_46_3;
         name:                           switch_asia_name;
     }
 }

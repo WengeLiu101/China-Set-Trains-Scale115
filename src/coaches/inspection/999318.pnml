@@ -8,12 +8,12 @@ switch (FEAT_TRAINS, SELF, switch_999318_name, getbits(extra_callback_info1, 0, 
 
 // Purchase Menu
 spriteset (spriteset_999318_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/inspection", "999318")
+    template_purchase_c12 ("coaches/inspection", "999318")
 }
 
 // Vehicle
 spriteset (spriteset_999318, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/inspection", "999318")
+    template_std_c12 ("coaches/inspection", "999318")
 }
 
 switch (FEAT_TRAINS, SELF, switch_999318_articulated_part, extra_callback_info1) {

@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_83b12560_16_3, position_in_articulated_veh % 3) {
+    0: return 6;
+    1: return 5;
+    2: return 5;
+}
+
 // Begin CRH380BL
 
 switch (FEAT_TRAINS, SELF, switch_crh380bl_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
@@ -19,8 +26,8 @@ switch (FEAT_TRAINS, SELF, switch_crh380bl_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh380bl_head_capacity, position_in_articulated_veh % 3) {
-    1: return 16;
-    return 0;
+    1: return 14;
+    return 1;
 }
 
 
@@ -192,7 +199,7 @@ item (FEAT_TRAINS, crh380bl) {
         can_attach_wagon:               crhwagon;
         start_stop:                     mu4to24car;
         cargo_subtype_text:             switch_crh380_cargo_subtype;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh380bl_graphics;
         purchase:                       spriteset_crh380b_purchase_original;
         articulated_part:               switch_crh380bl_articulated_part;
@@ -205,7 +212,7 @@ item (FEAT_TRAINS, crh380bl) {
         cost_factor:                    91;
         running_cost_factor:            (76 + crhspeedcost()) * runningcostfactor() * cafecostfactor() + 20;
         purchase_running_cost_factor:   324;
-        purchase_cargo_capacity:        16/3;
+        purchase_cargo_capacity: switch_pcap_83b12560_16_3;
         name:                           switch_crh380bl_name;
     }
 

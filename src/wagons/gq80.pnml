@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_8db0d5ee_80_3, position_in_articulated_veh % 3) {
+    0: return 27;
+    1: return 27;
+    2: return 26;
+}
+
 // Begin GQ80
 switch (FEAT_TRAINS, SELF, switch_gq80_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_TANKER);
@@ -8,12 +15,12 @@ switch (FEAT_TRAINS, SELF, switch_gq80_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_gq80_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "gq80")
+    template_purchase_c6 ("wagons", "gq80")
 }
 
 // Vehicle
 spriteset (spriteset_gq80, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "gq80")
+    template_std_c6 ("wagons", "gq80")
 }
 
 switch (FEAT_TRAINS, SELF, switch_gq80_articulated_part, extra_callback_info1) {
@@ -84,7 +91,7 @@ item (FEAT_TRAINS, gq80) {
         cost_factor:                    6;
         running_cost_factor:            5 * runningcostfactor();
         purchase_running_cost_factor:   20;
-        purchase_cargo_capacity:        80/3;
+        purchase_cargo_capacity: switch_pcap_8db0d5ee_80_3;
         name:                           switch_gq80_name;
     }
 }

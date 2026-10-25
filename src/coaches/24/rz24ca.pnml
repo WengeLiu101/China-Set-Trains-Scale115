@@ -1,10 +1,17 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_05caaab1_50_3, position_in_articulated_veh % 3) {
+    0: return 17;
+    1: return 17;
+    2: return 16;
+}
+
 //Begin RZ24CA
 
 // Graphics
 
 // Purchase Menu
 /* spriteset (spriteset_rz24ca_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/24", "rz24-hk")
+    template_purchase_c11 ("coaches/24", "rz24-hk")
 }
  */
 // Vehicle
@@ -84,7 +91,7 @@ item (FEAT_TRAINS, rz24ca) {
         cost_factor:                    12;
         running_cost_factor:            12 * runningcostfactor() * cafecostfactor() + accostfactor() + 50;
         purchase_running_cost_factor:   96;
-        purchase_cargo_capacity:        50/3;
+        purchase_cargo_capacity: switch_pcap_05caaab1_50_3;
         name:                           switch_24hk_name;
     }
 }

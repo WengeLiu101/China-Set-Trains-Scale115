@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_39c53d27_62_3, position_in_articulated_veh % 3) {
+    0: return 21;
+    1: return 21;
+    2: return 20;
+}
+
 //Begin g70
 switch (FEAT_TRAINS, SELF, switch_g70_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_TANKER);
@@ -9,18 +16,18 @@ switch (FEAT_TRAINS, SELF, switch_g70_name, getbits(extra_callback_info1, 0, 8) 
 
 // Purchase Menu
 spriteset (spriteset_g70_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons/g70", "g70-gray")
+    template_purchase_c6 ("wagons/g70", "g70-gray")
 }
 
 // Vehicle
 spriteset (spriteset_g70_gray, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/g70", "g70-gray")
+    template_std_c6 ("wagons/g70", "g70-gray")
 }
 spriteset (spriteset_g70_gray_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/g70", "g70-gray-red")
+    template_std_c6 ("wagons/g70", "g70-gray-red")
 }
 spriteset (spriteset_g70_white_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/g70", "g70-white-red")
+    template_std_c6 ("wagons/g70", "g70-white-red")
 }
 
 random_switch (FEAT_TRAINS, SELF, random_g70_colour) {
@@ -58,8 +65,8 @@ switch (FEAT_TRAINS, SELF, switch_g70_graphics, position_in_articulated_veh % 3)
 }
 
 switch (FEAT_TRAINS, SELF, switch_g70_capacity, position_in_articulated_veh % 3) {
-    1: return 62;
-    return 0;
+    1: return 60;
+    return 1;
 }
 
 
@@ -116,7 +123,7 @@ item (FEAT_TRAINS, g70) {
         cost_factor:                    5;
         running_cost_factor:            4 * runningcostfactor();
         purchase_running_cost_factor:   16;
-        purchase_cargo_capacity:        62/3;
+        purchase_cargo_capacity: switch_pcap_39c53d27_62_3;
         name:                           switch_g70_name;
 
     }

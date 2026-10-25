@@ -269,7 +269,7 @@ item (FEAT_TRAINS, cr200jd) {
         can_attach_wagon:               cr200jdwagon;
         start_stop:                     switch_cr200jd_start_stop;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr200jd_graphics;
         purchase:                       spriteset_cr200jd_purchase_original;
         articulated_part:               switch_cr200jd_articulated_part;

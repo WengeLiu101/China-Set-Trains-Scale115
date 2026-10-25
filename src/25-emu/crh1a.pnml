@@ -15,7 +15,7 @@ spriteset (spriteset_crh1a_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh1a-c")
 }
 spriteset (spriteset_crh1a_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh1a-m")
+    template_std_c12 ("25-emu", "crh1a-m")
 }
 spriteset (spriteset_crh1a_middle_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh1a-p")
@@ -37,7 +37,7 @@ spriteset (spriteset_crh1a_front_prototype, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh1a-c-prototype")
 }
 spriteset (spriteset_crh1a_middle_m_prototype, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh1a-m-prototype")
+    template_std_c12 ("25-emu", "crh1a-m-prototype")
 }
 spriteset (spriteset_crh1a_middle_p_prototype, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh1a-p-prototype")
@@ -101,14 +101,17 @@ switch (FEAT_TRAINS, SELF, switch_crh1a_graphics, position_in_articulated_veh % 
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh1a_head_capacity, position_in_articulated_veh % 3) {
-    1: return 72;
-    return 0;
+    1: return 70;
+    return 1;
 }
 
-switch (FEAT_TRAINS, SELF, swtich_crh1a_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, swtich_crh1a_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_LATER);
     1: return string(STR_EARLIER);
     return CB_RESULT_NO_TEXT;
+
+}
+switch (FEAT_TRAINS, SELF, swtich_crh1a_cargo_subtype, cargo_subtype) {    swtich_crh1a_cargo_subtype_livery;
 }
 
 //GFX
@@ -338,7 +341,7 @@ item (FEAT_TRAINS, crh1a) {
         can_attach_wagon:               crhwagon;
         start_stop:                     mu4to24car;
         cargo_subtype_text:             swtich_crh1a_cargo_subtype;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh1a_graphics;
         purchase:                       spriteset_crh1a_purchase_original;
         articulated_part:               switch_crh1a_articulated_part;

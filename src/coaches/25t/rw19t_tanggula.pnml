@@ -22,7 +22,7 @@ spriteset (spriteset_ca25t_tanggula_reversed, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP)
     template_reversed ("coaches", "25t/ca25t-tanggula")
 }
 spriteset (spriteset_ca25t_tanggula_salong_origin, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/ca25t-tanggula-salong")
+    template_std_c12 ("coaches", "25t/ca25t-tanggula-salong")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw19t_tanggula_articulated_part, extra_callback_info1) {

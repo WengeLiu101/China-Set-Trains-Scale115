@@ -65,10 +65,10 @@ spriteset (spriteset_cr400bfz_asiagame_tp_03, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP)
     template_standard ("25-emu/cr400bf-z", "cr400bf-z-tp-asiagame03")
 }
 spriteset (spriteset_cr400bfz_asiagame_m_c_04, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/cr400bf-z", "cr400bf-z-m-c-asiagame04")
+    template_std_c12 ("25-emu/cr400bf-z", "cr400bf-z-m-c-asiagame04")
 }
 spriteset (spriteset_cr400bfz_asiagame_m_c_05, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/cr400bf-z", "cr400bf-z-m-c-asiagame05")
+    template_std_c12 ("25-emu/cr400bf-z", "cr400bf-z-m-c-asiagame05")
 }
 spriteset (spriteset_cr400bfz_asiagame_tp_06, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu/cr400bf-z", "cr400bf-z-tp-asiagame03")
@@ -99,14 +99,17 @@ switch (FEAT_TRAINS, SELF, switch_cr400bfz_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_cr400bfz_head_capacity, position_in_articulated_veh % 3) {
-    1: return 20;
-    return 0;
+    1: return 18;
+    return 1;
 }
 
-switch (FEAT_TRAINS, SELF, swtich_cr400bfz_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, swtich_cr400bfz_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_ORIGINAL);
     1: return string(STR_ASIAGAME);
     return CB_RESULT_NO_TEXT;
+
+}
+switch (FEAT_TRAINS, SELF, swtich_cr400bfz_cargo_subtype, cargo_subtype) {    swtich_cr400bfz_cargo_subtype_livery;
 }
 
 //GFX
@@ -428,7 +431,7 @@ item (FEAT_TRAINS, cr400bfz) {
         start_stop:                     mu4to24car;
         cargo_subtype_text:             swtich_cr400bfz_cargo_subtype;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr400bfz_graphics;
         purchase:                       spriteset_cr400bfz_purchase_original;
         articulated_part:               switch_cr400bfz_articulated_part;

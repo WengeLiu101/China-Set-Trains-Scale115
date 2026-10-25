@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_49d2c1bf_92_3, position_in_articulated_veh % 3) {
+    0: return 31;
+    1: return 31;
+    2: return 30;
+}
+
 //Begin XL25T_SSPE
 switch (FEAT_TRAINS, SELF, switch_xl25t_sspe_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25T_SERIES);
@@ -9,12 +16,12 @@ switch (FEAT_TRAINS, SELF, switch_xl25t_sspe_name, getbits(extra_callback_info1,
 
 // Purchase Menu
 spriteset (spriteset_xl25t_sspe_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25t/xl25t-sspe2-1")
+    template_purchase_c12 ("coaches", "25t/xl25t-sspe2-1")
 }
 
 // Vehicle
 spriteset (spriteset_xl25t_sspe_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/xl25t-sspe2-1")
+    template_std_c12 ("coaches", "25t/xl25t-sspe2-1")
 }
 
 switch (FEAT_TRAINS, SELF, switch_xl25t_sspe_articulated_part, extra_callback_info1) {
@@ -85,7 +92,7 @@ item (FEAT_TRAINS, xl25t_sspe) {
         cost_factor:                    9;
         running_cost_factor:            8 * runningcostfactor();
         purchase_running_cost_factor:   32;
-        purchase_cargo_capacity:        92/3;
+        purchase_cargo_capacity: switch_pcap_49d2c1bf_92_3;
         name:                            switch_xl25t_sspe_name;
 
     }

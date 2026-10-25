@@ -6,12 +6,12 @@
 
 // Purchase Menu
 spriteset (spriteset_kd25sm_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25", "kd25-sm")
+    template_purchase_c11 ("coaches/25", "kd25-sm")
 }
 
 // Vehicle
 spriteset (spriteset_kd25sm_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25", "kd25-sm")
+    template_std_c11 ("coaches/25", "kd25-sm")
 }
 
 switch (FEAT_TRAINS, SELF, switch_kd25sm_articulated_part, extra_callback_info1) {
@@ -85,7 +85,7 @@ item (FEAT_TRAINS, kd25sm) {
 
         // Stats
         length:                         switch_length_2_7_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cargo_age_period:               185 << param_cargo_decay;
         cost_factor:                    23;
         running_cost_factor:            5 * runningcostfactor() + 20;

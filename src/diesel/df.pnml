@@ -3,23 +3,23 @@
 // Graphics
 
 spriteset (spriteset_df_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("diesel", "df-b")
+    template_purchase_c8 ("diesel", "df-b")
 }
 
 spriteset (spriteset_df_standard, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df-b")
+    template_std_c8 ("diesel", "df-b")
 }
 
 spriteset (spriteset_df_reversed, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df")
+    template_std_c8 ("diesel", "df")
 }
 
 spriteset (spriteset_df_whiteline_standard, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df-whiteline-b")
+    template_std_c8 ("diesel", "df-whiteline-b")
 }
 
 spriteset (spriteset_df_whiteline_reversed, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "df-whiteline")
+    template_std_c8 ("diesel", "df-whiteline")
 }
 
 switch (FEAT_TRAINS, SELF, switch_df_articulated_part, extra_callback_info1) {
@@ -42,9 +42,7 @@ switch (FEAT_TRAINS, SELF, switch_df_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_DF_WHITE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_df_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_df_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_df_cargo_subtype, cargo_subtype) {    switch_df_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_df_direction, (position_in_consist != 1) && (position_in_consist_from_end == 1) || ((position_in_vehid_chain % 6) == 4)) {
@@ -110,7 +108,7 @@ item (FEAT_TRAINS, df) {
 
         // Stats
         length:                         switch_length_2_4_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    45;
         running_cost_factor:            35 * runningcostfactor();
         purchase_running_cost_factor:   140;

@@ -7,11 +7,11 @@ spriteset (spriteset_jf1_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 spriteset (spriteset_jf1_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "jf1-front")
+    template_std_c9 ("steam", "jf1-front")
 }
 
 spriteset (spriteset_jf1_tender, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "jf1-tender")
+    template_std_c5 ("steam", "jf1-tender")
 }
 
 switch (FEAT_TRAINS, SELF, switch_jf1_articulated_part, extra_callback_info1) {

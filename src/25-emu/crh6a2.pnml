@@ -7,21 +7,21 @@ switch (FEAT_TRAINS, SELF, switch_crh6a2_name, getbits(extra_callback_info1, 0, 
 
 // Purchase Menu
 spriteset (spriteset_crh6a2_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-emu", "crh6a/crh6a-c-1")
+    template_purchase_c12 ("25-emu", "crh6a/crh6a-c-1")
 }
 
 // Vehicle
 spriteset (spriteset_crh6a2_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-c-1")
+    template_std_c12 ("25-emu", "crh6a/crh6a-c-1")
 }
 spriteset (spriteset_crh6a2_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-m-2")
+    template_std_c12 ("25-emu", "crh6a/crh6a-m-2")
 }
 spriteset (spriteset_crh6a2_middle_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-2")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-2")
 }
 spriteset (spriteset_crh6a2_middle_p_r, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-r-2")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-r-2")
 }
 spriteset (spriteset_crh6a2_cab, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a/crh6a-c-2")
@@ -43,16 +43,16 @@ spriteset (spriteset_crh6a2_cab_guangshen, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 
 
 spriteset (spriteset_crh6a2_front_guangzhu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-c-guangzhu-1")
+    template_std_c12 ("25-emu", "crh6a/crh6a-c-guangzhu-1")
 }
 spriteset (spriteset_crh6a2_middle_m_guangzhu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-m-2-guangzhu")
+    template_std_c12 ("25-emu", "crh6a/crh6a-m-2-guangzhu")
 }
 spriteset (spriteset_crh6a2_middle_p_guangzhu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-2-guangzhu")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-2-guangzhu")
 }
 spriteset (spriteset_crh6a2_middle_p_r_guangzhu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-r-2-guangzhu")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-r-2-guangzhu")
 }
 spriteset (spriteset_crh6a2_cab_guangzhu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a/crh6a-c-guangzhu-2")
@@ -80,16 +80,16 @@ spriteset (spriteset_crh6a2_cab_tianfu_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP)
 
 
 spriteset (spriteset_crh6a2_front_zhengjiao, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-c-zhengjiao-1")
+    template_std_c12 ("25-emu", "crh6a/crh6a-c-zhengjiao-1")
 }
 spriteset (spriteset_crh6a2_middle_m_zhengjiao, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-m-2-zhengjiao")
+    template_std_c12 ("25-emu", "crh6a/crh6a-m-2-zhengjiao")
 }
 spriteset (spriteset_crh6a2_middle_p_zhengjiao, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-2-zhengjiao")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-2-zhengjiao")
 }
 spriteset (spriteset_crh6a2_middle_p_r_zhengjiao, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-r-2-zhengjiao")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-r-2-zhengjiao")
 }
 spriteset (spriteset_crh6a2_cab_zhengjiao, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a/crh6a-c-zhengjiao-2")
@@ -97,16 +97,16 @@ spriteset (spriteset_crh6a2_cab_zhengjiao, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 
 
 spriteset (spriteset_crh6a2_front_zhuji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-c-zhuji-1")
+    template_std_c12 ("25-emu", "crh6a/crh6a-c-zhuji-1")
 }
 spriteset (spriteset_crh6a2_middle_m_zhuji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-m-2-zhuji-1")
+    template_std_c12 ("25-emu", "crh6a/crh6a-m-2-zhuji-1")
 }
 spriteset (spriteset_crh6a2_middle_p_zhuji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-2-zhuji")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-2-zhuji")
 }
 spriteset (spriteset_crh6a2_middle_p_r_zhuji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-r-2-zhuji")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-r-2-zhuji")
 }
 spriteset (spriteset_crh6a2_cab_zhuji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a/crh6a-c-zhuji-2")
@@ -114,16 +114,16 @@ spriteset (spriteset_crh6a2_cab_zhuji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 
 
 spriteset (spriteset_crh6a2_front_zhusanjiao_blue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-c-zhusanjiao-blue-1")
+    template_std_c12 ("25-emu", "crh6a/crh6a-c-zhusanjiao-blue-1")
 }
 spriteset (spriteset_crh6a2_middle_m_zhusanjiao_blue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-m-2-zhusanjiao-blue")
+    template_std_c12 ("25-emu", "crh6a/crh6a-m-2-zhusanjiao-blue")
 }
 spriteset (spriteset_crh6a2_middle_p_zhusanjiao_blue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-2-zhusanjiao-blue")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-2-zhusanjiao-blue")
 }
 spriteset (spriteset_crh6a2_middle_p_r_zhusanjiao_blue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-r-2-zhusanjiao-blue")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-r-2-zhusanjiao-blue")
 }
 spriteset (spriteset_crh6a2_cab_zhusanjiao_blue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a/crh6a-c-zhusanjiao-blue-2")
@@ -131,16 +131,16 @@ spriteset (spriteset_crh6a2_cab_zhusanjiao_blue, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32B
 
 
 spriteset (spriteset_crh6a2_front_zhusanjiao_orange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-c-zhusanjiao-orange-1")
+    template_std_c12 ("25-emu", "crh6a/crh6a-c-zhusanjiao-orange-1")
 }
 spriteset (spriteset_crh6a2_middle_m_zhusanjiao_orange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-m-2-zhusanjiao-orange")
+    template_std_c12 ("25-emu", "crh6a/crh6a-m-2-zhusanjiao-orange")
 }
 spriteset (spriteset_crh6a2_middle_p_zhusanjiao_orange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-2-zhusanjiao-orange")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-2-zhusanjiao-orange")
 }
 spriteset (spriteset_crh6a2_middle_p_r_zhusanjiao_orange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh6a/crh6a-p-r-2-zhusanjiao-orange")
+    template_std_c12 ("25-emu", "crh6a/crh6a-p-r-2-zhusanjiao-orange")
 }
 spriteset (spriteset_crh6a2_cab_zhusanjiao_orange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh6a/crh6a-c-zhusanjiao-orange-2")
@@ -163,9 +163,7 @@ switch (FEAT_TRAINS, SELF, switch_crh6a2_cargo_subtype_livery, cargo_subtype) {
     5: return string(STR_ZHUSANJIAO_ORANGE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_crh6a2_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_crh6a2_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_crh6a2_cargo_subtype, cargo_subtype) {    switch_crh6a2_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh6a2_front, cargo_subtype) {
@@ -230,8 +228,8 @@ switch (FEAT_TRAINS, SELF, switch_crh6a2_graphics, position_in_articulated_veh %
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh6a2_head_capacity, position_in_articulated_veh % 3) {
-    1: return 150;
-    return 0;
+    1: return 148;
+    return 1;
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh6a2_middle_wagon_back, (position_in_consist_from_end / 3) + 1 - (num_vehs_in_consist / 24)) {
@@ -443,7 +441,7 @@ item (FEAT_TRAINS, crh6a2) {
         start_stop:                     mu4to24car;
         cargo_subtype_text:             switch_crh6a2_cargo_subtype;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh6a2_graphics;
         purchase:                       spriteset_crh6a2_purchase_original;
         articulated_part:               switch_crh6a2_articulated_part;

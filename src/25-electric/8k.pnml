@@ -4,15 +4,15 @@
 
 // Purchase Menu
 spriteset (spriteset_8k_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-electric", "8k-a")
+    template_purchase_c8 ("25-electric", "8k-a")
 }
 
 // Vehicle
 spriteset (spriteset_8k_a, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "8k-a")
+    template_std_c8 ("25-electric", "8k-a")
 }
 spriteset (spriteset_8k_b, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "8k-b")
+    template_std_c8 ("25-electric", "8k-b")
 }
 
 

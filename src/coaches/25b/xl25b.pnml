@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_f75cb8e1_68_3, position_in_articulated_veh % 3) {
+    0: return 23;
+    1: return 23;
+    2: return 22;
+}
+
 //Begin XL25B
 switch (FEAT_TRAINS, SELF, switch_xl25b_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25B_SERIES);
@@ -9,48 +16,48 @@ switch (FEAT_TRAINS, SELF, switch_xl25b_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_xl25b_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25b/xl25b")
+    template_purchase_c12 ("coaches", "25b/xl25b")
 }
 
 // Vehicle
 spriteset (spriteset_xl25b_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/xl25b")
+    template_std_c12 ("coaches", "25b/xl25b")
 }
 spriteset (spriteset_xl25b_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/xl25b-green")
+    template_std_c12 ("coaches", "25b/xl25b-green")
 }
 spriteset (spriteset_xl25b_xiyan, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/xl25b-xiyan")
+    template_std_c12 ("coaches", "25b/xl25b-xiyan")
 }
 spriteset (spriteset_xl25b_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/xl25b-red")
+    template_std_c12 ("coaches", "25b/xl25b-red")
 }
 spriteset (spriteset_xl25b_jy, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/xl25b-jy")
+    template_std_c12 ("coaches", "25b/xl25b-jy")
 }
 spriteset (spriteset_xl25b_baotou, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "xl25b-hhb")
+    template_std_c12 ("coaches/25b", "xl25b-hhb")
 }
 spriteset (spriteset_xl25b_jixu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "xl25b-jnx")
+    template_std_c12 ("coaches/25b", "xl25b-jnx")
 }
 spriteset (spriteset_xl25b_qingdao, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "xl25b-jqd")
+    template_std_c12 ("coaches/25b", "xl25b-jqd")
 }
 spriteset (spriteset_xl25b_shenji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "xl25b-ssj")
+    template_std_c12 ("coaches/25b", "xl25b-ssj")
 }
 spriteset (spriteset_xl25b_dalian, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "xl25b-sdl")
+    template_std_c12 ("coaches/25b", "xl25b-sdl")
 }
 spriteset (spriteset_xl25b_changchun, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "xl25b-scc")
+    template_std_c12 ("coaches/25b", "xl25b-scc")
 }
 spriteset (spriteset_xl25b_harbin, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "xl25b-sks")
+    template_std_c12 ("coaches/25b", "xl25b-sks")
 }
 spriteset (spriteset_xl25b_mujia, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "xl25b-hjm")
+    template_std_c12 ("coaches/25b", "xl25b-hjm")
 }
 
 switch (FEAT_TRAINS, SELF, switch_xl25b_articulated_part, extra_callback_info1) {
@@ -113,8 +120,8 @@ switch (FEAT_TRAINS, SELF, switch_xl25b_graphics, position_in_articulated_veh % 
 }
 
 switch (FEAT_TRAINS, SELF, switch_xl25b_capacity, position_in_articulated_veh % 3) {
-    1: return 68;
-    return 0;
+    1: return 66;
+    return 1;
 }
 
 
@@ -171,7 +178,7 @@ item (FEAT_TRAINS, xl25b) {
         cost_factor:                    7;
         running_cost_factor:            5 * runningcostfactor() * cafecostfactor();
         purchase_running_cost_factor:   20;
-        purchase_cargo_capacity:        68/3;
+        purchase_cargo_capacity: switch_pcap_f75cb8e1_68_3;
         name:                            switch_xl25b_name;
 
     }

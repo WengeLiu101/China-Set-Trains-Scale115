@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_97031f1a_118_3, position_in_articulated_veh % 3) {
+    0: return 40;
+    1: return 39;
+    2: return 39;
+}
+
 // Begin YZ22B
 switch (FEAT_TRAINS, SELF, switch_yz22b_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_22B_SERIES);
@@ -7,12 +14,12 @@ switch (FEAT_TRAINS, SELF, switch_yz22b_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_22b_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "22b")
+    template_purchase_c11 ("coaches", "22b")
 }
 
 // Vehicle
 spriteset (spriteset_22b_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "22b")
+    template_std_c11 ("coaches", "22b")
 }
 
 switch (FEAT_TRAINS, SELF, switch_yz22b_articulated_part, extra_callback_info1) {
@@ -82,7 +89,7 @@ item (FEAT_TRAINS, yz22b) {
         cost_factor:                    6;
         running_cost_factor:            4 * runningcostfactor() * cafecostfactor(); // NO AC FUNCTION
         purchase_running_cost_factor:   16;
-        purchase_cargo_capacity:        118/3;
+        purchase_cargo_capacity: switch_pcap_97031f1a_118_3;
         name:                           switch_yz22b_name;
     }
 }

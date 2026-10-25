@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_b30f5d81_80_3, position_in_articulated_veh % 3) {
+    0: return 27;
+    1: return 27;
+    2: return 26;
+}
+
 //Begin RZ25B_GZ
 switch (FEAT_TRAINS, SELF, switch_rz25b_gz_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25B_SERIES);
@@ -8,21 +15,21 @@ switch (FEAT_TRAINS, SELF, switch_rz25b_gz_name, getbits(extra_callback_info1, 0
 // Graphics
 
 spriteset (spriteset_rz25b_gz_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25b/rz25b-guangzhou-kowloon")
+    template_purchase_c12 ("coaches", "25b/rz25b-guangzhou-kowloon")
 }
 
 // Vehicle
 spriteset (spriteset_rz25b_gz_kl, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/rz25b-guangzhou-kowloon")
+    template_std_c12 ("coaches", "25b/rz25b-guangzhou-kowloon")
 }
 spriteset (spriteset_rz25b_gz_25z, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/rz25b-25z")
+    template_std_c12 ("coaches", "25b/rz25b-25z")
 }
 spriteset (spriteset_rz25b_gz_dys1, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/rz25b-dys1")
+    template_std_c12 ("coaches", "25b/rz25b-dys1")
 }
 spriteset (spriteset_rz25b_gz_dys2, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/rz25b-dys2")
+    template_std_c12 ("coaches", "25b/rz25b-dys2")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz25b_gz_articulated_part, extra_callback_info1) {
@@ -55,8 +62,8 @@ switch (FEAT_TRAINS, SELF, switch_rz25b_gz_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz25b_gz_capacity, position_in_articulated_veh % 3) {
-    1: return 80;
-    return 0;
+    1: return 78;
+    return 1;
 }
 
 
@@ -113,7 +120,7 @@ item (FEAT_TRAINS, rz25b_gz) {
         cost_factor:                    8;
         running_cost_factor:            5 * runningcostfactor() * cafecostfactor() + 5;
         purchase_running_cost_factor:   25;
-        purchase_cargo_capacity:        80/3;
+        purchase_cargo_capacity: switch_pcap_b30f5d81_80_3;
         name:                            switch_rz25b_gz_name;
 
     }

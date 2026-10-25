@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_23d8ea2d_28_3, position_in_articulated_veh % 3) {
+    0: return 10;
+    1: return 9;
+    2: return 9;
+}
+
 //Begin RW21
 
 // Graphics
@@ -81,7 +88,7 @@ item (FEAT_TRAINS, rw21) {
         cost_factor:                    12;
         running_cost_factor:            10 * runningcostfactor() * cafecostfactor() ;
         purchase_running_cost_factor:   40;
-        purchase_cargo_capacity:        28/3;
+        purchase_cargo_capacity: switch_pcap_23d8ea2d_28_3;
         name:                           switch_21_name;
 
     }

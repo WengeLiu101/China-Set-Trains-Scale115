@@ -85,7 +85,7 @@ item (FEAT_TRAINS, crh380al_2541) {
         can_attach_wagon:               onlycrh380al_2541;
         start_stop:                     mu4to24car;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh380al_2541_graphics;
         purchase:                       spriteset_crh380al_purchase_original;
         articulated_part:               switch_crh380al_2541_articulated_part;

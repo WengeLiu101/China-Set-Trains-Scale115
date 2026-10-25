@@ -9,15 +9,15 @@ switch (FEAT_TRAINS, SELF, switch_ss7c_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_ss7c_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("25-electric","ss7c")
+    template_purchase_c10 ("25-electric", "ss7c")
 }
 
 // Vehicle
 spriteset (spriteset_ss7c_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric","ss7c")
+    template_std_c10 ("25-electric", "ss7c")
 }
 spriteset (spriteset_ss7c_banana, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-electric", "ss7c-banana")
+    template_std_c10 ("25-electric", "ss7c-banana")
 }
 
 switch (FEAT_TRAINS, SELF, switch_ss7c_articulated_part, extra_callback_info1) {
@@ -30,9 +30,7 @@ switch (FEAT_TRAINS, SELF, switch_ss7c_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_SS7C_BANANA);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_ss7c_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_ss7c_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_ss7c_cargo_subtype, cargo_subtype) {    switch_ss7c_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_ss7c_graphics_subtype, cargo_subtype) {
@@ -97,7 +95,7 @@ item (FEAT_TRAINS, ss7c) {
 
         // Stats
         length:                         switch_length_2_6_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    95;
         running_cost_factor:            78 * runningcostfactor() + 20;
         purchase_running_cost_factor:   332;

@@ -9,18 +9,18 @@ switch (FEAT_TRAINS, SELF, switch_beijing_passenger_name, getbits(extra_callback
 
 // Purchase Menu
 spriteset (spriteset_beijing_passenger_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("diesel/beijing", "beijing-passenger")
+    template_purchase_c9 ("diesel/beijing", "beijing-passenger")
 }
 
 //Adds Vehicle
 spriteset (spriteset_beijing_passenger, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel/beijing", "beijing-passenger")
+    template_std_c9 ("diesel/beijing", "beijing-passenger")
 }
 spriteset (spriteset_beijing_passenger_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel/beijing", "beijing-passenger-green")
+    template_std_c9 ("diesel/beijing", "beijing-passenger-green")
 }
 spriteset (spriteset_beijing_passenger_orange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel/beijing", "beijing-passenger-orange")
+    template_std_c9 ("diesel/beijing", "beijing-passenger-orange")
 }
 
 switch (FEAT_TRAINS, SELF, switch_beijing_passenger_articulated_part, extra_callback_info1) {
@@ -34,9 +34,7 @@ switch (FEAT_TRAINS, SELF, switch_beijing_passenger_cargo_subtype_livery, cargo_
     2: return string(STR_ORANGE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_beijing_passenger_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_beijing_passenger_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_beijing_passenger_cargo_subtype, cargo_subtype) {    switch_beijing_passenger_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_beijing_passenger_graphics_subtype, cargo_subtype) {
@@ -103,7 +101,7 @@ item (FEAT_TRAINS, beijing_passenger) {
 
         // Stats
         length:                         switch_length_2_5_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    74;
         running_cost_factor:            55 * runningcostfactor();
         purchase_running_cost_factor:   220;

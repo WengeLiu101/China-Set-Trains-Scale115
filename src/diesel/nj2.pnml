@@ -32,9 +32,7 @@ switch (FEAT_TRAINS, SELF, switch_nj2_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_QINGZANG_LOCO);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_nj2_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_nj2_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_nj2_cargo_subtype, cargo_subtype) {    switch_nj2_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_nj2_graphics_subtype_front, cargo_subtype) {
@@ -128,7 +126,7 @@ item (FEAT_TRAINS, nj2) {
 
         // Stats
         length:                                 switch_length_2_6_2;
-        cargo_capacity:                         0;
+        cargo_capacity: 0;
         cost_factor:                            81;
         running_cost_factor:                    57 * runningcostfactor();
         purchase_running_cost_factor:           228;

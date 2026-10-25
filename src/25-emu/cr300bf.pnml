@@ -12,7 +12,7 @@ spriteset (spriteset_cr300bf_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "cr300bf-c")
 }
 spriteset (spriteset_cr300bf_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "cr300bf-t")
+    template_std_c12 ("25-emu", "cr300bf-t")
 }
 spriteset (spriteset_cr300bf_middle_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "cr300bf-tp")
@@ -356,7 +356,7 @@ item (FEAT_TRAINS, cr300bf) {
         can_attach_wagon:               crhwagon;
         start_stop:                     mu4to24car;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr300bf_front_graphics;
         purchase:                       spriteset_cr300bf_purchase_original;
         articulated_part:               switch_cr300bf_articulated_part;

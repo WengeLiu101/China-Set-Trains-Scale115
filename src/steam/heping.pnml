@@ -12,13 +12,13 @@ spriteset (spriteset_hp_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 spriteset (spriteset_hp_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "hp-front")
+    template_std_c10 ("steam", "hp-front")
 }
 spriteset (spriteset_hp_back4, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "qj-back4")
+    template_std_c6 ("steam", "qj-back4")
 }
 spriteset (spriteset_hp_back6, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "qj-back6")
+    template_std_c8 ("steam", "qj-back6")
 }
 
 
@@ -28,9 +28,7 @@ switch (FEAT_TRAINS, SELF, switch_hp_cargo_subtype_livery, cargo_subtype) {
     1: return string(STR_LIVERY_6AXLE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_hp_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_hp_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_hp_cargo_subtype, cargo_subtype) {    switch_hp_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_hp_articulated_part, extra_callback_info1) {
@@ -128,7 +126,7 @@ item (FEAT_TRAINS, heping) {
 
         // Stats
         length:                         switch_length_hp;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    56;
         running_cost_factor:            39 * runningcostfactor();
         purchase_running_cost_factor:   156;

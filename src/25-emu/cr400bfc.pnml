@@ -15,7 +15,7 @@ spriteset (spriteset_cr400bfc_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/cr400bf-c", "cr400bf-c-tc")
 }
 spriteset (spriteset_cr400bfc_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/cr400bf-c", "cr400bf-c-m")
+    template_std_c12 ("25-emu/cr400bf-c", "cr400bf-c-m")
 }
 spriteset (spriteset_cr400bfc_middle_tp, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/cr400bf-c", "cr400bf-c-tp")
@@ -81,14 +81,17 @@ switch (FEAT_TRAINS, SELF, switch_cr400bfc_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_cr400bfc_head_capacity, position_in_articulated_veh % 3) {
-    1: return 18;
-    return 0;
+    1: return 16;
+    return 1;
 }
 
-switch (FEAT_TRAINS, SELF, swtich_cr400bfc_cargo_subtype, cargo_subtype) {
+switch (FEAT_TRAINS, SELF, swtich_cr400bfc_cargo_subtype_livery, cargo_subtype) {
     0: return string(STR_WINTER_OLYMPIC);
     1: return string(STR_ORIGINAL);
     return CB_RESULT_NO_TEXT;
+
+}
+switch (FEAT_TRAINS, SELF, swtich_cr400bfc_cargo_subtype, cargo_subtype) {    swtich_cr400bfc_cargo_subtype_livery;
 }
 
 //GFX
@@ -399,7 +402,7 @@ item (FEAT_TRAINS, cr400bfc) {
         can_attach_wagon:               crhwagon;
         start_stop:                     mu4to24car;
         cargo_subtype_text:             swtich_cr400bfc_cargo_subtype;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr400bfc_graphics;
         purchase:                       spriteset_cr400bfc_purchase_original;
         articulated_part:               switch_cr400bfc_articulated_part;

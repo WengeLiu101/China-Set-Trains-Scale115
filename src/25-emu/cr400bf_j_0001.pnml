@@ -16,7 +16,7 @@ spriteset(spriteset_cr400bf_j_0001_2, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 spriteset(spriteset_cr400bf_j_0001_3, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard("25-emu/cr400bf-j-0001", "cr400bf-j-0001-tp2")
+    template_std_c12 ("25-emu/cr400bf-j-0001", "cr400bf-j-0001-tp2")
 }
 
 spriteset(spriteset_cr400bf_j_0001_4, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
@@ -65,9 +65,7 @@ switch (FEAT_TRAINS, SELF, switch_cr400bf_j_0001_cargo_subtype_livery, cargo_sub
     0: return string(STR_ORIGIN_SPEED);
     1: return string(STR_CR400BF_J_0001_EXPERIMENTAL_SPEED);
 }
-switch (FEAT_TRAINS, SELF, switch_cr400bf_j_0001_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_cr400bf_j_0001_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_cr400bf_j_0001_cargo_subtype, cargo_subtype) {    switch_cr400bf_j_0001_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, onlycr400bf_j_0001, vehicle_type_id) {
@@ -122,7 +120,7 @@ item (FEAT_TRAINS, cr400bf_j_0001) {
         start_stop:                     mu4to24car;
         cargo_subtype_text:             switch_cr400bf_j_0001_cargo_subtype;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr400bf_j_0001_graphics;
         purchase:                       spriteset_cr400bf_j_0001_purchase_original;
         articulated_part:               switch_cr400bf_j_0001_articulated_part;
@@ -131,7 +129,7 @@ item (FEAT_TRAINS, cr400bf_j_0001) {
         length:                         switch_length_2_8_2;
         speed:                          switch_cr400bf_j_0001_speed;
         purchase_tractive_effort_coefficient: return int(0.083*255);
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    67;
         running_cost_factor:            0;
         purchase_running_cost_factor:   0;

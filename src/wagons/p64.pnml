@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_21a3e41c_58_3, position_in_articulated_veh % 3) {
+    0: return 20;
+    1: return 19;
+    2: return 19;
+}
+
 //Begin P64
 switch (FEAT_TRAINS, SELF, switch_p64_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_BOXCAR);
@@ -9,21 +16,21 @@ switch (FEAT_TRAINS, SELF, switch_p64_name, getbits(extra_callback_info1, 0, 8) 
 
 // Purchase Menu
 spriteset (spriteset_p64_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "p64-black")
+    template_purchase_c8 ("wagons", "p64-black")
 }
 
 // Vehicle
 spriteset (spriteset_p64_black, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "p64-black")
+    template_std_c8 ("wagons", "p64-black")
 }
 spriteset (spriteset_p64_rustyred, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "p64-rustyred")
+    template_std_c8 ("wagons", "p64-rustyred")
 }
 spriteset (spriteset_p64_brown, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "p64-brown")
+    template_std_c8 ("wagons", "p64-brown")
 }
 spriteset (spriteset_p64_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "p64-red")
+    template_std_c8 ("wagons", "p64-red")
 }
 
 random_switch (FEAT_TRAINS, SELF, random_p64_colour_early) {
@@ -173,7 +180,7 @@ item (FEAT_TRAINS, p64) {
         cost_factor:                    5;
         running_cost_factor:            4 * runningcostfactor();
         purchase_running_cost_factor:   16;
-        purchase_cargo_capacity:        58/3;
+        purchase_cargo_capacity: switch_pcap_21a3e41c_58_3;
         name:                            switch_p64_name;
 
     }

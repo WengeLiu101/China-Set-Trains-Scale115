@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_fd05d55e_16_3, position_in_articulated_veh % 3) {
+    0: return 6;
+    1: return 5;
+    2: return 5;
+}
+
 // Begin crh380cl
 
 // Graphics
@@ -12,7 +19,7 @@ spriteset (spriteset_crh380cl_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "crh380cl-c")
 }
 spriteset (spriteset_crh380cl_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "crh380cl-m")
+    template_std_c12 ("25-emu", "crh380cl-m")
 }
 spriteset (spriteset_crh380cl_middle_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "crh380cl-tp")
@@ -35,8 +42,8 @@ switch (FEAT_TRAINS, SELF, switch_crh380cl_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_crh380cl_head_capacity, position_in_articulated_veh % 3) {
-    1: return 40;
-    return 0;
+    1: return 38;
+    return 1;
 }
 
 /* switch (FEAT_TRAINS, SELF, switch_crh380cl_short_graphics, (position_in_consist_from_end == position_in_consist) || (position_in_consist_from_end == position_in_consist + 3)) {
@@ -235,7 +242,7 @@ item (FEAT_TRAINS, crh380cl) {
         can_attach_wagon:               crhwagon;
         start_stop:                     mu4car;
         cargo_subtype_text:             switch_crh380_cargo_subtype;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh380cl_graphics;
         purchase:                       spriteset_crh380cl_purchase_original;
         articulated_part:               switch_crh380cl_articulated_part;
@@ -248,7 +255,7 @@ item (FEAT_TRAINS, crh380cl) {
         cost_factor:                    92;
         running_cost_factor:            (77 + crhspeedcost()) * runningcostfactor() * cafecostfactor() + 20;
         purchase_running_cost_factor:   328;
-        purchase_cargo_capacity:        16/3;
+        purchase_cargo_capacity: switch_pcap_fd05d55e_16_3;
     }
 
     // Multiple Unit Wagons

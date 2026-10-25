@@ -15,7 +15,7 @@ spriteset (spriteset_cr400af_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "cr400af-tc")
 }
 spriteset (spriteset_cr400af_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "cr400af-m")
+    template_std_c12 ("25-emu", "cr400af-m")
 }
 spriteset (spriteset_cr400af_middle_tp, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "cr400af-tp")
@@ -667,7 +667,7 @@ item (FEAT_TRAINS, cr400af) {
         additional_text:                string(STR_DESC_5, string(STR_CRH_CAN_ATTACH_WAGON), string(STR_CR400AF_NICKNAME), string(STR_RELDEC_VERY_LOW, 5), string(STR_CR400_CONSIST), string(STR_CR400_HEAD_SEAT));
         can_attach_wagon:               crhwagon;
         start_stop:                     mu4to24car;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr400af_graphics;
         purchase:                       spriteset_cr400af_purchase_original;
         articulated_part:               switch_cr400af_articulated_part;

@@ -7,11 +7,11 @@ spriteset (spriteset_kd7_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 spriteset (spriteset_kd7_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "kd7-front")
+    template_std_c7 ("steam", "kd7-front")
 }
 
 spriteset (spriteset_kd7_tender, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "kd7-tender")
+    template_std_c5 ("steam", "kd7-tender")
 }
 
 switch (FEAT_TRAINS, SELF, switch_kd7_articulated_part, extra_callback_info1) {

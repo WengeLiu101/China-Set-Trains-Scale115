@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_2a9fb51f_176_3, position_in_articulated_veh % 3) {
+    0: return 59;
+    1: return 59;
+    2: return 58;
+}
+
 // Begin SYZ25BLD
 switch (FEAT_TRAINS, SELF, switch_s25b_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_S25B_SERIES);
@@ -7,45 +14,45 @@ switch (FEAT_TRAINS, SELF, switch_s25b_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_syz25bld_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25b/syz25bld-red")
+    template_purchase_c12 ("coaches", "25b/syz25bld-red")
 }
 
 //Graphics
 spriteset (spriteset_syz25bld_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/syz25bld-red")
+    template_std_c12 ("coaches", "25b/syz25bld-red")
 }
 spriteset (spriteset_syz25bld_urumqi, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/syz25bld-urumqi")
+    template_std_c12 ("coaches", "25b/syz25bld-urumqi")
 }
 spriteset (spriteset_syz25bld_orange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/syz25bld-orange")
+    template_std_c12 ("coaches", "25b/syz25bld-orange")
 }
 spriteset (spriteset_syz25bld_harbin, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/syz25bld-harbin")
+    template_std_c12 ("coaches", "25b/syz25bld-harbin")
 }
 spriteset (spriteset_syz25bld_xianxing, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/syz25bld-xianxing")
+    template_std_c12 ("coaches", "25b/syz25bld-xianxing")
 }
 spriteset (spriteset_syz25bld_xian, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/syz25bld-xian")
+    template_std_c12 ("coaches", "25b/syz25bld-xian")
 }
 spriteset (spriteset_syz25bld_orangeorange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-orangeorange")
+    template_std_c12 ("coaches", "25b/srz25bld-orangeorange")
 }
 spriteset (spriteset_syz25bld_orangegrey, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-orangegrey")
+    template_std_c12 ("coaches", "25b/srz25bld-orangegrey")
 }
 spriteset (spriteset_syz25bld_urumqi_white, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/syz25bld-urumqi-white")
+    template_std_c12 ("coaches", "25b/syz25bld-urumqi-white")
 }
 spriteset (spriteset_syz25bld_beidaihe, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/syz25bld-beidaihe")
+    template_std_c12 ("coaches", "25b/syz25bld-beidaihe")
 }
 spriteset (spriteset_syz25bld_ty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/syz25bld-ty")
+    template_std_c12 ("coaches", "25b/syz25bld-ty")
 }
 spriteset (spriteset_syz25bld_zz, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/syz25bld-zz")
+    template_std_c12 ("coaches", "25b/syz25bld-zz")
 }
 switch (FEAT_TRAINS, SELF, switch_syz25bld_articulated_part, extra_callback_info1) {
     1..2: return syz25bld;
@@ -92,8 +99,8 @@ switch (FEAT_TRAINS, SELF, switch_syz25bld_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_syz25bld_capacity, position_in_articulated_veh % 3) {
-    1: return 176;
-    return 0;
+    1: return 174;
+    return 1;
 }
 
 
@@ -149,7 +156,7 @@ item (FEAT_TRAINS, syz25bld) {
         cost_factor:                    10;
         running_cost_factor:            7 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   28;
-        purchase_cargo_capacity:        176/3;
+        purchase_cargo_capacity: switch_pcap_2a9fb51f_176_3;
         name:                           switch_s25b_name;
     }
 }

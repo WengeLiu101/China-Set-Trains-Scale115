@@ -3,12 +3,12 @@
 
 // Purchase Menu
 spriteset (spriteset_i8_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/smr", "ro8")
+    template_purchase_c12 ("coaches/smr", "ro8")
 }
 
 // Vehicle
 spriteset (spriteset_i8_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/smr", "ro8")
+    template_std_c12 ("coaches/smr", "ro8")
 }
 
 switch (FEAT_TRAINS, SELF, switch_i8_articulated_part, extra_callback_info1) {

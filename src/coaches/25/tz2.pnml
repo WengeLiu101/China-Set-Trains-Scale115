@@ -9,39 +9,39 @@ switch (FEAT_TRAINS, SELF, switch_tz2_name, getbits(extra_callback_info1, 0, 8) 
 
 // Purchase Menu
 spriteset (spriteset_tz2_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25", "tz2-sfk50")
+    template_purchase_c11 ("coaches/25", "tz2-sfk50")
 }
 
 // Vehicle
 spriteset (spriteset_tz2_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25", "tz2-sfk50")
+    template_std_c11 ("coaches/25", "tz2-sfk50")
 }
 spriteset (spriteset_tz2_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25", "tz2-sfk50-red")
+    template_std_c11 ("coaches/25", "tz2-sfk50-red")
 }
 spriteset (spriteset_tz2_baotou, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "tz2-hhb")
+    template_std_c11 ("coaches/25b", "tz2-hhb")
 }
 spriteset (spriteset_tz2_jixu, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "tz2-jnx")
+    template_std_c11 ("coaches/25b", "tz2-jnx")
 }
 spriteset (spriteset_tz2_qingdao, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "tz2-jqd")
+    template_std_c11 ("coaches/25b", "tz2-jqd")
 }
 spriteset (spriteset_tz2_shenji, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "tz2-ssj")
+    template_std_c11 ("coaches/25b", "tz2-ssj")
 }
 spriteset (spriteset_tz2_dalian, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "tz2-sdl")
+    template_std_c11 ("coaches/25b", "tz2-sdl")
 }
 spriteset (spriteset_tz2_changchun, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "tz2-scc")
+    template_std_c11 ("coaches/25b", "tz2-scc")
 }
 spriteset (spriteset_tz2_harbin, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "tz2-sks")
+    template_std_c11 ("coaches/25b", "tz2-sks")
 }
 spriteset (spriteset_tz2_mujia, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25b", "tz2-hjm")
+    template_std_c11 ("coaches/25b", "tz2-hjm")
 }
 
 switch (FEAT_TRAINS, SELF, switch_tz2_articulated_part, extra_callback_info1) {
@@ -142,7 +142,7 @@ item (FEAT_TRAINS, tz2) {
 
         // Stats
         length:                         switch_length_2_7_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cargo_age_period:               200 << param_cargo_decay;
         cost_factor:                    23;
         running_cost_factor:            6 * runningcostfactor() + 20;

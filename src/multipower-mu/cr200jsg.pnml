@@ -273,7 +273,7 @@ item (FEAT_TRAINS, cr200jsg_electric) {
         additional_text:                string(STR_DESC_4, string(STR_CRH_CAN_ATTACH_WAGON), string(STR_CR200JSG_NICKNAME), string(STR_RELDEC_LOW, 12), string(STR_CR200JSG_CONSIST));
         can_attach_wagon:               cr200jsg_electric_allow_wagon;
         start_stop:                     switch_cr200jsg_start_stop;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr200jsg_electric_graphics;
         purchase:                       spriteset_cr200jsg_electric_purchase_original;
         articulated_part:               switch_cr200jsg_electric_articulated_part;

@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_a35e773c_68_3, position_in_articulated_veh % 3) {
+    0: return 23;
+    1: return 23;
+    2: return 22;
+}
+
 //Begin UZ22
 switch (FEAT_TRAINS, SELF, switch_uz22_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_22_SERIES);
@@ -9,27 +16,27 @@ switch (FEAT_TRAINS, SELF, switch_uz22_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_uz22_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "22/uz22")
+    template_purchase_c11 ("coaches", "22/uz22")
 }
 
 // Vehicle
 spriteset (spriteset_uz22_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "22/uz22")
+    template_std_c11 ("coaches", "22/uz22")
 }
 spriteset (spriteset_uz22_wru, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "22/uz22-wru")
+    template_std_c11 ("coaches", "22/uz22-wru")
 }
 spriteset (spriteset_uz22_beijing2shanghai, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "22/uz22-beijing2shanghai")
+    template_std_c11 ("coaches", "22/uz22-beijing2shanghai")
 }
 spriteset (spriteset_uz22_beijing2shanghai_alternative, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "22/uz22-beijing2shanghai-alternative")
+    template_std_c11 ("coaches", "22/uz22-beijing2shanghai-alternative")
 }
 spriteset (spriteset_uz22_guangzhou, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "22/uz22-guangzhou")
+    template_std_c11 ("coaches", "22/uz22-guangzhou")
 }
 spriteset (spriteset_uz22_guangzhou_2, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "22/uz22-guangzhou-2")
+    template_std_c11 ("coaches", "22/uz22-guangzhou-2")
 }
 
 switch (FEAT_TRAINS, SELF, switch_uz22_articulated_part, extra_callback_info1) {
@@ -66,8 +73,8 @@ switch (FEAT_TRAINS, SELF, switch_uz22_graphics, position_in_articulated_veh % 3
 }
 
 switch (FEAT_TRAINS, SELF, switch_uz22_capacity, position_in_articulated_veh % 3) {
-    1: return 68;
-    return 0;
+    1: return 66;
+    return 1;
 }
 
 
@@ -124,7 +131,7 @@ item (FEAT_TRAINS, uz22) {
         cost_factor:                    7;
         running_cost_factor:            5 * runningcostfactor() * cafecostfactor();
         purchase_running_cost_factor:   20;
-        purchase_cargo_capacity:        68/3;
+        purchase_cargo_capacity: switch_pcap_a35e773c_68_3;
         name:                            switch_uz22_name;
 
     }

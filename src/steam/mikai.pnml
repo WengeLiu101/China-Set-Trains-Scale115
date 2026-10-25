@@ -11,11 +11,11 @@ spriteset (spriteset_mikai_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 spriteset (spriteset_mikai_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "mikai-front")
+    template_std_c8 ("steam", "mikai-front")
 }
 
 spriteset (spriteset_mikai_tender, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "mikai-tender")
+    template_std_c5 ("steam", "mikai-tender")
 }
 
 switch (FEAT_TRAINS, SELF, switch_mikai_articulated_part, extra_callback_info1) {

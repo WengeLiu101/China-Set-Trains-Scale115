@@ -12,13 +12,13 @@ spriteset (spriteset_qj_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
 }
 
 spriteset (spriteset_qj_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "qj-front")
+    template_std_c10 ("steam", "qj-front")
 }
 spriteset (spriteset_qj_back4, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "qj-back4")
+    template_std_c6 ("steam", "qj-back4")
 }
 spriteset (spriteset_qj_back6, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("steam", "qj-back6")
+    template_std_c8 ("steam", "qj-back6")
 }
 
 
@@ -29,13 +29,11 @@ switch (FEAT_TRAINS, SELF, switch_qj_cargo_subtype_livery, cargo_subtype) {
     2: return string(STR_LIVERY_6AXLE);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_qj_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_qj_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_qj_cargo_subtype, cargo_subtype) {    switch_qj_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_qj_articulated_part, extra_callback_info1) {
-    1..2: return qj;
+    1..4: return qj;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -51,9 +49,9 @@ switch (FEAT_TRAINS, SELF, switch_gfx_qj_back, cargo_subtype) {
     return CB_RESULT_NO_TEXT;
 }
 
-switch (FEAT_TRAINS, SELF, switch_qj_graphics, position_in_articulated_veh % 3) {
+switch (FEAT_TRAINS, SELF, switch_qj_graphics, position_in_articulated_veh % 5) {
     1: spriteset_qj_front;
-    2: switch_gfx_qj_back;
+    3: switch_gfx_qj_back;
     empty_sprites;
 }
 
@@ -68,10 +66,12 @@ switch (FEAT_TRAINS, SELF, switch_length_qj_tender, cargo_subtype) {
     return 8;
 
 }
-switch (FEAT_TRAINS, SELF, switch_length_qj, position_in_articulated_veh % 3) {
+switch (FEAT_TRAINS, SELF, switch_length_qj, position_in_articulated_veh % 5) {
     0: return 2;
     1: return 8;
-    return switch_length_qj_tender;
+    2: return 2;
+    3: switch_qj_tender_length_year_depend;
+    return 1;
 }
 
 switch (FEAT_TRAINS, SELF, switch_qj_weight_year_depend, build_year) {
@@ -152,7 +152,7 @@ item (FEAT_TRAINS, qj) {
 
         // Stats
         length:                         switch_length_qj;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    56;
         running_cost_factor:            39 * runningcostfactor();
         purchase_running_cost_factor:   156;

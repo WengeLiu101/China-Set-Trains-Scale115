@@ -70,9 +70,7 @@ switch (FEAT_TRAINS, SELF, switch_crh380aj_cargo_subtype_livery, cargo_subtype) 
     1: return string(STR_CRH380AJ_486_KMH);
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_crh380aj_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_crh380aj_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_crh380aj_cargo_subtype, cargo_subtype) {    switch_crh380aj_cargo_subtype_livery;
 }
 
 
@@ -123,7 +121,7 @@ item (FEAT_TRAINS, crh380aj) {
         start_stop:                     mu4to24car;
         cargo_subtype_text:             switch_crh380aj_cargo_subtype;
 
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_crh380aj_graphics;
         purchase:                       spriteset_crh380aj_purchase_original;
         articulated_part:               switch_crh380aj_articulated_part;
@@ -131,7 +129,7 @@ item (FEAT_TRAINS, crh380aj) {
         // Stats
         length:                         switch_length_2_8_2;
         speed:                          switch_crh380aj_speed;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    67;
         running_cost_factor:            0;
         purchase_running_cost_factor:   0;

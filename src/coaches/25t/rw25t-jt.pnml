@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_832ded63_16_3, position_in_articulated_veh % 3) {
+    0: return 6;
+    1: return 5;
+    2: return 5;
+}
+
 //Begin RW25T_JT
 switch (FEAT_TRAINS, SELF, switch_rw25t_jt_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25T_SERIES);
@@ -8,18 +15,18 @@ switch (FEAT_TRAINS, SELF, switch_rw25t_jt_name, getbits(extra_callback_info1, 0
 
 // Purchase Menu
 spriteset (spriteset_rw25t_jt_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches","25t/rw25t-jt")
+    template_purchase_c12 ("coaches", "25t/rw25t-jt")
 }
 
 // Vehicle
 spriteset (spriteset_rw25t_jt_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/rw25t-jt")
+    template_std_c12 ("coaches", "25t/rw25t-jt")
 }
 spriteset (spriteset_rw25t_jt_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/rw25t-jt-green")
+    template_std_c12 ("coaches", "25t/rw25t-jt-green")
 }
 spriteset (spriteset_rw25t_jt_yili, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/rw25t-jt-yili")
+    template_std_c12 ("coaches", "25t/rw25t-jt-yili")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw25t_jt_articulated_part, extra_callback_info1) {
@@ -61,8 +68,8 @@ switch (FEAT_TRAINS, SELF, switch_rw25t_jt_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_rw25t_jt_capacity, position_in_articulated_veh % 3) {
-    1: return 16;
-    return 0;
+    1: return 14;
+    return 1;
 }
 
 
@@ -119,7 +126,7 @@ item (FEAT_TRAINS, rw25t_jt) {
         cost_factor:                    13;
         running_cost_factor:            14 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   56;
-        purchase_cargo_capacity:        16/3;
+        purchase_cargo_capacity: switch_pcap_832ded63_16_3;
         name:                            switch_rw25t_jt_name;
 
     }

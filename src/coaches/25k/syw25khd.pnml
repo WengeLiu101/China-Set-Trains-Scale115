@@ -1,15 +1,22 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_b06baec7_80_3, position_in_articulated_veh % 3) {
+    0: return 27;
+    1: return 27;
+    2: return 26;
+}
+
 //Begin SYW25KHD
 
 // Graphics
 
 // Purchase Menu
 spriteset (spriteset_syw25khd_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25k/syw25khd-xian")
+    template_std_c12 ("coaches", "25k/syw25khd-xian")
 }
 
 // Vehicle
 spriteset (spriteset_syw25khd_blue_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25k/syw25khd-blue-red")
+    template_std_c12 ("coaches", "25k/syw25khd-blue-red")
 }
 
 switch (FEAT_TRAINS, SELF, switch_syw25khd_articulated_part, extra_callback_info1) {
@@ -80,7 +87,7 @@ item (FEAT_TRAINS, syw25khd) {
         cost_factor:                    13;
         running_cost_factor:            11 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   44;
-        purchase_cargo_capacity:        80/3;
+        purchase_cargo_capacity: switch_pcap_b06baec7_80_3;
         name:                           switch_s25k_name;
 
     }

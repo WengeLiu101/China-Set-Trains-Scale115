@@ -9,15 +9,15 @@ switch (FEAT_TRAINS, SELF, switch_rzt25z_name, getbits(extra_callback_info1, 0, 
 
 // Purchase Menu
 spriteset (spriteset_rzt25z_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25z","rzt25z")
+    template_purchase_c12 ("coaches/25z", "rzt25z")
 }
 
 // Vehicle
 spriteset (spriteset_rzt25z_xizi, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z","rzt25z")
+    template_std_c12 ("coaches/25z", "rzt25z")
 }
 /* spriteset (spriteset_rzt25z_xizi_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25z","rzt25z-green")
+    template_std_c12 ("coaches/25z", "rzt25z-green")
 } */
 
 switch (FEAT_TRAINS, SELF, switch_rzt25z_articulated_part, extra_callback_info1) {
@@ -59,8 +59,8 @@ switch (FEAT_TRAINS, SELF, switch_rzt25z_cargo_subtype, cargo_capacity) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_rzt25z_capacity, position_in_articulated_veh % 3) {
-    1: return 42;
-    return 0;
+    1: return 40;
+    return 1;
 }
 
 

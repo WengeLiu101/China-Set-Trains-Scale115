@@ -14,15 +14,15 @@ switch (FEAT_TRAINS, SELF, switch_uz25k_articulated_part, extra_callback_info1) 
 // Purchase Menu
 
 spriteset (spriteset_uz25k_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/25k", "uz25k")
+    template_purchase_c12 ("coaches/25k", "uz25k")
 }
 
 // Vehicle
 spriteset (spriteset_uz25k_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "uz25k")
+    template_std_c12 ("coaches/25k", "uz25k")
 }
 spriteset (spriteset_uz25k_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/25k", "uz25k-green")
+    template_std_c12 ("coaches/25k", "uz25k-green")
 }
 
 switch (FEAT_TRAINS, SELF, switch_uz25k_cargo_subtype_livery, cargo_subtype) {
@@ -59,8 +59,8 @@ switch (FEAT_TRAINS, SELF, switch_uz25k_graphics, position_in_articulated_veh % 
 //Cap
 
 switch (FEAT_TRAINS, SELF, switch_uz25k_capacity, position_in_articulated_veh % 3) {
-    1: return 72;
-    return 0;
+    1: return 70;
+    return 1;
 }
 
 

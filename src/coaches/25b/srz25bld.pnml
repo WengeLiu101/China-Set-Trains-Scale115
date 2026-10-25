@@ -4,48 +4,48 @@
 
 // Purchase Menu
 spriteset (spriteset_srz25bld_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25b/srz25bld-red")
+    template_purchase_c12 ("coaches", "25b/srz25bld-red")
 }
 
 //Graphics
 spriteset (spriteset_srz25bld_red, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-red")
+    template_std_c12 ("coaches", "25b/srz25bld-red")
 }
 spriteset (spriteset_srz25bld_urumqi, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-urumqi")
+    template_std_c12 ("coaches", "25b/srz25bld-urumqi")
 }
 spriteset (spriteset_srz25bld_orange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-orange")
+    template_std_c12 ("coaches", "25b/srz25bld-orange")
 }
 spriteset (spriteset_srz25bld_hohhot, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-hohhot")
+    template_std_c12 ("coaches", "25b/srz25bld-hohhot")
 }
 spriteset (spriteset_srz25bld_xianxing, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-xianxing")
+    template_std_c12 ("coaches", "25b/srz25bld-xianxing")
 }
 spriteset (spriteset_srz25bld_liaodong, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-liaodong")
+    template_std_c12 ("coaches", "25b/srz25bld-liaodong")
 }
 spriteset (spriteset_srz25bld_shenyang, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-shenyang")
+    template_std_c12 ("coaches", "25b/srz25bld-shenyang")
 }
 spriteset (spriteset_srz25bld_orangegrey, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-orangegrey")
+    template_std_c12 ("coaches", "25b/srz25bld-orangegrey")
 }
 spriteset (spriteset_srz25bld_orangeorange, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-orangeorange")
+    template_std_c12 ("coaches", "25b/srz25bld-orangeorange")
 }
 spriteset (spriteset_srz25bld_urumqi_white, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-urumqi-white")
+    template_std_c12 ("coaches", "25b/srz25bld-urumqi-white")
 }
 spriteset (spriteset_srz25bld_beidaihe, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-beidaihe")
+    template_std_c12 ("coaches", "25b/srz25bld-beidaihe")
 }
 spriteset (spriteset_srz25bld_ty, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-ty")
+    template_std_c12 ("coaches", "25b/srz25bld-ty")
 }
 spriteset (spriteset_srz25bld_zz, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25b/srz25bld-zz")
+    template_std_c12 ("coaches", "25b/srz25bld-zz")
 }
 switch (FEAT_TRAINS, SELF, switch_srz25bld_articulated_part, extra_callback_info1) {
     1..2: return srz25bld;
@@ -94,8 +94,8 @@ switch (FEAT_TRAINS, SELF, switch_srz25bld_graphics, position_in_articulated_veh
 }
 
 switch (FEAT_TRAINS, SELF, switch_srz25bld_capacity, position_in_articulated_veh % 3) {
-    1: return 108;
-    return 0;
+    1: return 106;
+    return 1;
 }
 
 

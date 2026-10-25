@@ -15,7 +15,7 @@ spriteset (spriteset_cj1_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu", "cj1-c")
 }
 spriteset (spriteset_cj1_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu", "cj1-m")
+    template_std_c12 ("25-emu", "cj1-m")
 }
 spriteset (spriteset_cj1_middle_p, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_reversed ("25-emu", "cj1-tp")
@@ -219,7 +219,7 @@ item (FEAT_TRAINS, cj1) {
         additional_text:                string(STR_DESC_6, string(STR_CJ1_CAN_ATTACH_WAGON), string(STR_CJ1_NICKNAME), string(STR_ALIASNAME_CJ1), string(STR_RELDEC_LOW, 8), string(STR_CJ1_CONSIST), string(STR_CJ1_HEAD_SEAT));
         can_attach_wagon:               onlyze;
         start_stop:                     mu4to24car;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cj1_graphics;
         purchase:                       spriteset_cj1_purchase_original;
         articulated_part:               switch_cj1_articulated_part;

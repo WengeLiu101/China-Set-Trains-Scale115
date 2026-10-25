@@ -15,7 +15,7 @@ spriteset (spriteset_cr400bf_0051_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/cr400bf0051", "cr400bf-0051-c")
 }
 spriteset (spriteset_cr400bf_0051_middle_m, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("25-emu/cr400bf0051", "cr400bf-0051-m")
+    template_std_c12 ("25-emu/cr400bf0051", "cr400bf-0051-m")
 }
 spriteset (spriteset_cr400bf_0051_middle_tp, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("25-emu/cr400bf0051", "cr400bf-0051-p")
@@ -114,7 +114,7 @@ item (FEAT_TRAINS, cr400bf_0051) {
         start_stop:                     mu2to16car;
 
         
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_cr400bf_0051_graphics;
         purchase:                       spriteset_cr400bf_0051_purchase_original;
         articulated_part:               switch_cr400bf_0051_articulated_part;

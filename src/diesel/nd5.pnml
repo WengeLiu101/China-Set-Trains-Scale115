@@ -4,21 +4,21 @@
 
 // Purchase Menu
 spriteset (spriteset_nd5_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("diesel", "nd5")
+    template_purchase_c9 ("diesel", "nd5")
 }
 
 // Vehicle
 spriteset (spriteset_nd5_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "nd5")
+    template_std_c9 ("diesel", "nd5")
 }
 spriteset (spriteset_nd5_late, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "nd5-late")
+    template_std_c9 ("diesel", "nd5-late")
 }
 spriteset (spriteset_nd5_reverse, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "nd5-reverse")
+    template_std_c9 ("diesel", "nd5-reverse")
 }
 spriteset (spriteset_nd5_late_reverse, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("diesel", "nd5-late-reverse")
+    template_std_c9 ("diesel", "nd5-late-reverse")
 }
 
 switch (FEAT_TRAINS, SELF, switch_nd5_articulated_part, extra_callback_info1) {
@@ -33,9 +33,7 @@ switch (FEAT_TRAINS, SELF, switch_nd5_cargo_subtype_livery, cargo_subtype) {
     3: return string(STR_DESC_2, string(STR_REVERSE), string(STR_ALTERNATIVE));
     return CB_RESULT_NO_TEXT;
 }
-switch (FEAT_TRAINS, SELF, switch_nd5_cargo_subtype, cargo_capacity) {
-    0: return CB_RESULT_NO_TEXT;
-    switch_nd5_cargo_subtype_livery;
+switch (FEAT_TRAINS, SELF, switch_nd5_cargo_subtype, cargo_subtype) {    switch_nd5_cargo_subtype_livery;
 }
 
 switch (FEAT_TRAINS, SELF, switch_nd5_graphics_subtype, cargo_subtype) {
@@ -103,7 +101,7 @@ item (FEAT_TRAINS, nd5) {
 
         // Stats
         length:                         switch_length_2_5_2;
-        cargo_capacity:                 0;
+        cargo_capacity: 0;
         cost_factor:                    65;
         running_cost_factor:            52 * runningcostfactor();
         purchase_running_cost_factor:   208;

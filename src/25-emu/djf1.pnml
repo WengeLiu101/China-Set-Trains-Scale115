@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_98557828_68_3, position_in_articulated_veh % 3) {
+    0: return 23;
+    1: return 23;
+    2: return 22;
+}
+
 //Begin DJF1
 
 
@@ -187,7 +194,7 @@ item (FEAT_TRAINS, djf1) {
         additional_text:                string(STR_DESC_6, string(STR_DJF1_CAN_ATTACH_WAGON), string(STR_DJF1_CONSIST), string(STR_DJF1_HEAD_SEAT),string(STR_RELDEC_MEDIUM, 16));
         can_attach_wagon:               onlyzezy;
         start_stop:                     mu4to16car;
-        // Graphics
+        // Graphics        visual_effect_and_powered: visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
         default:                        switch_djf1_graphics;
         purchase:                       spriteset_djf1_purchase_original;
         articulated_part:               switch_djf1_articulated_part;
@@ -199,7 +206,7 @@ item (FEAT_TRAINS, djf1) {
         cost_factor:                    53;
         running_cost_factor:            (44 + crhspeedcost()) * runningcostfactor() * cafecostfactor() + 20;
         purchase_running_cost_factor:   198;
-        purchase_cargo_capacity:        68/3;
+        purchase_cargo_capacity: switch_pcap_98557828_68_3;
 
     }
 

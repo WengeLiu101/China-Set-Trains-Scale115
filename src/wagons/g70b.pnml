@@ -8,15 +8,15 @@ switch (FEAT_TRAINS, SELF, switch_g70b_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_g70b_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons/g70", "g70b")
+    template_purchase_c6 ("wagons/g70", "g70b")
 }
 
 // Vehicle
 spriteset (spriteset_g70b, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/g70", "g70b")
+    template_std_c6 ("wagons/g70", "g70b")
 }
 spriteset (spriteset_g70b_weathered, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons/g70", "g70b-weathered")
+    template_std_c6 ("wagons/g70", "g70b-weathered")
 }
 
 random_switch (FEAT_TRAINS, SELF, random_g70b_colour) {
@@ -52,8 +52,8 @@ switch (FEAT_TRAINS, SELF, switch_g70b_graphics, position_in_articulated_veh % 3
 }
 
 switch (FEAT_TRAINS, SELF, switch_g70b_capacity, position_in_articulated_veh % 3) {
-    1: return 63;
-    return 0;
+    1: return 61;
+    return 1;
 }
 
 item (FEAT_TRAINS, g70b) {

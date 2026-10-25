@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_a0970b97_64_3, position_in_articulated_veh % 3) {
+    0: return 22;
+    1: return 21;
+    2: return 21;
+}
+
 //Begin RZ24HK
 switch (FEAT_TRAINS, SELF, switch_24hk_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_24_HK_SERIES);
@@ -8,12 +15,12 @@ switch (FEAT_TRAINS, SELF, switch_24hk_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_rz24hk_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches/24", "rz24-hk")
+    template_purchase_c11 ("coaches/24", "rz24-hk")
 }
 
 // Vehicle
 spriteset (spriteset_rz24hk, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches/24", "rz24-hk")
+    template_std_c11 ("coaches/24", "rz24-hk")
 }
 
 switch (FEAT_TRAINS, SELF, switch_rz24hk_articulated_part, extra_callback_info1) {
@@ -86,7 +93,7 @@ item (FEAT_TRAINS, rz24hk) {
         cost_factor:                    10;
         running_cost_factor:            10 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   40;
-        purchase_cargo_capacity:        64/3;
+        purchase_cargo_capacity: switch_pcap_a0970b97_64_3;
         name:                           switch_24hk_name;
     }
 }

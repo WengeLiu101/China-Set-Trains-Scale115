@@ -8,12 +8,12 @@ switch (FEAT_TRAINS, SELF, switch_gs_name, getbits(extra_callback_info1, 0, 8) =
 
 // Purchase Menu
 spriteset (spriteset_gs_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "gs")
+    template_purchase_c6 ("wagons", "gs")
 }
 
 // Vehicle
 spriteset (spriteset_gs, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "gs")
+    template_std_c6 ("wagons", "gs")
 }
 
 switch (FEAT_TRAINS, SELF, switch_gs_articulated_part, extra_callback_info1) {

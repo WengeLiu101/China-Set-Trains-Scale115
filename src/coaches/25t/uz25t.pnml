@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_a339038f_92_3, position_in_articulated_veh % 3) {
+    0: return 31;
+    1: return 31;
+    2: return 30;
+}
+
 //Begin UZ25T
 switch (FEAT_TRAINS, SELF, switch_uz25t_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25T_SERIES);
@@ -9,21 +16,21 @@ switch (FEAT_TRAINS, SELF, switch_uz25t_name, getbits(extra_callback_info1, 0, 8
 
 // Purchase Menu
 spriteset (spriteset_uz25t_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "25t/uz25t")
+    template_purchase_c12 ("coaches", "25t/uz25t")
 }
 
 // Vehicle
 spriteset (spriteset_uz25t_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/uz25t")
+    template_std_c12 ("coaches", "25t/uz25t")
 }
 spriteset (spriteset_uz25t_green, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/uz25t-green")
+    template_std_c12 ("coaches", "25t/uz25t-green")
 }
 spriteset (spriteset_uz25t_25k, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/uz25t-25k")
+    template_std_c12 ("coaches", "25t/uz25t-25k")
 }
 spriteset (spriteset_uz25t_25g, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "25t/uz25t-25g")
+    template_std_c12 ("coaches", "25t/uz25t-25g")
 }
 
 switch (FEAT_TRAINS, SELF, switch_uz25t_articulated_part, extra_callback_info1) {
@@ -73,8 +80,8 @@ switch (FEAT_TRAINS, SELF, switch_uz25t_graphics, position_in_articulated_veh % 
 
 
 switch (FEAT_TRAINS, SELF, switch_uz25t_capacity, position_in_articulated_veh % 3) {
-    1: return 92;
-    return 0;
+    1: return 90;
+    return 1;
 }
 
 
@@ -131,7 +138,7 @@ item (FEAT_TRAINS, uz25t) {
         cost_factor:                    8;
         running_cost_factor:            7 * runningcostfactor();
         purchase_running_cost_factor:   28;
-        purchase_cargo_capacity:        92/3;
+        purchase_cargo_capacity: switch_pcap_a339038f_92_3;
         name:                            switch_uz25t_name;
 
     }

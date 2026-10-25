@@ -104,7 +104,7 @@ item (FEAT_TRAINS, nzj2_jinlun_2) {
 
         // Stats
         length:                                 switch_length_2_6_2;
-        cargo_capacity:                         0;
+        cargo_capacity: 0;
         cost_factor:                            75;
         running_cost_factor:                    61 * runningcostfactor() + 20;
         purchase_running_cost_factor:           264;

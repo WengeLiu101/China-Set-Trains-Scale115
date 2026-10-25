@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_89c4a3be_98_3, position_in_articulated_veh % 3) {
+    0: return 33;
+    1: return 33;
+    2: return 32;
+}
+
 // Begin YZ25DT_JINLUN
 switch (FEAT_TRAINS, SELF, switch_yz25dt_jinlun_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_25DT_JINLUN_SERIES);
@@ -7,15 +14,15 @@ switch (FEAT_TRAINS, SELF, switch_yz25dt_jinlun_name, getbits(extra_callback_inf
 
 // Purchase Menu
 spriteset (spriteset_yz25dt_jinlun_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches","yz25dt-jinlun-2001")
+    template_purchase_c12 ("coaches", "yz25dt-jinlun-2001")
 }
 
 // Vehicle
 spriteset (spriteset_yz25dt_jinlun_2001, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "yz25dt-jinlun-2001")
+    template_std_c12 ("coaches", "yz25dt-jinlun-2001")
 }
 spriteset (spriteset_yz25dt_jinlun_2010, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "yz25dt-jinlun-2010")
+    template_std_c12 ("coaches", "yz25dt-jinlun-2010")
 }
 
 switch (FEAT_TRAINS, SELF, switch_yz25dt_jinlun_articulated_part, extra_callback_info1) {
@@ -40,8 +47,8 @@ switch (FEAT_TRAINS, SELF, switch_yz25dt_jinlun_graphics, position_in_articulate
 }
 
 switch (FEAT_TRAINS, SELF, switch_yz25dt_jinlun_capacity, position_in_articulated_veh % 3) {
-    1: return 98;
-    return 0;
+    1: return 96;
+    return 1;
 }
 
 
@@ -97,7 +104,7 @@ item (FEAT_TRAINS, yz25dt_jinlun) {
         cost_factor:                    7;
         running_cost_factor:            5 * runningcostfactor() * cafecostfactor() + accostfactor();
         purchase_running_cost_factor:   20;
-        purchase_cargo_capacity:        98/3;
+        purchase_cargo_capacity: switch_pcap_89c4a3be_98_3;
         name:                            switch_yz25dt_jinlun_name;
     }
 }

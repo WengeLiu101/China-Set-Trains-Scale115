@@ -1,3 +1,10 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_7cd23b78_68_3, position_in_articulated_veh % 3) {
+    0: return 23;
+    1: return 23;
+    2: return 22;
+}
+
 //Begin gh70b
 switch (FEAT_TRAINS, SELF, switch_gh70b_name, getbits(extra_callback_info1, 0, 8) == 0x20? getbits(extra_callback_info1, 8, 8) : 0xFFFF) {
     0: return string(STR_TANKER);
@@ -5,14 +12,14 @@ switch (FEAT_TRAINS, SELF, switch_gh70b_name, getbits(extra_callback_info1, 0, 8
 }
 
 spriteset (spriteset_gh70b_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "gh70b")
+    template_purchase_c6 ("wagons", "gh70b")
 }
 
 spriteset (spriteset_gh70b, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "gh70b")
+    template_std_c6 ("wagons", "gh70b")
 }
 spriteset (spriteset_gh70b_old, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "gh70b-old")
+    template_std_c6 ("wagons", "gh70b-old")
 }
 
 random_switch (FEAT_TRAINS, SELF, random_gh70b_colour) {
@@ -48,8 +55,8 @@ switch (FEAT_TRAINS, SELF, switch_gh70b_graphics, position_in_articulated_veh % 
 }
 
 switch (FEAT_TRAINS, SELF, switch_gh70b_capacity, position_in_articulated_veh % 3) {
-    1: return 62;
-    return 0;
+    1: return 60;
+    return 1;
 }
 
 item (FEAT_TRAINS, gh70b) {
@@ -105,7 +112,7 @@ item (FEAT_TRAINS, gh70b) {
         cost_factor:                    5;
         running_cost_factor:            4 * runningcostfactor();
         purchase_running_cost_factor:   16; 
-        purchase_cargo_capacity:        68/3; 
+        purchase_cargo_capacity: switch_pcap_7cd23b78_68_3; 
         name:                           switch_gh70b_name;
 
     }

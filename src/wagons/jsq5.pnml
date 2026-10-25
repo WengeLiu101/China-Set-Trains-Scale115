@@ -7,12 +7,12 @@ switch (FEAT_TRAINS, SELF, switch_jsq5_name, getbits(extra_callback_info1, 0, 8)
 
 // Purchase Menu
 spriteset (spriteset_jsq5_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("wagons", "jsq5")
+    template_purchase_c12 ("wagons", "jsq5")
 }
 
 // Vehicle
 spriteset (spriteset_jsq5, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("wagons", "jsq5")
+    template_std_c12 ("wagons", "jsq5")
 }
 
 switch (FEAT_TRAINS, SELF, switch_jsq5_articulated_part, extra_callback_info1) {

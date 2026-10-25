@@ -1,15 +1,22 @@
+
+switch (FEAT_TRAINS, SELF, switch_pcap_030e3882_68_3, position_in_articulated_veh % 3) {
+    0: return 23;
+    1: return 23;
+    2: return 22;
+}
+
 //Begin XL18GEN4
 
 // Graphics
 
 // Purchase Menu
 spriteset (spriteset_xl18gen4_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_purchase ("coaches", "18/xl18gen4")
+    template_purchase_c12 ("coaches", "18/xl18gen4")
 }
 
 // Vehicle
 spriteset (spriteset_xl18gen4_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
-    template_standard ("coaches", "18/xl18gen4")
+    template_std_c12 ("coaches", "18/xl18gen4")
 }
 
 
@@ -84,7 +91,7 @@ item (FEAT_TRAINS, xl18gen4) {
         cost_factor:                    7;
         running_cost_factor:            5 * runningcostfactor() * cafecostfactor();
         purchase_running_cost_factor:   20;
-        purchase_cargo_capacity:        68/3;
+        purchase_cargo_capacity: switch_pcap_030e3882_68_3;
         name:                           switch_18_name;
 
     }
